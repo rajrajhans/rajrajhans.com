@@ -1,14 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Raj Rajhans`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Raj Rajhans`,
+      summary: `gay`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Raj Rajhans`,
+    siteUrl: `https://rajrajhans.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `_rajrajhans`,
+      instagram: `rajrajhans`,
     },
   },
   plugins: [
@@ -60,10 +61,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Raj Rajhans`,
+        short_name: `Raj Rajhans`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `ghostwhite`,
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,

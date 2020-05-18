@@ -1,0 +1,10 @@
+@import "global";
+
+.brand-color{
+  color: $brand_light;
+}
+
+
+.dark .brand-color{
+  color: $brand_dark;
+}

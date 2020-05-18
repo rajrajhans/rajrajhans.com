@@ -1,9 +1,11 @@
+const config = require('./src/siteConfig')
+
 module.exports = {
   siteMetadata: {
     title: `Raj Rajhans`,
     author: {
       name: `Raj Rajhans`,
-      summary: `gay`,
+      summary: `Personal Blog Website of Raj Rajhans`,
     },
     description: `Raj Rajhans`,
     siteUrl: `https://rajrajhans.com/`,
@@ -13,6 +15,13 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: config.themeColor,
+        showSpinner: false,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -65,7 +74,7 @@ module.exports = {
         short_name: `Raj Rajhans`,
         start_url: `/`,
         background_color: `ghostwhite`,
-        theme_color: `#663399`,
+        theme_color: config.themeColor,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },
@@ -79,6 +88,9 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-dark-mode`,
+
   ],
 }

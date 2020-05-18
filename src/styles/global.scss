@@ -1,0 +1,33 @@
+/*Light Theme Styles*/
+$bg_light : ghostwhite;
+$txt_light : #0A0C10;               //for actual text
+$secondary_txt_light : #5a6072;     //for subtle text
+$navbarColor_light : #21232c;       //for headings and shit
+$navbarBg_light : #dfebf6;
+$brand_light : #3d2de5;
+//$anchorLinks
+//$codeBg
+//$codeTxt
+//$boxShadow
+
+/*Dark Theme Styles*/
+$bg_dark : #0E141B;
+$txt_dark : #f2f5f7;
+$navbarColor_dark : #eff2f4;
+$secondary_txt_dark : #9ca8b4;
+$navbarBg_dark : #182635;
+$brand_dark : #4433FF;
+
+
+body{
+  background: $bg_light;
+  color: $txt_light;
+  transition: 0.4s ease;
+}
+
+body.dark{
+  background: $bg_dark;
+  color: $txt_dark;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}

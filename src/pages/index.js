@@ -13,7 +13,7 @@ class Index extends Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Raj Rajhans" />
+        <SEO title="Home" />
         This is index
       </Layout>
     )

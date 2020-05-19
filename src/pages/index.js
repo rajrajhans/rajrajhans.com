@@ -12,9 +12,8 @@ class Index extends Component {
     const data = this.props.data
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} placeholder={false}>
         <SEO title="Home" />
-        This is index
       </Layout>
     )
   }

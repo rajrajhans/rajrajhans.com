@@ -4,7 +4,7 @@ class Footer extends Component {
   render() {
     return (
       <footer>
-        © {new Date().getFullYear()}, Raj Rajhans
+        {/*© {new Date().getFullYear()}, Raj Rajhans*/}
       </footer>
     )
   }

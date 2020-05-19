@@ -3,7 +3,7 @@ import React, { Component } from "react"
 class Logo extends Component {
   render() {
     return (
-      <span>
+      <span className={"logo"}>
         {"<"}<span className={"brand-color"}>/</span>{">"} Raj Rajhans
       </span>
     )

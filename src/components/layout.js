@@ -1,19 +1,21 @@
-import React from "react"
+import React, {Fragment} from "react"
 import { Link } from "gatsby"
 import Navbar from "./header/Navbar"
 import Footer from "../components/footer"
 import { rhythm, scale } from "../utils/typography"
+import Head from "./head"
 
-const Layout = ({ children }) => {
+const Layout = ({ location, placeholder, children }) => {
 
   return (
-    <div>
-      <Navbar/>
+    <Fragment>
+      <Head/>
+      <Navbar pathName={location.pathname} placeholder={placeholder === undefined ? true : placeholder} />
 
-      <main>{children}</main>
+      <div className={"wrapper"}>{children}</div>
 
       <Footer/>
-    </div>
+    </Fragment>
   )
 }
 

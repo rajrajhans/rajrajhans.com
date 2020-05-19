@@ -4,7 +4,7 @@ import {ThemeToggler} from 'gatsby-plugin-dark-mode'
 class DarkLightSwitcher extends Component {
   render() {
     return (
-      <span className={"themeToggle"}>
+
       <ThemeToggler>
         {({ theme, toggleTheme }) => {
           const iconClass =
@@ -22,7 +22,7 @@ class DarkLightSwitcher extends Component {
           )
         }}
       </ThemeToggler>
-      </span>
+
     )
   }
 }

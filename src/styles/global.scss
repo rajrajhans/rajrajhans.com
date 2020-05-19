@@ -1,5 +1,16 @@
+$headingFont : 'Nunito', sans-serif;
+$headingFontWeight : 600;
+
+$subHeadingFont : 'Nunito', sans-serif;
+$subHeadingFontWeight : 400;
+
+$logoFont : 'Work Sans', sans-serif;
+$logoFontWeight : 500;
+
+$textFont : 'Open Sans', sans-serif;
+
 /*Light Theme Styles*/
-$bg_light : ghostwhite;
+$bg_light : #fffff;
 $txt_light : #0A0C10;               //for actual text
 $secondary_txt_light : #5a6072;     //for subtle text
 $navbarColor_light : #21232c;       //for headings and shit
@@ -17,12 +28,15 @@ $navbarColor_dark : #eff2f4;
 $secondary_txt_dark : #9ca8b4;
 $navbarBg_dark : #182635;
 $brand_dark : #4433FF;
+$svg_color_dark : #9ca8b4;
 
 
 body{
   background: $bg_light;
   color: $txt_light;
   transition: 0.4s ease;
+  font-family: $textFont;
+  font-size: 18px;
 }
 
 body.dark{
@@ -30,4 +44,28 @@ body.dark{
   color: $txt_dark;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
+}
+
+a{
+  color: $txt_light;
+}
+
+.dark a{
+  color: $txt_dark;
+}
+
+.text-primary{
+  color: $txt_light;
+}
+
+.dark .text-primary{
+  color: $txt_dark;
+}
+
+.text-secondary{
+  color: $secondary_txt_light
+}
+
+.dark .text-secondary{
+  color: $secondary_txt_dark
 }

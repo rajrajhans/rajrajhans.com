@@ -18,7 +18,7 @@ nav {
   padding: 22px 44px;
   align-items: center;
   z-index: 99;
-  transition: height .4s ease-out;
+  transition: all .25s ease-out;
   background: $navbarBg_light;
   color: $txt_light;
 
@@ -41,7 +41,8 @@ nav {
   }
 
   &.scrolled {
-    padding: 12px 36px;
+    padding: 5px 36px;
+    background: #FFFFFF;
 
     img {
       width: 34px;
@@ -123,32 +124,6 @@ nav {
 
         li{
           margin: 20px 0;
-          a {
-            &:before {
-              content: "";
-              position: absolute;
-              background: $brand_light;
-              width: 36px;
-              height: 36px;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%,-50%) scale(0);
-              border-radius: 50%;
-              opacity: 0.2;
-              transition: transform 0.25s;
-            }
-
-            &.active:before,
-            &:focus:before,
-            &:hover:before {
-              transform: translate(-50%,-50%) scale(1);
-            }
-
-            span {
-              position: relative;
-              z-index: 2;
-            }
-          }
         }
       }
     }
@@ -189,6 +164,10 @@ nav {
 
 .dark ul.ul_nav_bar li.navBarLinkListItem a:before{
   background: #FFFFFF;
+}
+
+.dark .scrolled{
+  border-bottom: 1px solid #5d6974;
 }
 
 a{
@@ -243,6 +222,5 @@ a{
   .switcher{
     position: absolute;
     right: 15px;
-    top: 13px;
   }
 }

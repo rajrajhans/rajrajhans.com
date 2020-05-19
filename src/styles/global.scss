@@ -69,3 +69,18 @@ a{
 .dark .text-secondary{
   color: $secondary_txt_dark
 }
+
+.wrapper{
+  padding: 117px 50px 10px 50px;
+}
+
+#gatsby-focus-wrapper > div:nth-child(1){
+  height: 0;
+  width: 0;
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapper{
+    padding: 93px 50px 10px 50px;
+  }
+}

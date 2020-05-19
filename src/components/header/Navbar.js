@@ -108,7 +108,7 @@ class Navbar extends Component {
           <span/>
         </Sidebar>
 
-        <nav className="text-secondary" ref={c => (this.nav = c)}>
+        <nav ref={c => (this.nav = c)}>
           <a href="#mobilenav" id="menu-open" onClick={this.menuOpen}>
                         <span className="icon">
                             <Hamburger />

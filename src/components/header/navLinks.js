@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import {Link} from "gatsby"
-import DarkLightSwitcher from "./DarkLightSwitcher"
+import DarkLightSwitcher from "./darkLightSwitcher"
 
 function ListItem(props) {
   const isActive = (pathName) => {

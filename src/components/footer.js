@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import Logo from "./header/Logo"
-import NavLinks from "./header/NavLinks"
+import Logo from "./header/logo"
+import NavLinks from "./header/navLinks"
 import { Link } from "gatsby"
 import "../styles/footer.scss"
 

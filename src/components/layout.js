@@ -1,6 +1,6 @@
 import React, {Fragment} from "react"
 import { Link } from "gatsby"
-import Navbar from "./header/Navbar"
+import Navbar from "./header/navbar"
 import Footer from "../components/footer"
 import { rhythm, scale } from "../utils/typography"
 import Head from "./head"

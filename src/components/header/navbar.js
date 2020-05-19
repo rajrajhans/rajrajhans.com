@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react"
 import Sidebar from "react-sidebar"
-import DarkLightSwitcher from './DarkLightSwitcher'
+import DarkLightSwitcher from './darkLightSwitcher'
 import {Link} from "gatsby"
-import Logo from './Logo'
+import Logo from './logo'
 import {Hamburger} from "../icons"
-import NavLinks from "./NavLinks"
-import SocialLinks from "./SocialLinks"
+import NavLinks from "./navLinks"
+import SocialLinks from "./socialLinks"
 import "../../styles/navbar.scss"
 
 function SidebarContents() {

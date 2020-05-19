@@ -1,16 +1,19 @@
 import React, { Component, Fragment } from "react"
 import DarkLightSwitcher from './DarkLightSwitcher'
 import Logo from './Logo'
+import {Hamburger} from "../icons"
 
-class Header extends Component {
+class Navbar extends Component {
   render() {
     return (
       <header>
-        <Logo/>
-         <DarkLightSwitcher/>
+        <nav>
+          <Logo/>
+           <DarkLightSwitcher/>
+        </nav>
       </header>
     )
   }
 }
 
-export default Header
+export default Navbar

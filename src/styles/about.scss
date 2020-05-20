@@ -1,0 +1,34 @@
+@import "global";
+
+.AboutSVG{
+  height: 250px;
+  max-width: 500px;
+}
+
+
+.AboutSVG, .AboutSVGDarkFill, .AboutSVGDarkColorHair, .AboutSVGDarkColorStroke, .AboutSVGDarkColorSkin{
+  transition: all .25s ease-out;
+}
+
+
+
+.dark .AboutSVGDarkFill{
+  fill: $svg_fill_dark;
+}
+
+.dark .AboutSVGDarkColor{
+  fill: $svg_color_dark;
+}
+
+.dark .AboutSVGDarkColorStroke{
+  stroke: $svg_color_dark;
+}
+
+.dark .AboutSVGDarkColorHair{
+  fill: $svg_fill_dark;
+}
+
+.dark .AboutSVGDarkColorSkin{
+  fill: #c6a0a5;
+}
+

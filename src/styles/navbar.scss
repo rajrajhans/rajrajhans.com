@@ -163,7 +163,7 @@ nav {
 }
 
 .dark ul.ul_nav_bar li.navBarLinkListItem a:before{
-  background: #FFFFFF;
+  background: #889bff;
 }
 
 .dark .scrolled{
@@ -178,6 +178,11 @@ a{
 .ul_nav_bar{
   margin-bottom: 0.25rem !important;
   margin-left: auto;
+  font-size: 20px;
+}
+
+.scrolled .ul_nav_bar{
+  font-size: 18px;
 }
 
 .navBarLinkListItem{
@@ -189,8 +194,14 @@ a{
 }
 
 .logo{
+  transition: all .25s ease-out;
   font-family: $logoFont;
   font-weight: $logoFontWeight;
+  font-size: 34px;
+
+}
+
+.scrolled .logo{
   font-size: 28px;
 }
 
@@ -219,8 +230,18 @@ a{
       width: 32px;
     }
   }
+
+  .logo{
+    font-size: 28px;
+  }
+
+  .scrolled .logo{
+    font-size: 25px;
+  }
+
   .switcher{
     position: absolute;
     right: 15px;
+    font-size: 16px;
   }
 }

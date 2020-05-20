@@ -15,7 +15,7 @@ $txt_light : #0A0C10;               //for actual text
 $secondary_txt_light : #5a6072;     //for subtle text
 $navbarColor_light : #21232c;       //for headings and shit
 $navbarBg_light : #dfebf6;
-$brand_light : #3d2de5;
+$brand_light : #3355FF;
 //$anchorLinks
 //$codeBg
 //$codeTxt
@@ -27,8 +27,9 @@ $txt_dark : #f2f5f7;
 $navbarColor_dark : #eff2f4;
 $secondary_txt_dark : #9ca8b4;
 $navbarBg_dark : #182635;
-$brand_dark : #4433FF;
+$brand_dark : #3355FF;
 $svg_color_dark : #9ca8b4;
+$svg_fill_dark: #1f2f3d;
 
 
 body{
@@ -77,6 +78,10 @@ a{
 #gatsby-focus-wrapper > div:nth-child(1){
   height: 0;
   width: 0;
+}
+
+.content-container{
+  margin: 0 50px;
 }
 
 @media only screen and (max-width: 800px) {

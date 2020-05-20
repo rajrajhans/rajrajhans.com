@@ -32,3 +32,34 @@
   fill: #c6a0a5;
 }
 
+.aboutPageContainer{
+  margin-top: 45px;
+}
+
+.aboutRaj{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "aboutRajText aboutRajPhoto";
+}
+
+.aboutRajText{
+  grid-area: aboutRajText;
+}
+
+.aboutRajPhoto{
+  grid-area: aboutRajPhoto;
+}
+
+.aboutBlog{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "aboutBlogPhoto aboutBlogText";
+}
+
+.aboutBlogPhoto{
+  grid-area: aboutBlogPhoto;
+}
+
+.aboutBlogText{
+  grid-area: aboutBlogText;
+}

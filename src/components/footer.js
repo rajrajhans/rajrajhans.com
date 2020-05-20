@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Logo from "./header/logo"
 import NavLinks from "./header/navLinks"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import "../styles/footer.scss"
 import {FooterWave} from "./icons"
 
@@ -16,14 +16,20 @@ class FooterLinks extends Component {
 }
 
 class Footer extends Component {
+
   render() {
+    const currentTheme = localStorage.theme;
+
+    const getColor=(themeNow)=>(
+      themeNow==='light'?"#3355FF":"#001681"
+    )
     return (
       <footer className="footer" style={{background:<FooterWave/>}}>
         <div className="container">
           <div className="logo">
-            <Link to="/" title={"Raj Rajhans"}>
+            <AniLink cover bg={getColor(currentTheme)} duration={0.75} to="/" title={"Raj Rajhans"}>
               <Logo />
-            </Link>
+            </AniLink>
           </div>
           <div className="navlinks text-secondary">
             <NavLinks />

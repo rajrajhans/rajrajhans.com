@@ -1,20 +1,26 @@
 import React, { Component, Fragment } from "react"
 import Sidebar from "react-sidebar"
 import DarkLightSwitcher from './darkLightSwitcher'
-import {Link} from "gatsby"
 import Logo from './logo'
 import {Hamburger} from "../icons"
 import NavLinks from "./navLinks"
 import SocialLinks from "./socialLinks"
 import "../../styles/navbar.scss"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 function SidebarContents() {
+
+  const currentTheme = localStorage.theme;
+
+  const getColor=(themeNow)=>(
+    themeNow==='light'?"#3355FF":"#001681"
+  )
   return(
     <div className={"sidebar-contents"}>
       <div className="logo">
-        <Link to={"/"} style={{ textDecoration: 'none' }}>
+        <AniLink cover bg={getColor(currentTheme)} direction={"up"} duration={0.75} to={"/"} style={{ textDecoration: 'none' }}>
           <Logo/>
-        </Link>
+        </AniLink>
       </div>
 
       <div className="links text-secondary">
@@ -86,6 +92,12 @@ class Navbar extends Component {
 
   render() {
     const placeholder = this.props.placeholder;
+    const currentTheme = localStorage.theme;
+
+    const getColor=(themeNow)=>(
+      themeNow==='light'?"#3355FF":"#001681"
+    )
+
     return (
       <Fragment>
 
@@ -116,9 +128,9 @@ class Navbar extends Component {
                             <Hamburger />
                         </span>
           </a>
-          <Link to="/" style={{ textDecoration: 'none' }}>
+          <AniLink cover direction={"up"} bg={getColor(currentTheme)} duration={0.75} to="/" style={{ textDecoration: 'none' }}>
             <Logo />
-          </Link>
+          </AniLink>
           <NavLinks pathName={this.props.pathName} />
           <span className="switcher"><DarkLightSwitcher/></span>
         </nav>

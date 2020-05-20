@@ -75,7 +75,7 @@ a{
   padding: 117px 0 10px 0;
 }
 
-#gatsby-focus-wrapper > div:nth-child(1){
+#gatsby-focus-wrapper > div > div > div:nth-child(1) > div:nth-child(3), #gatsby-focus-wrapper > div > div > div:nth-child(1){
   height: 0;
   width: 0;
 }

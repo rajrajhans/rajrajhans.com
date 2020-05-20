@@ -1,10 +1,12 @@
 import React, { Component } from "react"
 import Layout from "../components/layout"
+import HerosectionPage from "../components/herosectionPage"
 
 class About extends Component {
   render() {
     return (
       <Layout location={this.props.location}>
+        <HerosectionPage title={"About"} subtitle={"some gay shit"}/>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra. Amet massa vitae tortor condimentum lacinia quis vel eros. Fames ac turpis egestas maecenas pharetra. Mattis vulputate enim nulla aliquet. Ornare arcu dui vivamus arcu felis bibendum ut. Ut tellus elementum sagittis vitae et leo duis ut diam. Massa vitae tortor condimentum lacinia quis vel eros. Nulla posuere sollicitudin aliquam ultrices sagittis orci a. Diam sit amet nisl suscipit adipiscing bibendum est ultricies. Est placerat in egestas erat imperdiet sed. At quis risus sed vulputate odio ut enim blandit. Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum. Amet consectetur adipiscing elit duis tristique sollicitudin nibh.
 
         Cursus euismod quis viverra nibh cras pulvinar mattis nunc. Blandit libero volutpat sed cras ornare arcu dui. Risus nullam eget felis eget. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Lacus laoreet non curabitur gravida arcu ac tortor. Euismod in pellentesque massa placerat duis ultricies lacus sed. Cursus sit amet dictum sit amet justo donec enim. Tortor consequat id porta nibh venenatis cras sed. Arcu ac tortor dignissim convallis aenean. Nulla pellentesque dignissim enim sit amet venenatis urna cursus eget. Pretium nibh ipsum consequat nisl vel pretium lectus. Sagittis nisl rhoncus mattis rhoncus urna neque viverra justo nec. Tristique senectus et netus et malesuada fames ac turpis.

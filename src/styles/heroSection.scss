@@ -1,0 +1,25 @@
+@import "global";
+
+.heroSection{
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  background: $navbarBg_light;
+  padding: 10px 50px;
+  transition: all .25s ease-out;
+  min-height: 35vh;
+}
+
+.dark .heroSection{
+  background: $navbarBg_dark;
+}
+
+.title{
+  font-family: $headingFont;
+  font-weight: $headingFontWeight;
+  font-size: 38px;
+  margin-top: 10vh;
+}
+
+.footerwave{
+  fill: $navbarBg_light;
+}

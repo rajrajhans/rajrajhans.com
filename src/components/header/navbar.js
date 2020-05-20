@@ -67,8 +67,10 @@ class Navbar extends Component {
         Also this slightly reduces the vertical padding
         */
 
+        const vh35 = window.innerHeight * (35/100)
+
         window.addEventListener("scroll", function() {
-          if (this.scrollY > 0){
+          if (this.scrollY > vh35){
             document.querySelector("nav").classList.add("scrolled");
           } else {
             document.querySelector("nav").classList.remove("scrolled");

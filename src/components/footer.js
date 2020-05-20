@@ -3,6 +3,7 @@ import Logo from "./header/logo"
 import NavLinks from "./header/navLinks"
 import { Link } from "gatsby"
 import "../styles/footer.scss"
+import {FooterWave} from "./icons"
 
 class FooterLinks extends Component {
   render() {
@@ -17,7 +18,7 @@ class FooterLinks extends Component {
 class Footer extends Component {
   render() {
     return (
-      <footer className="footer">
+      <footer className="footer" style={{background:<FooterWave/>}}>
         <div className="container">
           <div className="logo">
             <Link to="/" title={"Raj Rajhans"}>

@@ -34,7 +34,7 @@ $svg_color_dark : #9ca8b4;
 body{
   background: $bg_light;
   color: $txt_light;
-  transition: 0.4s ease;
+  transition: 0.25s ease-out;
   font-family: $textFont;
   font-size: 18px;
 }
@@ -71,7 +71,7 @@ a{
 }
 
 .wrapper{
-  padding: 117px 50px 10px 50px;
+  padding: 117px 0 10px 0;
 }
 
 #gatsby-focus-wrapper > div:nth-child(1){
@@ -81,6 +81,6 @@ a{
 
 @media only screen and (max-width: 800px) {
   .wrapper{
-    padding: 93px 50px 10px 50px;
+    padding: 93px 0 10px 0;
   }
 }

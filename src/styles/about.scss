@@ -1,16 +1,18 @@
 @import "global";
 
+//STYLES FOR HERO SECTION SVG START
 .AboutSVG{
   height: 250px;
   max-width: 500px;
 }
 
-
 .AboutSVG, .AboutSVGDarkFill, .AboutSVGDarkColorHair, .AboutSVGDarkColorStroke, .AboutSVGDarkColorSkin{
   transition: all .25s ease-out;
 }
 
-
+.AboutSVG:hover{
+  padding: 5px;
+}
 
 .dark .AboutSVGDarkFill{
   fill: $svg_fill_dark;
@@ -32,8 +34,10 @@
   fill: #c6a0a5;
 }
 
+// STYLES FOR ABOUT PAGE STRUCTURE
 .aboutPageContainer{
-  margin-top: 45px;
+  width: 80%;
+  margin: 45px auto 0 auto;
 }
 
 .aboutRaj{
@@ -52,7 +56,7 @@
 
 .aboutBlog{
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 5fr;
   grid-template-areas: "aboutBlogPhoto aboutBlogText";
 }
 
@@ -60,6 +64,105 @@
   grid-area: aboutBlogPhoto;
 }
 
+.aboutBlogPhoto img{
+  margin-top: 25%;
+}
+
 .aboutBlogText{
   grid-area: aboutBlogText;
+}
+
+.aboutRajTextHeading, .aboutBlogTextHeading{
+  font-size: 28px;
+}
+
+.aboutBorderBottom{
+  height: 1px;
+  border-top: 2px solid $brand_light;
+  max-width: 60px;
+  margin-bottom: 10px;
+}
+
+.aboutRajTextContent{
+  margin-right: 15px;
+}
+
+.aboutRajTextContent, .aboutBlogTextContent{
+  text-align: justify;
+}
+
+//STYLES FOR ABOUT BLOG SVG
+
+.AboutBlogSVG{
+  height: 250px;
+  max-width: 350px;
+  margin-top: 25%;
+  margin-right: 20px;
+  transition: all .25s ease-out;
+}
+
+#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(32),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(40),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(62),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(41),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(42),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(43),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(44),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(45),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(46),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(47),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(48),
+#c72640af-2824-4ace-a782-4df73f48977c > ellipse:nth-child(4),
+#c72640af-2824-4ace-a782-4df73f48977c > ellipse:nth-child(3),
+#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(165),
+#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(94),
+#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(89),
+#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(115),
+#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(90),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(39),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(134),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(126),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(35),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(132),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(124),
+#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(82){
+  transition: all .25s ease-out;
+}
+
+
+.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(32),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(40),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(62),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(41),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(42),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(43),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(44),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(45),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(46),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(47),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(48),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > ellipse:nth-child(4),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > ellipse:nth-child(3){
+  fill: white;
+}
+
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(35),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(132),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(124),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(82){
+  fill: $svg_fill_dark;
+}
+
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(39),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(134),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(126){
+  fill: #0C171D
+}
+
+.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(165),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(94),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(89),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(115),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(90){
+  fill: $svg_color_dark;
 }

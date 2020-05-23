@@ -8,8 +8,33 @@ import {FooterWave} from "./icons"
 class FooterLinks extends Component {
   render() {
     return (
-      <ul>
-        Footer Links here
+      <ul className="list-inline social-links footerLinks">
+        <li>
+          <a href="https://github.com/rajrajhans" target={"_blank"} className="btn-social btn-outline" data-toggle="tooltip"
+             data-placement="top" title="Github">
+            <i className="fa fa-github"/>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/_rajrajhans" target={"_blank"} className="btn-social btn-outline" title="Twitter">
+            <i className="fa fa-twitter"/>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/rajrajhans/" target={"_blank"} className="btn-social btn-outline" title="LinkedIn">
+            <i className="fa fa-linkedin"/>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/_rajrajhans/" target={"_blank"} className="btn-social btn-outline" title="Instagram">
+            <i className="fa fa-instagram"/>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/rajrajhans" target={"_blank"} className="btn-social btn-outline" title="Facebook">
+            <i className="fa fa-facebook-f"/>
+          </a>
+        </li>
       </ul>
     )
   }
@@ -41,7 +66,6 @@ class Footer extends Component {
           </div>
           <div
             className="navlinks text-secondary"
-            style={{ marginTop: "20px" }}
           >
             <FooterLinks />
           </div>

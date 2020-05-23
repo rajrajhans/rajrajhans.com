@@ -3,7 +3,6 @@ import { ContactSVG, Envelope, MapMarker } from "../static/svgs"
 import Layout from "../components/layout"
 import HerosectionPage from "../components/herosectionPage"
 import "../styles/contact.scss"
-import SocialLinks from "../components/header/socialLinks"
 
 class Contact extends Component {
   render() {
@@ -32,8 +31,6 @@ class Contact extends Component {
                 </li>
 
               </ul>
-
-              <SocialLinks/>
 
             </div>
         </div>

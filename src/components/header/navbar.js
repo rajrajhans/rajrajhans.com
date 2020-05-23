@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react"
 import Sidebar from "react-sidebar"
 import DarkLightSwitcher from './darkLightSwitcher'
 import Logo from './logo'
-import {Hamburger} from "../icons"
+import {Hamburger} from "../../static/svgs"
 import NavLinks from "./navLinks"
 import SocialLinks from "./socialLinks"
 import "../../styles/navbar.scss"

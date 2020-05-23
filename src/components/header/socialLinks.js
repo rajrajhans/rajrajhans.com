@@ -1,27 +1,46 @@
 import React, { Component } from "react"
-import {Link} from "gatsby"
+import "../../styles/sociallinks.scss"
 
-function ListItem(props) {
-
-  return(
-    <li>
-      <a href={props.to} title={props.name}>
-        img
-      </a>
-    </li>
-  )
-}
-
-class NavLinks extends Component {
+class SocialLinks extends Component {
 
   render() {
     return (
-      <ul className={"social-links"}>
-        <ListItem to={"https://facebook.com"}>Facebook</ListItem>
-        <ListItem to={"https://twitter.com"}>Twitter</ListItem>
-      </ul>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12 text-center ">
+            <ul className="list-inline social-links">
+              <li>
+                <a href="https://github.com/rajrajhans" target={"_blank"} className="btn-social btn-outline" data-toggle="tooltip"
+                   data-placement="top" title="Github">
+                  <i className="fa fa-github"/>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/_rajrajhans" target={"_blank"} className="btn-social btn-outline" title="Twitter">
+                  <i className="fa fa-twitter"/>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/rajrajhans/" target={"_blank"} className="btn-social btn-outline" title="LinkedIn">
+                  <i className="fa fa-linkedin"/>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/_rajrajhans/" target={"_blank"} className="btn-social btn-outline" title="Instagram">
+                  <i className="fa fa-instagram"/>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/rajrajhans" target={"_blank"} className="btn-social btn-outline" title="Facebook">
+                  <i className="fa fa-facebook-f"/>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     )
   }
 }
 
-export default NavLinks
+export default SocialLinks

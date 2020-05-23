@@ -59,3 +59,26 @@
 .dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(104){
   fill: $svg_color_dark;
 }
+
+.contactDetails{
+
+}
+
+.contactDetails ul{
+  list-style: none;
+}
+
+.contactDetails ul li{
+
+}
+
+.Envelope, .MapMarker{
+  width: 25px;
+  position: absolute;
+  left: 25px;
+  margin-top: 3px;
+}
+
+.contactDetails ul li a{
+  text-decoration: none;
+}

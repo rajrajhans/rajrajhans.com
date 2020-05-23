@@ -10,9 +10,6 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 function SidebarContents() {
 
-  if (typeof window !== 'undefined'){
-    localStorage.setItem('currentTheme', 'light');
-  }
   const currentTheme = localStorage.theme;
 
   const getColor=(themeNow)=>(

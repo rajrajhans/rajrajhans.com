@@ -1,0 +1,61 @@
+@import "global";
+
+.ContactSVG{
+  height: 200px;
+  max-width: 400px;
+  transition: all .25s ease-out;
+}
+
+.ContactSVG:hover{
+  padding: 5px;
+}
+
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(7) > path:nth-child(5),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(8) > path:nth-child(5),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(18),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(3) > path:nth-child(5),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(4) > path:nth-child(5),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(6) > path:nth-child(5),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(5) > path:nth-child(5),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(16),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(14),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(5) > path:nth-child(2),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(7) > path:nth-child(2),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(8) > path:nth-child(2),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(4) > path:nth-child(2),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(6) > path:nth-child(2),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > ellipse:nth-child(9),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > ellipse:nth-child(10),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > ellipse:nth-child(11),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > ellipse:nth-child(12){
+  fill: white;
+}
+
+#ae37f038-3a9e-4b82-ad68-fc94ba16af2a > circle:nth-child(49),
+#ae37f038-3a9e-4b82-ad68-fc94ba16af2a > circle:nth-child(53),
+#ae37f038-3a9e-4b82-ad68-fc94ba16af2a > circle:nth-child(46){
+  transition: all .25s ease-out;
+  fill: #c7d3de;
+}
+
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > circle:nth-child(49),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > circle:nth-child(53),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > circle:nth-child(46){
+  fill: #2a3f52;
+}
+
+#ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(113),
+#ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(103),
+#ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(117),
+#ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(107),
+#ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(104){
+  transition: all .25s ease-out;
+}
+
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(113),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(103),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(117),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(107),
+.dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > path:nth-child(104){
+  fill: $svg_color_dark;
+}

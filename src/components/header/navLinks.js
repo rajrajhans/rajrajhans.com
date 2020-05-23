@@ -27,6 +27,7 @@ class NavLinks extends Component {
       <ul className={"ul_nav_bar"}>
         <ListItem to={"/"} pathName={this.props.pathName}>Home</ListItem>
         <ListItem to={"/about"} pathName={this.props.pathName}>About</ListItem>
+        <ListItem to={"/contact"} pathName={this.props.pathName}>Contact</ListItem>
       </ul>
     )
   }

@@ -30,11 +30,6 @@ class FooterLinks extends Component {
             <i className="fa fa-instagram"/>
           </a>
         </li>
-        <li>
-          <a href="https://www.facebook.com/rajrajhans" target={"_blank"} className="btn-social btn-outline" title="Facebook">
-            <i className="fa fa-facebook-f"/>
-          </a>
-        </li>
       </ul>
     )
   }

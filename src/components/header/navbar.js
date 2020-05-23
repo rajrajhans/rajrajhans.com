@@ -97,7 +97,12 @@ class Navbar extends Component {
 
   render() {
     const placeholder = this.props.placeholder;
-    const currentTheme = localStorage.theme;
+    if (typeof window !== `undefined`) {
+      var currentTheme = localStorage.theme;
+    }
+    else{
+      var currentTheme = 'light';
+    }
 
     const getColor=(themeNow)=>(
       themeNow==='light'?"#3355FF":"#001681"

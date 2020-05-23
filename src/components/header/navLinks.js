@@ -7,7 +7,12 @@ function ListItem(props) {
     return (pathName === props.pathName ? 1 : 0)
   }
 
-  const currentTheme = localStorage.theme;
+  if (typeof window !== `undefined`) {
+    var currentTheme = localStorage.theme;
+  }
+  else{
+    var currentTheme = 'light';
+  }
 
   const getColor=(themeNow)=>(
     themeNow==='light'?"#3355FF":"#001681"

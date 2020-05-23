@@ -18,7 +18,12 @@ class FooterLinks extends Component {
 class Footer extends Component {
 
   render() {
-    const currentTheme = localStorage.theme;
+    if (typeof window !== `undefined`) {
+      var currentTheme = localStorage.theme;
+    }
+    else{
+      var currentTheme = 'light';
+    }
 
     const getColor=(themeNow)=>(
       themeNow==='light'?"#3355FF":"#001681"

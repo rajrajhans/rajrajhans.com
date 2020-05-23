@@ -166,3 +166,49 @@
 .dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(90){
   fill: $svg_color_dark;
 }
+
+@media only screen and (max-width: 800px) {
+  .aboutRaj{
+    grid-template-columns: 1fr;
+    grid-template-areas:  "aboutRajPhoto"
+                          "aboutRajText";
+  }
+  .aboutPageContainer{
+    width: 100%;
+  }
+
+  .aboutRajPhoto{
+    text-align: center;
+  }
+
+  .aboutRajPhoto img{
+    max-width: 75%;
+  }
+
+  .aboutRajText{
+    margin-right: 0;
+  }
+
+  .content-container{
+    margin: 0 40px;
+  }
+
+  .aboutBlog{
+    grid-template-columns: 1fr;
+    grid-template-areas:  "aboutBlogPhoto"
+                          "aboutBlogText";
+  }
+
+  .AboutBlogSVG{
+    margin-top: 5px;
+  }
+
+  .aboutBlogPhoto{
+    text-align: center;
+  }
+
+  .aboutBlogPhoto svg{
+    max-width: 100%;
+  }
+
+}

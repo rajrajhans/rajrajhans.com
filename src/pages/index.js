@@ -11,15 +11,12 @@ class Index extends Component {
 
     const data = this.props.data
 
-    if (typeof window !== 'undefined') {
-
       return (
         <Layout location={this.props.location} placeholder={false}>
           <SEO title="Home"/>
         </Layout>
       )
     }
-  }
 }
 
 export default Index

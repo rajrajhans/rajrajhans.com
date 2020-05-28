@@ -1,0 +1,36 @@
+@import "global";
+
+.ProjectsSVG{
+  height: 250px;
+  max-width: 500px;
+}
+
+.ProjectsSVG > g:nth-child(96) > use:nth-child(1),
+.ProjectsSVG > g:nth-child(101) > use:nth-child(1),
+.ProjectsSVG > g:nth-child(98) > use:nth-child(1),
+.ProjectsSVG > g:nth-child(97) > use:nth-child(1){
+  transition: all .25s ease-out;
+}
+
+.dark .ProjectsSVG > g:nth-child(96) > use:nth-child(1),
+.dark .ProjectsSVG > g:nth-child(98) > use:nth-child(1),
+.dark .ProjectsSVG > g:nth-child(97) > use:nth-child(1){
+  fill: $svg_color_dark;
+}
+
+.dark .ProjectsSVG > g:nth-child(101) > use:nth-child(1){
+  fill: #0C171D;
+}
+
+.ProjectsSVG > use:nth-child(4){
+  fill: #747E89;
+  transition: all .25s ease-out;
+}
+
+.dark .ProjectsSVG > use:nth-child(4){
+  fill: #0C171D;
+}
+
+@media only screen and (max-width: 800px) {
+
+}

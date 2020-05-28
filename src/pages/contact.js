@@ -12,23 +12,36 @@ class Contact extends Component {
 
         <div className="content-container">
             <div className="contactDetails">
+              <p style={{"marginTop":"15px","marginBottom":"0"}}>Get in touch!</p>
               <ul>
 
-                <li className={"text-secondary"}>
-                  <span className={"contactIcon"}>
-                    <Envelope/>
-                  </span>
-                  <a href={"mailto:me@rajrajhans.com"} target={"_blank"}>
-                    me@rajrajhans.com
-                  </a>
-                </li>
+                <a href={"mailto:me@rajrajhans.com"} target={"_blank"}>
+                  <li>
+                    <span className={"contactIcon"}>
+                      <i className="fa fa-2x fa-envelope"/>
+                    </span>
+                      me@rajrajhans.com
+                  </li>
+                </a>
 
-                <li className={"text-secondary"}>
+                <a href={"https://twitter.com/_rajrajhans"} target={"_blank"}>
+                  <li>
+                    <span className={"contactIcon"}>
+                      <i className="fa fa-2x fa-twitter"/>
+                    </span>
+                      @_rajrajhans
+                  </li>
+                </a>
+
+              <a href={"https://www.instagram.com/_rajrajhans/"} target={"_blank"}>
+                <li style={{"marginBottom":"15px"}}>
                   <span className={"contactIcon"}>
-                    <MapMarker/>
+                    <i className="fa fa-2x fa-instagram"/>
                   </span>
-                  Pune
+                    @_rajrajhans
                 </li>
+              </a>
+
 
               </ul>
 

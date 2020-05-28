@@ -7,7 +7,7 @@
 }
 
 .ContactSVG:hover{
-  padding: 5px;
+  padding: 1px;
 }
 
 .dark #ae37f038-3a9e-4b82-ad68-fc94ba16af2a > g:nth-child(7) > path:nth-child(5),
@@ -61,24 +61,72 @@
 }
 
 .contactDetails{
+  display: block;
+  border: 1px solid $brand_light;
+  border-radius: 15px;
+  margin: 30px auto;
+  width: 40%;
+  box-shadow: 0 0 2em rgba(0,0,0,0.125);
+  transition: all .25s ease-out;
 
+  p{margin-top: 15px; font-family: 'Nunito', sans-serif;text-align: center;font-size: 30px;font-weight: 400;}
+}
+
+.contactDetails:hover{
+  transform: scale(1.01);
+  box-shadow: 0 0 2.5em rgba(0,0,0,0.125);
 }
 
 .contactDetails ul{
   list-style: none;
+  margin-bottom: 0;
 }
 
 .contactDetails ul li{
-
+  transition: all .25s ease-out;
+  padding: 5px 15px;
+  margin-bottom: 0;
+  font-size: 20px;
+  display: flex;
+  align-items: flex-start;
 }
 
-.Envelope, .MapMarker{
-  width: 25px;
-  position: absolute;
-  left: 25px;
-  margin-top: 3px;
+.contactDetails ul li:hover{
+  background: rgba(0,0,0,0.09);
+}
+
+.dark .contactDetails ul li:hover{
+  background: rgba(255,255,255,0.09);
 }
 
 .contactDetails ul li a{
   text-decoration: none;
+}
+
+.contactIcon{
+  margin-right: 25px;
+
+  i{
+    color: #1A2977;
+    transition: all .25s ease-out;
+  }
+}
+
+.dark .contactIcon{
+  i{
+    color: rgba(255,255,255,0.9);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .contactDetails{
+    width: 100%;
+    ul{
+      margin-left: 0;
+    }
+    p{
+      font-size: 28px;
+      margin-bottom: 15px !important;
+    }
+  }
 }

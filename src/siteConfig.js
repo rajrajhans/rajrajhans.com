@@ -1,3 +1,3 @@
 module.exports = {
-  themeColor: '#e62b1e',
+  themeColor: '#3355FF',
 }

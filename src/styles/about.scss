@@ -54,6 +54,19 @@
   grid-area: aboutRajPhoto;
 }
 
+.aboutRajPhoto img{
+  border-radius: 100%;
+  background: #ebeeff;
+  transition: all 0.25s ease-out;
+}
+
+.dark .aboutRajPhoto img{
+  filter: brightness(82%) contrast(110%);
+  -webkit-filter: brightness(82%) contrast(110%);
+  -moz-filter: brightness(82%) contrast(110%);
+  background: #0c171d;
+}
+
 .aboutBlog{
   display: grid;
   grid-template-columns: 1fr 5fr;

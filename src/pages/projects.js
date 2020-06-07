@@ -10,7 +10,6 @@ class Projects extends Component {
   render() {
 
     const data = this.props.data.allProjectsJson.nodes;
-    console.log(data)
 
     return (
       <Layout location={this.props.location}>

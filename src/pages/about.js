@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import HerosectionPage from "../components/herosectionPage"
 import "../styles/about.scss"
 import {AboutSVG, AboutBlogSVG} from "../static/svgs"
-import Pic from "../static/raj-profile-pic.png"
+import Pic from "../static/raj-profile-pic-1.png"
 
 class About extends Component {
   render() {

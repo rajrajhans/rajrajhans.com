@@ -1,5 +1,13 @@
 @import "global";
 
+.projectsWrapper{
+  background: #f1f1f1;
+}
+
+.dark .projectsWrapper{
+  background: $bg_dark;
+}
+
 .ProjectsSVG{
   height: 250px;
   max-width: 500px;
@@ -38,10 +46,12 @@
 }
 
 .projectBox{
+  background: #ffffff;
   width: 350px;
   margin: 25px;
   padding: 10px;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   border: 1px solid #f5f5f5;
   border-radius: 25px;
   -webkit-box-shadow: 0px 0px 18px 6px rgba(245,245,245,1);
@@ -57,6 +67,7 @@
 }
 
 .dark .projectBox{
+  background: #0000007a;
   border: 1px solid #1f1f1f;
   -webkit-box-shadow: 0px 0px 14px 3px rgba(18,18,18,1);
   -moz-box-shadow: 0px 0px 14px 3px rgba(18,18,18,1);
@@ -133,21 +144,44 @@
   font-size: 27px;
   font-family: $subHeadingFont;
   font-weight: $subHeadingFontWeight;
+  margin: auto;
+}
+
+.projectSubtitle{
+  margin: auto;
+  margin-top: -4px;
+  text-align: center;
+  font-size: 19px;
+  font-family: $subHeadingFont;
+  font-weight: $subHeadingFontWeight;
+}
+
+.projectLine{
+  margin: 13px auto 0 auto;
+  background: lightgray;
+  height: 2px;
+  width: 50%;
+}
+
+.dark .projectLine {
+  background: #304c6a;
 }
 
 .projectDescription{
   text-align: center;
   font-size: 16px;
-
+  margin: 15px auto;
 }
 
 .projectLinks{
   text-align: center;
-  margin-top: 3px;
+  margin: 3px 10px;
+  display: inline-flex;
+  justify-content: space-around;
 }
 
 .projectLink{
-  display: inline-block;
+  display: inline-flex;
   height: 50px;
   width: 50px;
   border: 1px solid #000;
@@ -158,6 +192,7 @@
 
   i{
     font-size: 35px;
+    margin:auto;
   }
 }
 
@@ -170,6 +205,7 @@
   font-weight: bold;
   font-size: 15px;
   margin-left: 10px;
+  margin-top: 20px;
 }
 
 @media only screen and (max-width: 890px) {

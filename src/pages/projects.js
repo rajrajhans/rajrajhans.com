@@ -5,6 +5,7 @@ import HerosectionPage from "../components/herosectionPage"
 import {ProjectsSVG} from "../static/svgs"
 import projectimg from "../static/ss.png"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 class Projects extends Component {
   render() {
@@ -12,7 +13,7 @@ class Projects extends Component {
     const data = this.props.data.allProjectsJson.nodes;
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} customclass={"projectsWrapper"}>
         <HerosectionPage title={"Projects"} svg={<ProjectsSVG/>}/>
 
         <div className="content-container projectBox_container">
@@ -21,7 +22,9 @@ class Projects extends Component {
             <div className="projectBox" key={node.id}>
               <a href={"/"}>
                 <div className="projectImage">
-                  <img src={projectimg} alt={"projectimg"}/>
+                  {/*<img src={projectimg} alt={"projectimg"}/>*/}
+                  <Img fluid={node.image.childImageSharp}/>
+
                   <div className="projectImageOverlay">
                     <div className="projectImageIcon">
                       <i className={"fa fa-link"}/>
@@ -34,20 +37,46 @@ class Projects extends Component {
                 {node.title}
               </div>
 
+              <div className="projectSubtitle">
+                {node.subtitle}
+              </div>
+
+              <hr className={"projectLine"}/>
+
               <div className="projectDescription">
-                desc Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
+                {node.description}
               </div>
 
               <div className="projectLinks">
-                <a href={"google.com"}>
-                  <div className="projectLink">
-                    <i className={"fa fa-github fa-lg"}/>
-                  </div>
-                </a>
+                {node.github ? (
+                  <a href={node.github} title={"View Code on GitHub"}  target={"_blank"}>
+                    <div className="projectLink">
+                      <i className={"fa fa-github fa-lg"}/>
+                    </div>
+                  </a>
+                ): null}
+
+                {node.casestudy ? (
+                  <a href={node.casestudy} title={"View Case Study"} target={"_blank"}>
+                    <div className="projectLink">
+                      <i className={"fa fa-file-text fa-lg"} style={{fontSize:"27px"}}/>
+                    </div>
+                  </a>
+                ): null}
+
+                {node.website ? (
+                  <a href={node.website} title={"View Live Version"} target={"_blank"}>
+                    <div className="projectLink">
+                      <i className={"fa fa-globe fa-lg"} style={{fontSize:"30px"}}/>
+                    </div>
+                  </a>
+                ): null}
               </div>
 
               <div className="projectTags">
-                #tags
+                {node.tags.map((tag)=>(
+                  "#"+tag+"  "
+                ))}
               </div>
 
             </div>
@@ -67,8 +96,15 @@ export const query = graphql`
       nodes {
         id
         title
+        subtitle
         description
-        image
+        image{
+              childImageSharp {
+                fluid(maxWidth: 400) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+              }
         website
         github
         casestudy

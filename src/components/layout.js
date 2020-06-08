@@ -5,14 +5,14 @@ import Footer from "../components/footer"
 import { rhythm, scale } from "../utils/typography"
 import Head from "./head"
 
-const Layout = ({ location, placeholder, children }) => {
+const Layout = ({ location, placeholder, customclass, children }) => {
 
   return (
     <Fragment>
       <Head/>
       <Navbar pathName={location.pathname} placeholder={placeholder === undefined ? true : placeholder} />
 
-      <div className={"wrapper"}>{children}</div>
+      <div className={"wrapper "+customclass}>{children}</div>
 
       <Footer/>
     </Fragment>

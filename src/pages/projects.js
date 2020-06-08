@@ -23,7 +23,7 @@ class Projects extends Component {
               <a href={"/"}>
                 <div className="projectImage">
                   {/*<img src={projectimg} alt={"projectimg"}/>*/}
-                  <Img fluid={node.image.childImageSharp}/>
+                  <Img fluid={node.image.childImageSharp.fluid}/>
 
                   <div className="projectImageOverlay">
                     <div className="projectImageIcon">

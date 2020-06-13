@@ -10,7 +10,7 @@ $logoFontWeight : 500;
 $textFont : 'Open Sans', sans-serif;
 
 /*Light Theme Styles*/
-$bg_light : #fffff;
+$bg_light : #ffffff;
 $txt_light : #0A0C10;               //for actual text
 $secondary_txt_light : #5a6072;     //for subtle text
 $navbarColor_light : #21232c;       //for headings and shit
@@ -35,7 +35,7 @@ $svg_fill_dark: #1f2f3d;
 body{
   background: $bg_light;
   color: $txt_light;
-  transition: 0.25s ease-out;
+  transition: all 0.25s ease-out;
   font-family: $textFont;
   font-size: 18px;
 }
@@ -43,6 +43,7 @@ body{
 body.dark{
   background: $bg_dark;
   color: $txt_dark;
+  transition: all 0.25s ease-out;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
@@ -72,7 +73,7 @@ a{
 }
 
 .wrapper{
-  padding: 117px 0 10px 0;
+  padding: 117px 0 0 0;
 }
 
 #gatsby-focus-wrapper > div > div > div:nth-child(1) > div:nth-child(3), #gatsby-focus-wrapper > div > div > div:nth-child(1){

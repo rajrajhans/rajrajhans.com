@@ -67,6 +67,10 @@
   background: #0c171d;
 }
 
+.aboutRajPhoto img:hover{background: #3355ff5e}
+
+.dark .aboutRajPhoto img:hover{}
+
 .aboutBlog{
   display: grid;
   grid-template-columns: 1fr 5fr;

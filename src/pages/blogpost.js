@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Layout from "../components/layout"
 import "../styles/blogPost.scss"
-import Pic from "../static/raj-profile-pic-100px.png"
+import Pic from "../static/raj-profile-pic-1.png"
 
 class Blogpost extends Component {
   render() {

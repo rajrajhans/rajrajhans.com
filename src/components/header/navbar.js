@@ -8,7 +8,7 @@ import SocialLinks from "./socialLinks"
 import "../../styles/navbar.scss"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
-function SidebarContents() {
+function SidebarContents({pathName}) {
 
   if (typeof window !== `undefined`) {
     var currentTheme = localStorage.theme;
@@ -29,7 +29,7 @@ function SidebarContents() {
       </div>
 
       <div className="links text-secondary">
-        <NavLinks/>
+        <NavLinks pathName={pathName}/>
       </div>
 
       <div className="social-links">
@@ -111,7 +111,7 @@ class Navbar extends Component {
     return (
       <Fragment>
 
-        <Sidebar sidebar={<SidebarContents/>}
+        <Sidebar sidebar={<SidebarContents pathName={this.props.pathName}/>}
                  open={this.state.sidebarOpen}
                  onSetOpen={this.onSetSidebarOpen}
                  sidebarClassName={"sidebar-content"}

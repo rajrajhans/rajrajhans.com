@@ -90,6 +90,10 @@ nav {
   }
 }
 
+.sidebar-contents .active{
+  border-bottom: 2px solid $brand_light;
+}
+
 .sidebar-content{
   padding: 22px;
   min-width: 45%;

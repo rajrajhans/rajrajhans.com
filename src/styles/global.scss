@@ -48,13 +48,52 @@ body.dark{
   font-smoothing: antialiased;
 }
 
-a{
-  color: $txt_light;
+//a{
+//  color: $txt_light;
+//}
+
+a {
+  background: linear-gradient(
+                  to bottom, #3355ff40 0%,
+                  #3355ff40 100%
+  ) repeat-x 0 100%;
+  background-size: 4px 1px;
+  color: #000;
+  border-bottom: 1px solid $brand_light;
+  text-decoration: none;
+  transition: background-size .25s;
 }
 
 .dark a{
+  background: linear-gradient(
+                  to bottom, #3355ff 0%,
+                  #3355ff 100%
+  ) repeat-x 0 100%;
+  background-size: 4px 1px;
+  transition: background-size .25s;
+  border-bottom: 1px solid $brand_light;
+  text-decoration: none;
   color: $txt_dark;
 }
+
+a:hover {
+  background-size: 4px 50px;
+}
+
+nav a, footer a, .sidebar-content a, .projectLinks a, .heroBlogTags a, .blogBtmTagsCntnr a{
+  background: none ;
+  border-bottom:none;
+}
+
+.dark nav a, .dark footer a, .dark .sidebar-content a, .dark .projectLinks a, .dark .heroBlogTags a, .dark .blogBtmTagsCntnr a{
+  background: none ;
+  border-bottom:none;
+}
+
+//.dark a{
+//.dark a{
+//  color: $txt_dark;
+//}
 
 .text-primary{
   color: $txt_light;

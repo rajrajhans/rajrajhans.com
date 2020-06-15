@@ -48,9 +48,6 @@ body.dark{
   font-smoothing: antialiased;
 }
 
-//a{
-//  color: $txt_light;
-//}
 
 a {
   background: linear-gradient(
@@ -89,11 +86,6 @@ nav a, footer a, .sidebar-content a, .projectLinks a, .heroBlogTags a, .blogBtmT
   background: none ;
   border-bottom:none;
 }
-
-//.dark a{
-//.dark a{
-//  color: $txt_dark;
-//}
 
 .text-primary{
   color: $txt_light;

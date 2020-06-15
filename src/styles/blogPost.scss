@@ -1,5 +1,13 @@
 @import "global";
 
+.navBlogPostBar{
+  padding: 10px 44px;
+}
+
+.navBlogPost{
+  padding: 97px 0 0 0 !important;
+}
+
 .blogHeroContainer{
   min-height: 325px;
   height: 35vh;
@@ -51,9 +59,14 @@
   font-size: 13px;
   padding: 4px;
   margin-right: 15px;
-  border: 1px solid #eee;
+  border: 1px solid #0000004d;
   border-radius: 4px;
   transition: all0.25s ease-out;
+}
+
+.heroBlogTag1{
+  border: 1px solid #ffffff96;
+  color: $txt_dark;
 }
 
 .heroBlogTag:hover{
@@ -206,7 +219,7 @@
 }
 
 .blogBtmTagsTxt{
-  margin-bottom: 10p;
+  margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 768px) {

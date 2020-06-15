@@ -1,80 +1,106 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import Pic from "../static/raj-profile-pic-1.png"
+import toKebabCase from "../utils/toKebabCase"
+import InternalLink from "../components/internalLink"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
+  const post = data.mdx
   const { previous, next } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} customclass={"navBlogPost"} customNavClass={"navBlogPostBar"} >
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article>
-        <header>
-          <h1
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0,
-            }}
-          >
-            {post.frontmatter.title}
-          </h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
-        </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
+      <div className="blogHeroContainer">
+        <div className="blogHero">
 
-      <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+          <div className="heroBlogTags">
+            {post.frontmatter.heroTags.map((herotag, indexx) => (
+              <InternalLink link={`/tags/${toKebabCase(herotag)}`} title={"titlee"}>
+                <span className={"heroBlogTag heroBlogTag1"} key={indexx}>
+                      {herotag}
+                </span>
+              </InternalLink>
+            ))}
+
+          </div>
+
+          <div className="heroBlogTitle">
+            {post.frontmatter.title}
+          </div>
+
+          <div className="heroAuthorRow">
+
+            <div className={"heroAuthorName"}>
+              By Raj Rajhans  -
+            </div>
+
+            <div className="heroDate">
+              {post.frontmatter.date}
+            </div>
+
+          </div>
+
+          <div className="heroReadingTime">
+            5 minute read
+          </div>
+
+        </div>
+      </div>
+
+      <div className="blogContentContainer">
+        <div className="blogContent">
+
+          <div className="blogText">
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </div>
+
+          <div className="blogBottomRow">
+            <div className="blogBtmAthrRow">
+              <div className="blogBtmAthrImg">
+                <img src={Pic} alt={"raj-rajhans"}/>
+              </div>
+
+              <div className="blogBtmAthrTxt">
+                <span className="blogBtmAthr">Author</span>
+
+                <div className="blogBtmAthrTxtName">
+                  Raj Rajhans
+                </div>
+
+                <div className="blogBtmAthrBio">
+                  Ambivert. Perpetually audacious. Tech aficionado, and a striving nonconformist
+                </div>
+              </div>
+            </div>
+
+            <div className="blogBtmTags">
+              <div className="blogBtmTagsTxt">Tags :</div>
+              <div className="blogBtmTagsCntnr">
+                {post.frontmatter.tags.map((tag, index) => (
+                  <InternalLink link={`/tags/${toKebabCase(tag)}`}>
+                    <span className={"heroBlogTag"} key={index}>
+                      {tag}
+                    </span>
+                  </InternalLink>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </Layout>
+
   )
 }
 
@@ -87,14 +113,16 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMMM Do, YYYY")
         description
+        tags
+        heroTags
       }
     }
   }

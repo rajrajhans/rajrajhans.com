@@ -78,7 +78,7 @@ class Navbar extends Component {
         Also this slightly reduces the vertical padding
         */
 
-        const vh35 = window.innerHeight * (35/100)
+        const vh35 = window.innerHeight * (this.props.customScroll/100)
 
         window.addEventListener("scroll", function() {
           if (this.scrollY > vh35){
@@ -132,7 +132,7 @@ class Navbar extends Component {
           <span/>
         </Sidebar>
 
-        <nav ref={c => (this.nav = c)}>
+        <nav ref={c => (this.nav = c)} className={this.props.customNavClass} >
           <a href="#mobilenav" id="menu-open" onClick={this.menuOpen}>
                         <span className="icon">
                             <Hamburger />

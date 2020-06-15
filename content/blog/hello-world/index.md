@@ -2,6 +2,13 @@
 title: Hello World
 date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
+tags: 
+    - My Tag
+    - Your Tag
+    - Gae Tag
+heroTags:
+    - My Tag
+    - Gae Tag
 ---
 
 This is my first post on my new fake blog! How exciting!

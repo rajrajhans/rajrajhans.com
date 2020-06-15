@@ -2,8 +2,10 @@ import React from "react"
 import Layout from "../components/layout"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
-
+import "../styles/tags.scss"
 import toKebabcase from "../utils/toKebabCase"
+import { TagsBlogSVG } from "../static/svgs"
+import HerosectionPage from "../components/herosectionPage"
 
 const TagsPage = ({
                     data: {
@@ -14,11 +16,12 @@ const TagsPage = ({
                     },
                     location,
                   }) => (
-  <Layout location={location} title={title}>
+  <Layout location={location}>
     <SEO
-      title="all tags"
+      title="All Tags"
       keywords={[`blog`, `gatsby`, `javascript`, `react`]}
     />
+    <HerosectionPage title={"Tags"} svg={<TagsBlogSVG/>}/>
     <div>
       <h1>Tags</h1>
       <ul>

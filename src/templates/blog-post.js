@@ -8,6 +8,7 @@ import { rhythm, scale } from "../utils/typography"
 import Pic from "../static/raj-profile-pic-1.png"
 import toKebabCase from "../utils/toKebabCase"
 import InternalLink from "../components/utilComponents/internalLink"
+import InternalLinkUp from "../components/utilComponents/internalLinkUp"
 import InternalLinkRight from "../components/utilComponents/internalLinkRight"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -25,11 +26,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
           <div className="heroBlogTags">
             {post.frontmatter.heroTags.map((herotag, indexx) => (
-              <InternalLink link={`/tags/${toKebabCase(herotag)}`} title={"titlee"}>
+              <InternalLinkUp link={`/tags/${toKebabCase(herotag)}`} title={"titlee"}>
                 <span className={"heroBlogTag heroBlogTag1"} key={indexx}>
                       {herotag}
                 </span>
-              </InternalLink>
+              </InternalLinkUp>
             ))}
 
           </div>
@@ -111,11 +112,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               <div className="blogBtmTagsTxt">Tags :</div>
               <div className="blogBtmTagsCntnr">
                 {post.frontmatter.tags.map((tag, index) => (
-                  <InternalLink link={`/tags/${toKebabCase(tag)}`}>
+                  <InternalLinkUp link={`/tags/${toKebabCase(tag)}`}>
                     <span className={"heroBlogTag"} key={index}>
                       {tag}
                     </span>
-                  </InternalLink>
+                  </InternalLinkUp>
                 ))}
               </div>
             </div>

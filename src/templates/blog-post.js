@@ -7,7 +7,8 @@ import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import Pic from "../static/raj-profile-pic-1.png"
 import toKebabCase from "../utils/toKebabCase"
-import InternalLink from "../components/internalLink"
+import InternalLink from "../components/utilComponents/internalLink"
+import InternalLinkRight from "../components/utilComponents/internalLinkRight"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
@@ -61,6 +62,30 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
           <div className="blogText">
             <MDXRenderer>{post.body}</MDXRenderer>
+          </div>
+
+          <div className="blogprevnext">
+            <div className="blogPrev">
+              {previous ?
+                <InternalLink link={previous.fields.slug} title={previous.frontmatter.title}>
+                  <div className={"blogPrevCntnr"}>
+                  <svg className={"blogPrevSVG"} stroke="#3355ff" fill="#3355ff" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em"><path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path></svg>
+                    {previous.frontmatter.title}
+                  </div>
+                </InternalLink>
+              : null}
+            </div>
+
+            <div className="blogNext">
+              {next ?
+                <InternalLinkRight link={next.fields.slug} title={next.frontmatter.title}>
+                <div className={"blogNextCntnr"}>
+                  <svg className={"blogNextSVG"} stroke="#3355ff" fill="#3355ff" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg>
+                    {next.frontmatter.title}
+                </div>
+                </InternalLinkRight>
+              : null}
+            </div>
           </div>
 
           <div className="blogBottomRow">

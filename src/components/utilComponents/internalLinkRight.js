@@ -4,7 +4,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 // Expected Props
 //  - link
 //  - title
-//  - data
+//  - children
 
 class InternalLink extends Component {
   render() {
@@ -19,7 +19,7 @@ class InternalLink extends Component {
     )
 
     return (
-      <AniLink cover bg={getColor(currentTheme)} duration={0.75} to={this.props.link} title={this.props.title}>
+      <AniLink cover direction={"right"} bg={getColor(currentTheme)} duration={0.75} to={this.props.link} title={this.props.title}>
         {this.props.children}
       </AniLink>
     )

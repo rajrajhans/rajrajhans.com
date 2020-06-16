@@ -153,7 +153,7 @@
   border: 1px solid #494b4d;
 }
 
-.blogPrevCntnr .dark .blogPrevCntnr{
+.blogPrevCntnr, .dark .blogPrevCntnr{
   border-right: none;
 }
 
@@ -298,4 +298,14 @@
     grid-template-columns: 1fr;
     width: 90%;
   }
+
+  .blogPrevCntnr{
+    border-right: 1px solid rgb(236, 235, 234);
+    border-bottom: none;
+  }
+
+  .dark .blogPrevCntnr{
+    border-right: 1px solid #494b4d;
+  }
+
 }

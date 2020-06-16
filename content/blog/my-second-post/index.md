@@ -8,6 +8,7 @@ tags:
 heroTags:
     - My Tag
     - Gae Tag
+readingTime : 7
 ---
 
 Wow! I love blogging so much already.

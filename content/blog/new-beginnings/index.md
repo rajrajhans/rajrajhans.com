@@ -9,6 +9,7 @@ tags:
 heroTags:
     - My Tag
     - Gae Tag
+readingTime : 15
 ---
 
 Far far away, behind the word mountains, far from the countries Vokalia and

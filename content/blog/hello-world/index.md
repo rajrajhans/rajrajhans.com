@@ -9,6 +9,7 @@ tags:
 heroTags:
     - My Tag
     - Gae Tag
+readingTime : 10
 ---
 
 This is my first post on my new fake blog! How exciting!

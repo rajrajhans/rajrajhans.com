@@ -51,7 +51,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </div>
 
           <div className="heroReadingTime">
-            5 minute read
+            {post.frontmatter.readingTime} minute read
           </div>
 
         </div>
@@ -148,6 +148,7 @@ export const pageQuery = graphql`
         description
         tags
         heroTags
+        readingTime
       }
     }
   }

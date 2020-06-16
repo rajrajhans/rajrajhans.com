@@ -91,7 +91,7 @@ class Projects extends Component {
 export default Projects
 
 export const query = graphql`
-  query MyQuery {
+  query MyQuery12 {
     allProjectsJson {
       nodes {
         id

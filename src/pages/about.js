@@ -4,9 +4,12 @@ import HerosectionPage from "../components/herosectionPage"
 import "../styles/about.scss"
 import {AboutSVG, AboutBlogSVG} from "../static/svgs"
 import Pic from "../static/raj-profile-pic-1.png"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 class About extends Component {
   render() {
+    console.log(this.props.data)
     return (
       <Layout location={this.props.location}>
         <HerosectionPage title={"About"} subtitle={"some gay shit"} svg={<AboutSVG/>}/>
@@ -39,7 +42,7 @@ class About extends Component {
               </div>
 
               <div className="aboutRajPhoto">
-                <img src={Pic} alt={"raj-rajhans"}/>
+                <Img fluid={this.props.data.allFile.nodes[0].childImageSharp.fluid}/>
               </div>
             </div>
 
@@ -84,3 +87,17 @@ class About extends Component {
 }
 
 export default About
+
+export const query = graphql`
+  query AboutImageQuery {
+    allFile(filter: {name: {eq: "raj-profile-pic-1"}}) {
+      nodes {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
+        }
+      }
+    }
+  }
+`

@@ -58,7 +58,7 @@ a {
   color: #000;
   border-bottom: 1px solid $brand_light;
   text-decoration: none;
-  transition: background-size .25s;
+  transition: all .25s;
 }
 
 .dark a{
@@ -67,7 +67,7 @@ a {
                   #3355ff 100%
   ) repeat-x 0 100%;
   background-size: 4px 1px;
-  transition: background-size .25s;
+  transition: all .25s;
   border-bottom: 1px solid $brand_light;
   text-decoration: none;
   color: $txt_dark;

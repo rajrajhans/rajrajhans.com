@@ -90,7 +90,7 @@ nav {
   }
 }
 
-.sidebar-contents .active{
+.sidebar-contents .active, .dark .sidebar-contents .active{
   border-bottom: 2px solid $brand_light;
 }
 

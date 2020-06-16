@@ -6,6 +6,7 @@ import "../styles/tags.scss"
 import toKebabcase from "../utils/toKebabCase"
 import { TagsBlogSVG } from "../static/svgs"
 import HerosectionPage from "../components/herosectionPage"
+import InternalLinkRight from "../components/utilComponents/internalLinkRight"
 
 const TagsPage = ({
                     data: {
@@ -18,18 +19,18 @@ const TagsPage = ({
                   }) => (
   <Layout location={location}>
     <SEO
-      title="All Tags"
+      title="Blog Archives"
       keywords={[`blog`, `gatsby`, `javascript`, `react`]}
     />
-    <HerosectionPage title={"Tags"} svg={<TagsBlogSVG/>}/>
-    <div>
-      <h1>Tags</h1>
-      <ul>
+    <HerosectionPage title={"Blog Archives"} svg={<TagsBlogSVG/>}/>
+    <div className={"content-container"}>
+      <div className={"TagsContentTitle"}>Blogs by Categories -</div>
+      <ul className={"allTagsList"}>
         {group.map(tag => (
           <li key={tag.fieldValue}>
-            <Link to={`/tags/${toKebabcase(tag.fieldValue)}/`}>
-              {tag.fieldValue} ({tag.totalCount})
-            </Link>
+            <InternalLinkRight link={`/tags/${toKebabcase(tag.fieldValue)}/`} title={`Check out all posts tagged "${tag.fieldValue}"`}>
+              {tag.fieldValue} - {tag.totalCount} Posts
+            </InternalLinkRight>
           </li>
         ))}
       </ul>

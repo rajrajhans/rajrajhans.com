@@ -3,3 +3,15 @@
 .tagssvg{
   margin-top: 0;
 }
+
+.TagsContentTitle{
+  font-family: $headingFont;
+  text-align: center;
+  font-size: 24px;
+  margin: 10px;
+}
+
+.allTagsList{
+  text-align: center;
+  list-style: none;
+}

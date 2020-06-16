@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import InternalLinkRight from "../components/utilComponents/internalLinkRight"
 import InternalLink from "../components/utilComponents/internalLink"
+import InternalLinkDown from "../components/utilComponents/internalLinkDown"
 
 const Tags = ({ pageContext, data, location }) => {
   const { tag } = pageContext
@@ -29,7 +30,7 @@ const Tags = ({ pageContext, data, location }) => {
           const { title } = node.frontmatter
           return (
             <li key={slug}>
-              <InternalLinkRight link={slug}>{title}</InternalLinkRight>
+              <InternalLinkDown link={slug}>{title}</InternalLinkDown>
             </li>
           )
         })}

@@ -9,7 +9,7 @@
 .homeBlogBox{
   max-width: 300px;
   box-shadow:  1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
-  transition: all 0.25s ease-out;
+  transition: all 0.25s;
 }
 
 .dark .homeBlogBox{
@@ -33,7 +33,7 @@
 }
 
 .homeBlogImage img{
-  transition: all 0.25s ease-out;
+  transition: all 0.25s;
 }
 
 .homeBlogTitle{
@@ -42,7 +42,7 @@
   font-family: $subHeadingFont;
   font-weight: 600;
   margin: auto;
-  transition: all 0.25s ease-out;
+  transition: all 0.25s;
 }
 
 .homeBlogDateTag{
@@ -53,10 +53,6 @@
 
 .homeBlogIcon{
   margin-right: 7px;
-}
-
-.homeBlogTag{
-  transition: all 0.25s ease-out;
 }
 
 .dark .homeBlogTag svg{
@@ -71,6 +67,10 @@
   svg{
     margin-right: 4px;
   }
+}
+
+.homeBlogTag svg{
+  transition: all 0.25s !important;
 }
 
 .homeBlogExcerpt{

@@ -1,0 +1,81 @@
+@import "global";
+
+.homeBlogGrid{
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+}
+
+.homeBlogBox{
+  max-width: 300px;
+  box-shadow:  1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+  transition: all 0.25s ease-out;
+}
+
+.dark .homeBlogBox{
+  box-shadow:  1px 3px 0 rgba(255,255,255,.1), 0 1px 2px 0 rgba(255,255,255,.06);
+}
+
+.homeBlogBox:hover{
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+
+  .homeBlogTitle{
+    color: $brand_light;
+  }
+
+  .homeBlogImage img{
+    opacity: 0.8;
+  }
+}
+
+.dark .homeBlogBox:hover{
+  box-shadow: 0 25px 50px -12px rgba(255,255,255,.25);
+}
+
+.homeBlogImage img{
+  transition: all 0.25s ease-out;
+}
+
+.homeBlogTitle{
+  text-align: center;
+  font-size: 27px;
+  font-family: $subHeadingFont;
+  font-weight: 600;
+  margin: auto;
+  transition: all 0.25s ease-out;
+}
+
+.homeBlogDateTag{
+  font-size: 16px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.homeBlogIcon{
+  margin-right: 7px;
+}
+
+.homeBlogTag{
+  transition: all 0.25s ease-out;
+}
+
+.dark .homeBlogTag svg{
+  fill: #ffffff;
+}
+
+.homeBlogDate, .homeBlogTag{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  svg{
+    margin-right: 4px;
+  }
+}
+
+.homeBlogExcerpt{
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.4;
+  padding: 10px 4px;
+}

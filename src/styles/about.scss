@@ -142,7 +142,21 @@
 #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(35),
 #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(132),
 #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(124),
-#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(82){
+#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(82),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(34),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(134),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(123),
+#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(82),
+#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(81),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(34),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(38),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(126),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(133),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(125),
+#c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(90),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(39),
+#c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(131)
+{
   transition: all .25s ease-out;
 }
 
@@ -165,14 +179,21 @@
 
 .dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(35),
 .dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(132),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(131),
 .dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(124),
-.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(82){
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(123),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(82),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(81),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(34),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(38){
   fill: $svg_fill_dark;
 }
 
 .dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(39),
 .dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(134),
-.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(126){
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(126),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(133),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(125){
   fill: #0C171D
 }
 
@@ -180,8 +201,14 @@
 .dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(94),
 .dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(89),
 .dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(115),
-.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(90){
+.dark #c72640af-2824-4ace-a782-4df73f48977c > path:nth-child(90),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(39){
   fill: $svg_color_dark;
+}
+
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(126),
+.dark #c72640af-2824-4ace-a782-4df73f48977c > rect:nth-child(134){
+  fill: $brand_light;
 }
 
 @media only screen and (max-width: 800px) {

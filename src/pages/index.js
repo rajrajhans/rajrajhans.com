@@ -6,12 +6,34 @@ import TagIcon from "../static/tagIcon"
 import CalendarIcon from "../static/calendarIcon"
 
 import React, { Component } from "react"
+import InternalLink from "../components/utilComponents/internalLink"
 
 class Index extends Component {
   render() {
     return (
       <Layout location={this.props.location}>
         <div className="homeBlogGrid">
+
+          <div className="homeBlogArchivesLinkMobile">
+            <InternalLink link={"/archives"} title={"Explore Blogs by Categories"}>
+              <i className={"fa fa-folder-o"}/>
+              Browse Blog Archives
+            </InternalLink>
+          </div>
+
+          <div className="homeBlogHeadingBox">
+            <div className="homeBlogGridHeading">
+              Blog Posts Till Now
+              <div className={"homeBlogGridHeadingLine"}/>
+            </div>
+
+            <div className="homeBlogArchivesLink">
+              <InternalLink link={"/archives"} title={"Explore Blogs by Categories"}>
+                Browse Blog Archives
+                <div className={"homeBlogGridArchivesLine"}/>
+              </InternalLink>
+            </div>
+          </div>
 
           <div className="homeBlogBox">
             <InternalLinkDown link={"/hello-world"}>

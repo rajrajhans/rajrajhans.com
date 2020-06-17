@@ -2,6 +2,7 @@ import Layout from "../components/layout"
 import InternalLinkDown from "../components/utilComponents/internalLinkUp"
 import SEO from "../components/seo"
 import "../styles/index.scss"
+import "../styles/homepageHero.css"
 import TagIcon from "../static/tagIcon"
 import CalendarIcon from "../static/calendarIcon"
 import Img from "gatsby-image"
@@ -14,9 +15,24 @@ class Index extends Component {
 
     const blogs = this.props.data.allMdx.nodes
 
-    console.log(blogs)
     return (
       <Layout location={this.props.location}>
+
+        <div className="homepageHeroCntnr">
+          <div id='stars'/>
+          <div id='stars2'/>
+          <div id='stars3'/>
+          <div id='title'>
+          <span>
+            Hi, I'm Raj
+          </span>
+            <br/>
+          <span>
+
+          </span>
+          </div>
+        </div>
+
         <div className="homeBlogGrid">
 
           <div className="homeBlogArchivesLinkMobile">

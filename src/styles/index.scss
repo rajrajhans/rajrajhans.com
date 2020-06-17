@@ -46,6 +46,12 @@
   background-size: 4px 50px;
 }
 
+.homeBlogBoxesCntnr{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .homeBlogBox{
   max-width: 300px;
   box-shadow:  1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
@@ -65,7 +71,9 @@
   }
 
   .homeBlogImage img{
-    opacity: 0.8;
+    filter: brightness(85%);
+    -webkit-filter: brightness(85%);
+    -moz-filter: brightness(85%);
   }
 }
 
@@ -74,7 +82,7 @@
 }
 
 .homeBlogImage img{
-  transition: all 0.25s;
+  transition: all 0.25s ease-out!important;
 }
 
 .homeBlogTitle{

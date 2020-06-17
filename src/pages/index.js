@@ -4,12 +4,17 @@ import SEO from "../components/seo"
 import "../styles/index.scss"
 import TagIcon from "../static/tagIcon"
 import CalendarIcon from "../static/calendarIcon"
-
+import Img from "gatsby-image"
 import React, { Component } from "react"
 import InternalLink from "../components/utilComponents/internalLink"
+import { graphql } from "gatsby"
 
 class Index extends Component {
   render() {
+
+    const blogs = this.props.data.allMdx.nodes
+
+    console.log(blogs)
     return (
       <Layout location={this.props.location}>
         <div className="homeBlogGrid">
@@ -35,34 +40,37 @@ class Index extends Component {
             </div>
           </div>
 
-          <div className="homeBlogBox">
-            <InternalLinkDown link={"/hello-world"}>
-            <div className="homeBlogImage">
-              <img src={"https://rajrajhans.com/wp-content/uploads/2020/01/heroku-400x250.png"}/>
-            </div>
+          <div className="homeBlogBoxesCntnr">
+          {blogs.map((blog, id) => (
+            <div className="homeBlogBox" key={id}>
+              <InternalLinkDown link={blog.fields.slug}>
+                <div className="homeBlogImage">
+                  <Img fixed={blog.frontmatter.featuredImage.childImageSharp.fixed}/>
+                </div>
 
-            <div className="homeBlogTitle">
-              Blog Post title
-            </div>
+                <div className="homeBlogTitle">
+                  {blog.frontmatter.title}
+                </div>
 
-            <div className="homeBlogDateTag">
+                <div className="homeBlogDateTag">
               <span className={"homeBlogDate"}>
                 <CalendarIcon/>
-                <span> May 28th, 2015</span>
+                <span> {blog.frontmatter.date}</span>
               </span>
 
-              <span className={"homeBlogTag"}>
+                  <span className={"homeBlogTag"}>
                 <TagIcon/>
-                <span> Main Tag</span>
+                <span> {blog.frontmatter.mainTag}</span>
               </span>
-            </div>
+                </div>
 
-            <div className="homeBlogExcerpt">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+                <div className="homeBlogExcerpt">
+                  {blog.frontmatter.description}
+                </div>
+              </InternalLinkDown>
             </div>
-            </InternalLinkDown>
+          ))}
           </div>
-
         </div>
       </Layout>
     )
@@ -70,28 +78,28 @@ class Index extends Component {
 }
 
 export default Index
-//
-// export const pageQuery = graphql`
-//   query {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-//       edges {
-//         node {
-//           excerpt
-//           fields {
-//             slug
-//           }
-//           frontmatter {
-//             date(formatString: "MMMM DD, YYYY")
-//             title
-//             description
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+
+export const pageQuery = graphql`
+  query IndexQuery {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          description
+          date (formatString: "MMMM Do, YYYY")
+          mainTag
+          featuredImage {
+            childImageSharp {
+              fixed(width: 300) {
+                ...GatsbyImageSharpFixed_withWebp
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

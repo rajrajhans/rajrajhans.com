@@ -89,6 +89,25 @@
   background-size: 4px 50px;
 }
 
+.homeBlogArchivesButton{
+  padding: 5px 10px;
+  border: 1px solid $brand_dark;
+  border-radius: 15px;
+
+  background: linear-gradient(
+                  to bottom, #3355ff40 0%,
+                  #3355ff40 100%
+  ) repeat-x 0 100%;
+  background-size: 4px 1px;
+  color: #000;
+  text-decoration: none;
+  transition: all .25s;
+}
+
+.homeBlogArchivesButton:hover {
+  background-size: 4px 50px;
+}
+
 .homeBlogBoxesCntnr{
   display: flex;
   justify-content: space-around;
@@ -184,7 +203,7 @@
     background: $brand_dark;
     padding: 4px;
     border-radius: 11px;
-    margin-bottom: 10px;
+    margin: 20px 0;
 
     i{
       margin-right: 5px;

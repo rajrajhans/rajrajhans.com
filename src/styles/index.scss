@@ -1,5 +1,48 @@
 @import "global";
 
+.homePageNav{
+  background: transparent;
+
+  a{
+    color: $txt_dark;
+  }
+
+  .svgIcon{
+    fill: white;
+  }
+
+  .themeSwitcher{
+    color:white;
+  }
+}
+
+.dark .homePageNav {
+  background: transparent;
+}
+.dark .scrolled.homePageNav {
+  background: $navbarBg_dark;
+}
+
+.scrolled.homePageNav a, .scrolled.homePageNav .themeSwitcher{
+  color: $txt_light;
+}
+
+.dark .scrolled.homePageNav a, .dark .scrolled.homePageNav .themeSwitcher{
+  color: $txt_dark;
+}
+
+.scrolled.homePageNav .svgIcon{
+  fill: $txt_light;
+}
+
+.dark .scrolled.homePageNav .svgIcon{
+  fill: $txt_dark;
+}
+
+.homePageWrapper{
+  padding: 0 !important;
+}
+
 .homeBlogGrid{
   width: 80%;
   margin: auto;

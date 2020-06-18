@@ -12,7 +12,7 @@ class DarkLightSwitcher extends Component {
           return (
             <Fragment>
               <i
-                className={iconClass}
+                className={"themeSwitcher " + iconClass}
                 onClick={() => {
                   const nextTheme = theme === 'light' ? 'dark' : 'light'
                   toggleTheme(nextTheme)

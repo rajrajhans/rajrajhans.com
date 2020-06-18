@@ -203,6 +203,11 @@ a{
 
 .scrolled .logo{
   font-size: 28px;
+  color: $txt_light !important;
+}
+
+.dark .scrolled .logo{
+  color: $txt_dark !important;
 }
 
 @media only screen and (max-width: 800px) {

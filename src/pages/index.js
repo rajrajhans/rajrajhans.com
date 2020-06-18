@@ -16,7 +16,7 @@ class Index extends Component {
     const blogs = this.props.data.allMdx.nodes
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} customNavClass={"homePageNav"} customclass={"homePageWrapper"}>
 
         <div className="homepageHeroCntnr">
           <div id='stars'/>

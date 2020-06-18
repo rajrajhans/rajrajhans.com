@@ -99,9 +99,13 @@
                   #3355ff40 100%
   ) repeat-x 0 100%;
   background-size: 4px 1px;
-  color: #000;
+  color: $txt_light;
   text-decoration: none;
   transition: all .25s;
+}
+
+.dark .homeBlogArchivesButton{
+  color: $txt_dark;
 }
 
 .homeBlogArchivesButton:hover {

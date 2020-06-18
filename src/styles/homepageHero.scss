@@ -1,3 +1,5 @@
+@import "global";
+
 .homepageHeroCntnr{
     height: 100vh;
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
@@ -75,11 +77,86 @@
     -webkit-text-fill-color: transparent;
 }
 
+.homepageHeroIntroCntnr{
+    padding: 20px 0 40px;
+    width: 60%;
+    margin: auto;
+    background: rgba(0,0,0, 0.69);
+    border-radius: 40px;
+}
+
+.homepageHeroIntro, .dynamic-text, .typewriter, .sentence{
+    letter-spacing: normal;
+    font-size: 26px;
+    background: -webkit-linear-gradient(white, #38495a) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.39) !important;
+    margin: auto;
+    line-height: 1.4;
+}
+
+
+.sentence:not(.last-sentence) {
+    display: block;
+}
+
+.last-sentence {
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+}
+
+.dynamic-text {
+    position: relative;
+
+    &:after {
+        content: '|';
+        color: $txt_dark;
+        position: absolute;
+        left: calc(100%);
+    }
+
+    &.fade {
+        &:after {
+            animation: fade 1s infinite ease-in-out;
+        }
+    }
+}
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+
 @keyframes animStar {
     from {
         transform: translateY(0px);
     }
     to {
         transform: translateY(-2000px);
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #title{
+        top: 47%;
+        transform: translateY(-30%);
+        padding-left: 0;
+    }
+    .homepageHeroIntroCntnr{
+        width: 95%;
+    }
+    .homepageHeroIntro{
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    .homepageHeroIntroTop{
+        margin-top: 15px;
     }
 }

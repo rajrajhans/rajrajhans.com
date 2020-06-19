@@ -9,7 +9,6 @@ import TagIcon from "../static/tagIcon"
 import CalendarIcon from "../static/calendarIcon"
 import InternalLink from "../components/utilComponents/internalLink"
 import InternalLinkDown from "../components/utilComponents/internalLinkUp"
-import TypeWriter from "../components/utilComponents/typewriterEffect"
 
 class Index extends Component {
   render() {
@@ -38,7 +37,7 @@ class Index extends Component {
                 I'm a {razzAge()} year old web developer studying Computer Engineering student.
               </div>
               <div className={"homepageHeroIntro"}>
-                <TypeWriter staticText={[`This blog reflects my`]} words={['ideas', 'projects', 'learnings']}/>
+                Hi dear
               </div>
             </div>
           </div>

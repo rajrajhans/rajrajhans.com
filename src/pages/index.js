@@ -9,6 +9,7 @@ import TagIcon from "../static/tagIcon"
 import CalendarIcon from "../static/calendarIcon"
 import InternalLink from "../components/utilComponents/internalLink"
 import InternalLinkDown from "../components/utilComponents/internalLinkUp"
+import Typewriter from 'typewriter-effect';
 
 class Index extends Component {
   render() {
@@ -18,6 +19,7 @@ class Index extends Component {
     const razzAge = () => (
       new Date().getFullYear() - 2001
     )
+
 
     return (
       <Layout location={this.props.location} customNavClass={"homePageNav"} customclass={"homePageWrapper"}>
@@ -34,10 +36,18 @@ class Index extends Component {
               </span>
                 <br/>
               <div className={"homepageHeroIntro homepageHeroIntroTop"}>
-                I'm a {razzAge()} year old web developer studying Computer Engineering student.
+                I'm a {razzAge()} year old web developer studying Computer Engineering.
               </div>
-              <div className={"homepageHeroIntro"}>
-                Hi dear
+              <div className={"homepageHeroIntro"} style={{display:"inline"}}>
+                This blog reflects my&nbsp;
+
+                <Typewriter
+                  options={{
+                    strings: ['ideas.', 'projects.', 'learnings.'],
+                    autoStart: true,
+                    loop: true,
+                  }}
+                />
               </div>
             </div>
           </div>

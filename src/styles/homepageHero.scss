@@ -81,46 +81,30 @@
     padding: 20px 0 40px;
     width: 60%;
     margin: auto;
+    text-align: center;
     background: rgba(0,0,0, 0.69);
     border-radius: 40px;
 }
 
-.homepageHeroIntro, .dynamic-text, .typewriter, .sentence{
+.homepageHeroIntro{
+    text-align: left;
+}
+
+.homepageHeroIntroTop{
+    text-align: center;
+}
+
+.homepageHeroIntro, .Typewriter__wrapper, .Typewriter__wrapper{
     letter-spacing: normal;
     font-size: 26px;
     background: -webkit-linear-gradient(white, #38495a) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: rgba(255, 255, 255, 0.39) !important;
-    margin: auto;
     line-height: 1.4;
 }
 
-
-.sentence:not(.last-sentence) {
-    display: block;
-}
-
-.last-sentence {
-    white-space: nowrap;
-    display: inline-block;
-    position: relative;
-}
-
-.dynamic-text {
-    position: relative;
-
-    &:after {
-        content: '|';
-        color: $txt_dark;
-        position: absolute;
-        left: calc(100%);
-    }
-
-    &.fade {
-        &:after {
-            animation: fade 1s infinite ease-in-out;
-        }
-    }
+.Typewriter{
+    display: inline !important;
 }
 
 @keyframes fade {

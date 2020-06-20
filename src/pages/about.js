@@ -42,7 +42,7 @@ class About extends Component {
               </div>
 
               <div className="aboutRajPhoto">
-                <Img fixed={this.props.data.allFile.nodes[0].childImageSharp.fixed}/>
+                <Img fluid={this.props.data.allFile.nodes[0].childImageSharp.fluid}/>
               </div>
             </div>
 
@@ -93,9 +93,9 @@ export const query = graphql`
     allFile(filter: {name: {eq: "raj-profile-pic-1"}}) {
       nodes {
         childImageSharp {
-          fixed(width: 444) {
-                ...GatsbyImageSharpFixed_withWebp
-            }
+          fluid {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
       }
     }

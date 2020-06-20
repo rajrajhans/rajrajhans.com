@@ -86,25 +86,19 @@
     border-radius: 40px;
 }
 
-.homepageHeroIntro{
-    text-align: left;
-}
-
 .homepageHeroIntroTop{
     text-align: center;
 }
 
-.homepageHeroIntro, .Typewriter__wrapper, .Typewriter__wrapper{
+.homepageHeroIntro{
     letter-spacing: normal;
     font-size: 26px;
     background: -webkit-linear-gradient(white, #38495a) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: rgba(255, 255, 255, 0.39) !important;
     line-height: 1.4;
-}
-
-.Typewriter{
-    display: inline !important;
+    margin: auto;
+    text-align: center;
 }
 
 @keyframes fade {

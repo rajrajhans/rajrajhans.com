@@ -9,7 +9,6 @@ import TagIcon from "../static/tagIcon"
 import CalendarIcon from "../static/calendarIcon"
 import InternalLink from "../components/utilComponents/internalLink"
 import InternalLinkDown from "../components/utilComponents/internalLinkUp"
-import Typewriter from 'typewriter-effect';
 
 class Index extends Component {
   render() {
@@ -38,17 +37,8 @@ class Index extends Component {
               <div className={"homepageHeroIntro homepageHeroIntroTop"}>
                 I'm a {razzAge()} year old web developer studying Computer Engineering.
               </div>
-              <div className={"homepageHeroIntro"} style={{display:"inline"}}>
-                This blog reflects my&nbsp;
 
-                <Typewriter
-                  options={{
-                    strings: ['ideas.', 'projects.', 'learnings.'],
-                    autoStart: true,
-                    loop: true,
-                  }}
-                />
-              </div>
+              <div className=" homepageHeroIntro">This blog reflects my ideas, projects, learnings.</div>
             </div>
           </div>
         </div>

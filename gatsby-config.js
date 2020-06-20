@@ -5,10 +5,11 @@ module.exports = {
     title: `Raj Rajhans`,
     author: {
       name: `Raj Rajhans`,
-      summary: `Personal Blog Website of Raj Rajhans`,
+      summary: `Raj Rajhans - Blog & Portfolio`,
     },
-    description: `Raj Rajhans`,
+    description: `Raj Rajhans - Blog & Portfolio`,
     siteUrl: `https://rajrajhans.com/`,
+    baseUrl: `https://rajrajhans.com/`,
     social: {
       twitter: `_rajrajhans`,
       instagram: `rajrajhans`,

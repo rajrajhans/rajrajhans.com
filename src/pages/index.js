@@ -23,7 +23,7 @@ class Index extends Component {
 
     return (
       <Layout location={this.props.location} customNavClass={"homePageNav"} customclass={"homePageWrapper"}>
-
+        <SEO/>
         <div className="homepageHeroCntnr">
           <div id='stars'/>
           <div id='stars2'/>

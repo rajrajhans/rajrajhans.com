@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import DarkLightSwitcher from "./darkLightSwitcher"
+import {Link} from "gatsby"
 
 function ListItem(props) {
   const isActive = (pathName) => {
@@ -20,7 +21,7 @@ function ListItem(props) {
 
   return(
     <li className={"navBarLinkListItem"}>
-      <AniLink cover bg={getColor(currentTheme)} direction={"down"} duration={0.75} to={props.to} className={isActive(props.to) ? "active" : ""}>{props.children}</AniLink>
+      <Link cover bg={getColor(currentTheme)} direction={"down"} duration={0.75} to={props.to} className={isActive(props.to) ? "active" : ""}>{props.children}</Link>
     </li>
   )
 }

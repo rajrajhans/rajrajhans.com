@@ -1,90 +1,57 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
+import Pic from "./../../content/assets/gatsby-icon.png"
 
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-
-const SEO = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            social {
-              twitter
-            }
-          }
+const SEO = ({ post }) => {
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      site {
+        siteMetadata {
+          title
+          description
+          baseUrl
         }
       }
-    `
-  )
+    }
+  `);
+  console.log("RAXX", post!==undefined)
+  const defaults = data.site.siteMetadata;
 
-  const metaDescription = description || site.siteMetadata.description
+  if (defaults.baseUrl === '' && typeof window !== 'undefined') {
+    defaults.baseUrl = window.location.origin;
+  }
+
+  if (defaults.baseUrl === '') {
+    console.error('Please set a baseUrl in your site metadata!');
+    return null;
+  }
+
+    const title = (post!==undefined ? post.title : defaults.title);
+    const description = post!==undefined ? post.description : defaults.description;
+    const url = new URL(post!==undefined ? post.description : '', defaults.baseUrl);
+    const image = post!==undefined ? post.image : "https://rajrajhans.com/rajrajhans_assets/rajrajhans-logo.png";
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
-  )
-}
+    <Helmet>
+      <title>{title}</title>
+      <link rel="canonical" href={url} />
+      <meta name="description" content={description} />
+      {image && <meta name="image" content={image} />}
 
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
+      <meta property="og:url" content={"https://rajrajhans.com/"} />
+      <meta property="og:type" content="article" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      {image && <meta property="og:image" content={image} />}
 
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content={"@_rajrajhans"} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      {image && <meta name="twitter:image" content={image} />}
+    </Helmet>
+  );
+};
 
-export default SEO
+export default SEO;

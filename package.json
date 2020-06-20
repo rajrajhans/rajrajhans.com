@@ -39,6 +39,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-rotating-text": "^1.4.1",
     "react-sidebar": "^3.0.2",
     "react-typography": "^0.16.19",
     "typeface-merriweather": "0.0.72",

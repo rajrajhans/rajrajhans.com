@@ -9,6 +9,7 @@ import TagIcon from "../static/tagIcon"
 import CalendarIcon from "../static/calendarIcon"
 import InternalLink from "../components/utilComponents/internalLink"
 import InternalLinkDown from "../components/utilComponents/internalLinkUp"
+var ReactRotatingText = require('react-rotating-text');
 
 class Index extends Component {
   render() {
@@ -38,7 +39,7 @@ class Index extends Component {
                 I'm a {razzAge()} year old web developer studying Computer Engineering.
               </div>
 
-              <div className=" homepageHeroIntro">This blog reflects my ideas, projects, learnings.</div>
+              <div className=" homepageHeroIntro">This blog reflects my <ReactRotatingText items={['ideas', 'projects', 'learnings']}/>.</div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { ContactSVG, Envelope, MapMarker } from "../static/svgs"
+import { ContactSVG} from "../static/svgs"
 import Layout from "../components/layout"
 import HerosectionPage from "../components/herosectionPage"
 import "../styles/contact.scss"
@@ -21,7 +21,7 @@ class Contact extends Component {
               <p style={{"marginTop":"15px","marginBottom":"0"}}>Get in touch!</p>
               <ul>
 
-                <a href={"mailto:me@rajrajhans.com"} target={"_blank"}>
+                <a href={"mailto:me@rajrajhans.com"} target={"_blank"} rel={"noopener noreferrer"}>
                   <li>
                     <span className={"contactIcon"}>
                       <i className="fa fa-2x fa-envelope"/>
@@ -30,7 +30,7 @@ class Contact extends Component {
                   </li>
                 </a>
 
-                <a href={"https://twitter.com/_rajrajhans"} target={"_blank"}>
+                <a href={"https://twitter.com/_rajrajhans"} target={"_blank"} rel={"noopener noreferrer"}>
                   <li>
                     <span className={"contactIcon"}>
                       <i className="fa fa-2x fa-twitter"/>
@@ -39,7 +39,7 @@ class Contact extends Component {
                   </li>
                 </a>
 
-              <a href={"https://www.instagram.com/_rajrajhans/"} target={"_blank"}>
+              <a href={"https://www.instagram.com/_rajrajhans/"} target={"_blank"} rel={"noopener noreferrer"}>
                 <li style={{"marginBottom":"15px"}}>
                   <span className={"contactIcon"}>
                     <i className="fa fa-2x fa-instagram"/>

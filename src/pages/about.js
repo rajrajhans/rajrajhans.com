@@ -3,7 +3,6 @@ import Layout from "../components/layout"
 import HerosectionPage from "../components/herosectionPage"
 import "../styles/about.scss"
 import {AboutSVG, AboutBlogSVG} from "../static/svgs"
-import Pic from "../static/raj-profile-pic-1.png"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
@@ -69,7 +68,7 @@ class About extends Component {
                     Oppenheimer once said, “The best way to learn is to teach”.
                   </p>
                   <p>
-                    Blogging is a way to document one’s learnings. If you haven’t, go watch <a href={"https://www.youtube.com/watch?v=RVKofRN1dyI"} target={"_blank"}> Gary Vaynerchuk’s Document, Don’t Create video.</a>
+                    Blogging is a way to document one’s learnings. If you haven’t, go watch <a href={"https://www.youtube.com/watch?v=RVKofRN1dyI"} target={"_blank"} rel={"noopener noreferrer"} title={"GaryVee's Youtube video"}> Gary Vaynerchuk’s Document, Don’t Create video.</a>
                   </p>
 
                   <p>

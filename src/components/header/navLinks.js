@@ -1,6 +1,4 @@
 import React, { Component } from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-import DarkLightSwitcher from "./darkLightSwitcher"
 import {Link} from "gatsby"
 
 function ListItem(props) {

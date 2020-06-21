@@ -51,7 +51,7 @@ class Blogpost extends Component {
           <div className="blogContent">
 
             <div className="blogImg">
-              <img src={"https://miro.medium.com/max/1500/1*AjOEjnMXGxvi6p-FLr25NQ.jpeg"}/>
+              <img src={"https://miro.medium.com/max/1500/1*AjOEjnMXGxvi6p-FLr25NQ.jpeg"} alt={"Raj Rajhans"}/>
             </div>
 
             <div className="blogText">

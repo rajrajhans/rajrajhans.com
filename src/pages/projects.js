@@ -3,7 +3,6 @@ import Layout from "../components/layout"
 import "../styles/projects.scss"
 import HerosectionPage from "../components/herosectionPage"
 import {ProjectsSVG} from "../static/svgs"
-import projectimg from "../static/ss.png"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
@@ -56,7 +55,7 @@ class Projects extends Component {
 
               <div className="projectLinks">
                 {node.github ? (
-                  <a href={node.github} title={"View Code on GitHub"}  target={"_blank"}>
+                  <a href={node.github} title={"View Code on GitHub"}  target={"_blank"} rel={"noopener noreferrer"}>
                     <div className="projectLink">
                       <i className={"fa fa-github fa-lg"}/>
                     </div>
@@ -64,7 +63,7 @@ class Projects extends Component {
                 ): null}
 
                 {node.casestudy ? (
-                  <a href={node.casestudy} title={"View Case Study"} target={"_blank"}>
+                  <a href={node.casestudy} title={"View Case Study"} target={"_blank"} rel={"noopener noreferrer"}>
                     <div className="projectLink">
                       <i className={"fa fa-file-text fa-lg"} style={{fontSize:"27px"}}/>
                     </div>
@@ -72,7 +71,7 @@ class Projects extends Component {
                 ): null}
 
                 {node.website ? (
-                  <a href={node.website} title={"View Live Version"} target={"_blank"}>
+                  <a href={node.website} title={"View Live Version"} target={"_blank"} rel={"noopener noreferrer"}>
                     <div className="projectLink">
                       <i className={"fa fa-globe fa-lg"} style={{fontSize:"30px"}}/>
                     </div>

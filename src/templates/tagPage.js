@@ -6,7 +6,6 @@ import "../styles/tagPage.scss"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import InternalLinkRight from "../components/utilComponents/internalLinkRight"
 import InternalLink from "../components/utilComponents/internalLink"
 import InternalLinkDown from "../components/utilComponents/internalLinkDown"
 
@@ -14,9 +13,6 @@ const Tags = ({ pageContext, data, location }) => {
   const { tag } = pageContext
   const { edges, totalCount } = data.allMdx
   const siteTitle = data.site.siteMetadata.title
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-    } tagged with "${tag}"`
 
   return (
     <Layout location={location} title={siteTitle}>

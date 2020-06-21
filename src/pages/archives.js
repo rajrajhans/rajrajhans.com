@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import "../styles/tags.scss"
 import toKebabcase from "../utils/toKebabCase"

@@ -2,7 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-const data = useStaticQuery(graphql`
+const SEO = ({ title, description, keywords, url, image, isBlogPost }) => {
+
+  const data = useStaticQuery(graphql`
     query MyQuery {
       site {
         siteMetadata {
@@ -14,75 +16,73 @@ const data = useStaticQuery(graphql`
     }
   `);
 
-const defaults = data.site.siteMetadata;
+  const defaults = data.site.siteMetadata;
 
-const getSchemaOrgJSONLD = ({
-                              isBlogPost,
-                              url,
-                              title,
-                              image,
-                              description,
-                            }) => {
-  const schemaOrgJSONLD = [
-    {
-      '@context': 'http://schema.org',
-      '@type': 'WebSite',
-      url,
-      name: title,
-      alternateName: defaults.title,
-    },
-  ];
-
-  return isBlogPost
-    ? [
-      ...schemaOrgJSONLD,
+  const getSchemaOrgJSONLD = ({
+                                isBlogPost,
+                                url,
+                                title,
+                                image,
+                                description,
+                              }) => {
+    const schemaOrgJSONLD = [
       {
-        '@context': 'https://rajrajhans.com',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            item: {
-              '@id': url,
-              name: title,
-              image,
-            },
-          },
-        ],
-      },
-      {
-        '@context': 'https://rajrajhans.com',
-        '@type': 'BlogPosting',
+        '@context': 'http://schema.org',
+        '@type': 'WebSite',
         url,
         name: title,
         alternateName: defaults.title,
-        headline: title,
-        image: {
-          '@type': 'ImageObject',
-          url: image,
-        },
-        description,
-        author: {
-          '@type': 'Person',
-          name: 'Raj Rajhans',
-        },
-        publisher: {
-          '@type': 'Organization',
-          url: 'https://rajrajhans.com',
-          logo: defaults.logo,
-          name: 'Raj Rajhans',
-        },
-        mainEntityOfPage: {
-          '@type': 'WebSite',
-          '@id': defaults.siteUrl,
-        },
       },
-    ]
-    : schemaOrgJSONLD;
-};
+    ];
 
-const SEO = ({ title, description, keywords, url, image, isBlogPost }) => {
+    return isBlogPost
+      ? [
+        ...schemaOrgJSONLD,
+        {
+          '@context': 'https://rajrajhans.com',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              item: {
+                '@id': url,
+                name: title,
+                image,
+              },
+            },
+          ],
+        },
+        {
+          '@context': 'https://rajrajhans.com',
+          '@type': 'BlogPosting',
+          url,
+          name: title,
+          alternateName: defaults.title,
+          headline: title,
+          image: {
+            '@type': 'ImageObject',
+            url: image,
+          },
+          description,
+          author: {
+            '@type': 'Person',
+            name: 'Raj Rajhans',
+          },
+          publisher: {
+            '@type': 'Organization',
+            url: 'https://rajrajhans.com',
+            logo: defaults.logo,
+            name: 'Raj Rajhans',
+          },
+          mainEntityOfPage: {
+            '@type': 'WebSite',
+            '@id': defaults.siteUrl,
+          },
+        },
+      ]
+      : schemaOrgJSONLD;
+  };
 
   if (defaults.baseUrl === '' && typeof window !== 'undefined') {
     defaults.baseUrl = window.location.origin;

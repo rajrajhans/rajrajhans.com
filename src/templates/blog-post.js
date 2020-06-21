@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { MDXProvider } from "@mdx-js/react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Pic from "../static/raj-profile-pic-1.png"
@@ -8,12 +9,25 @@ import toKebabCase from "../utils/toKebabCase"
 import InternalLink from "../components/utilComponents/internalLink"
 import InternalLinkUp from "../components/utilComponents/internalLinkUp"
 import InternalLinkRight from "../components/utilComponents/internalLinkRight"
+import Heading from "../components/blogPostComponents/heading"
+import Subheading from "../components/blogPostComponents/subheading"
+import Subsubheading from "../components/blogPostComponents/subsubheading"
+import Listitem from "../components/blogPostComponents/listitem"
+import Blockquote from "../components/blogPostComponents/blockquote"
 
 //TODO : Add Keywords, URL & image to the SEO component
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
   const { previous, next } = pageContext
+
+  const components = {
+    h1:Heading,
+    h2:Subheading,
+    h3:Subsubheading,
+    li:Listitem,
+    blockquote: Blockquote
+  }
 
   return (
     <Layout location={location} customclass={"navBlogPost"} customNavClass={"navBlogPostBar"} >
@@ -62,7 +76,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <div className="blogContent">
 
           <div className="blogText">
-            <MDXRenderer>{post.body}</MDXRenderer>
+            <MDXProvider components={components}>
+              <MDXRenderer>{post.body}</MDXRenderer>
+            </MDXProvider>
           </div>
 
           <div className="blogprevnext">

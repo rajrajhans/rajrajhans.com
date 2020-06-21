@@ -1,0 +1,79 @@
+@import "global";
+
+.blogPostHeading{
+  font-family: $serifFont;
+  font-size: 25px;
+  font-weight: $serifFontWeight;
+  margin-top: 30px;
+}
+
+.blogPostHeadingLine{
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0;
+  background: $brand_dark;
+  color: $brand_dark;
+  border: none;
+  height: 1px;
+  width: 50px;
+}
+
+.blogPostSubheading{
+  font-family: $headingFont;
+  font-weight: bold;
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.blogPostSubSubheading{
+  font-family: $headingFont;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.bpstpara{
+  margin: 10px 0;
+}
+
+.bpstli{
+  margin-bottom: 2px;
+}
+
+.bpstquote{
+  width:85%;
+  margin:10px auto;
+  font-style:italic;
+  color: #555555;
+  padding:1em 30px 1em 65px;
+  border-left:8px solid $brand_dark ;
+  line-height:1.6;
+  position: relative;
+  background: #eeeeee75;
+  transition: all 0.25s;
+}
+
+.dark .bpstquote{
+  color: $txt_dark;
+  background: $navbarBg_dark;
+}
+
+.bpstquote::before{
+  content: "\201C";
+  font-family: $serifFont;
+  color: $brand_dark;
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+.bpstquote::after{
+  content: '';
+}
+
+.bpstquote span{
+  display:block;
+  font-style: normal;
+  font-weight: bold;
+  margin-top:1em;
+}

@@ -68,6 +68,12 @@ li{
   margin-bottom: calc(1.75rem / 2);
 }
 
+img{
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
 body{
   margin: 0;
   background: $bg_light;

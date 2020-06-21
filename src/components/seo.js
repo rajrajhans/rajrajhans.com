@@ -63,7 +63,7 @@ const SEO = ({ title, description, keywords, url, image }) => {
 SEO.defaultProps = {
   title: "Blog",
   description:'Raj Rajhans - Blog & Portfolio. Raj Rajhans is a web developer studying computer engineering. This blog reflects Raj\'s ideas, projects and learnings. ',
-  keywords:"Raj Rajhans, Raj, Rajhans, rajrajhans, rajrajhans blog",
+  keywords:"Raj Rajhans, Raj, Rajhans, rajrajhans",
   url:`https://rajrajhans.com/`,
   image: "https://rajrajhans.com/rajrajhans_assets/rajrajhans-logo.png"
 }

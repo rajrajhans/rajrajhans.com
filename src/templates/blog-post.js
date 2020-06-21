@@ -99,7 +99,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 <span className="blogBtmAthr">Author</span>
 
                 <div className="blogBtmAthrTxtName">
-                  Raj Rajhans
+                  <h2>Raj Rajhans</h2>
                 </div>
 
                 <div className="blogBtmAthrBio">

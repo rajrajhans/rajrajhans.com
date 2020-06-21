@@ -31,6 +31,22 @@ $brand_dark : #3355FF;
 $svg_color_dark : #9ca8b4;
 $svg_fill_dark: #1f2f3d;
 
+html{
+  box-sizing: border-box;
+  font:100%/1.75 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
 
 body{
   background: $bg_light;
@@ -47,7 +63,6 @@ body.dark{
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }
-
 
 a {
   background: linear-gradient(

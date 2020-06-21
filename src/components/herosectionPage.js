@@ -10,7 +10,7 @@ class HerosectionPage extends Component {
       <div className={"heroSection"}>
 
         <div className="titleSection">
-          <div className="title"><span className={"brand-color"}>~/</span>{title}</div>
+          <div className="title"><span className={"brand-color"}>~/</span><h1>{title}</h1></div>
         </div>
 
         <div className="svgSection">

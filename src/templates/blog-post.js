@@ -36,7 +36,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </div>
 
           <div className="heroBlogTitle">
-            {post.frontmatter.title}
+            <h1>{post.frontmatter.title}</h1>
           </div>
 
           <div className="heroAuthorRow">

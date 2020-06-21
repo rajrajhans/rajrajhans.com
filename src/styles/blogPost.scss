@@ -75,13 +75,16 @@
   cursor: pointer;
 }
 
-.heroBlogTitle{
+.heroBlogTitle h1{
   font-weight: $headingFontWeight;
   font-size: 30px;
+  transition: all 0.25s ease-out;
+}
 
-  padding: 5px 15px;
-  background: rgba(0, 0, 0, 0.5);
+.heroBlogTitle{
   border-radius: 11px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 16px 15px;
   transition: all 0.25s ease-out;
 }
 

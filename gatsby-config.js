@@ -11,6 +11,7 @@ module.exports = {
     keywords:"Raj Rajhans, Raj, Rajhans, rajrajhans, rajrajhans blog",
     siteUrl: `https://rajrajhans.com/`,
     baseUrl: `https://rajrajhans.com/`,
+    logo: 'https://rajrajhans.com/rajrajhans_assets/rajrajhans-logo.png',
     social: {
       twitter: `_rajrajhans`,
       instagram: `rajrajhans`,
@@ -92,6 +93,7 @@ module.exports = {
     `gatsby-plugin-transition-link`,
     `gatsby-transformer-json`,
     `gatsby-plugin-sitemap`,
+    'gatsby-plugin-robots-txt',
     {
       resolve: `gatsby-source-filesystem`,
       options: {

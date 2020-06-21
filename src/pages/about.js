@@ -26,7 +26,7 @@ class About extends Component {
             <div className="aboutRaj">
               <div className="aboutRajText">
                 <div className="aboutRajTextHeading">
-                  About Raj
+                  <h2>About Raj</h2>
                   <div className={"aboutBorderBottom"}/>
                 </div>
 
@@ -59,7 +59,7 @@ class About extends Component {
 
               <div className="aboutBlogText">
                 <div className="aboutBlogTextHeading">
-                  About the Blog
+                  <h2>About the Blog</h2>
                   <div className={"aboutBorderBottom"}/>
                 </div>
 

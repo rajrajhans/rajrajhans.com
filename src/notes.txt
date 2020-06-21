@@ -13,4 +13,5 @@ Things to pass for <SEO> component
     description,
     keywords,
     url,
-    image
+    image,
+    isBlogPost

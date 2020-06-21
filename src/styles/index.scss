@@ -158,6 +158,7 @@
   font-weight: 600;
   margin: auto;
   transition: all 0.25s;
+  padding: 10px 0;
 }
 
 .homeBlogDateTag{
@@ -199,6 +200,10 @@
 @media only screen and (max-width: 800px) {
   .homeBlogArchivesLink{
     display: none;
+  }
+
+  .homepageHeroHi{
+    font-size: 44px;
   }
 
   .homeBlogArchivesLinkMobile{

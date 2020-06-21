@@ -41,7 +41,7 @@ class Projects extends Component {
               </a>
 
               <div className="projectTitle">
-                {node.title}
+                <h2>{node.title}</h2>
               </div>
 
               <div className="projectSubtitle">

@@ -1,10 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import Pic from "./../../content/assets/gatsby-icon.png"
 
-const SEO = ({ title, description, keywords, url, image }) => {
-  const data = useStaticQuery(graphql`
+const data = useStaticQuery(graphql`
     query MyQuery {
       site {
         siteMetadata {
@@ -16,7 +14,75 @@ const SEO = ({ title, description, keywords, url, image }) => {
     }
   `);
 
-  const defaults = data.site.siteMetadata;
+const defaults = data.site.siteMetadata;
+
+const getSchemaOrgJSONLD = ({
+                              isBlogPost,
+                              url,
+                              title,
+                              image,
+                              description,
+                            }) => {
+  const schemaOrgJSONLD = [
+    {
+      '@context': 'http://schema.org',
+      '@type': 'WebSite',
+      url,
+      name: title,
+      alternateName: defaults.title,
+    },
+  ];
+
+  return isBlogPost
+    ? [
+      ...schemaOrgJSONLD,
+      {
+        '@context': 'https://rajrajhans.com',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            item: {
+              '@id': url,
+              name: title,
+              image,
+            },
+          },
+        ],
+      },
+      {
+        '@context': 'https://rajrajhans.com',
+        '@type': 'BlogPosting',
+        url,
+        name: title,
+        alternateName: defaults.title,
+        headline: title,
+        image: {
+          '@type': 'ImageObject',
+          url: image,
+        },
+        description,
+        author: {
+          '@type': 'Person',
+          name: 'Raj Rajhans',
+        },
+        publisher: {
+          '@type': 'Organization',
+          url: 'https://rajrajhans.com',
+          logo: defaults.logo,
+          name: 'Raj Rajhans',
+        },
+        mainEntityOfPage: {
+          '@type': 'WebSite',
+          '@id': defaults.siteUrl,
+        },
+      },
+    ]
+    : schemaOrgJSONLD;
+};
+
+const SEO = ({ title, description, keywords, url, image, isBlogPost }) => {
 
   if (defaults.baseUrl === '' && typeof window !== 'undefined') {
     defaults.baseUrl = window.location.origin;
@@ -27,30 +93,42 @@ const SEO = ({ title, description, keywords, url, image }) => {
     return null;
   }
 
-  // const title = (post!==undefined ? post.title : defaults.title);
-  // const description = post!==undefined ? post.description : defaults.description;
-  // const keywords = post!==undefined ? post.keywords : defaults.keywords;
-  // const url = new URL(post!==undefined ? post.description : '', defaults.baseUrl);
-  // const image = post!==undefined ? post.image : "https://rajrajhans.com/rajrajhans_assets/rajrajhans-logo.png";
   const seoTitle = `${title} | Raj Rajhans`
+
+  const schemaOrgJSONLD = getSchemaOrgJSONLD({
+    isBlogPost,
+    url,
+    title,
+    image,
+    description,
+  });
 
   return (
     <Helmet>
+      {/* General tags */}
       <title>{seoTitle}</title>
       <link rel="canonical" href={url} />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <meta name="keywords" content={keywords}/>
 
+      {/* Schema.org tags */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemaOrgJSONLD)}
+      </script>
+
+      {/* OpenGraph tags */}
       <meta property="og:url" content={"https://rajrajhans.com/"} />
       <meta property="og:type" content="article" />
       <meta property="og:title" content={seoTitle}/>
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
 
+      {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={"@_rajrajhans"} />
       <meta name="twitter:title" content={seoTitle} />
+      <meta name="twitter:site" content={"https://rajrajhans.com"} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
     </Helmet>
@@ -62,7 +140,8 @@ SEO.defaultProps = {
   description:'Raj Rajhans - Blog & Portfolio. Raj Rajhans is a web developer studying computer engineering. This blog reflects Raj\'s ideas, projects and learnings. ',
   keywords:"Raj Rajhans, Raj, Rajhans, rajrajhans",
   url:`https://rajrajhans.com/`,
-  image: "https://rajrajhans.com/rajrajhans_assets/rajrajhans-logo.png"
+  image: "https://rajrajhans.com/rajrajhans_assets/rajrajhans-logo.png",
+  isBlogPost:0
 }
 
 export default SEO;

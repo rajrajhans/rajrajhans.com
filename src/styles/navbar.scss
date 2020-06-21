@@ -202,7 +202,10 @@ a{
   font-family: $logoFont;
   font-weight: $logoFontWeight;
   font-size: 34px;
+}
 
+.logo h1{
+  display: inline;
 }
 
 .scrolled .logo{

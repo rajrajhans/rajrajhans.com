@@ -30,7 +30,7 @@ class Index extends Component {
           <div id='title'>
 
             <div className="homepageHeroIntroCntnr">
-              <span>
+              <span class={"homepageHeroHi"}>
                 Hi, I'm Raj
               </span>
                 <br/>
@@ -76,7 +76,7 @@ class Index extends Component {
                 </div>
 
                 <div className="homeBlogTitle">
-                  {blog.frontmatter.title}
+                  <h2>{blog.frontmatter.title}</h2>
                 </div>
 
                 <div className="homeBlogDateTag">

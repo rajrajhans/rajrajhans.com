@@ -39,7 +39,7 @@ const Tags = ({ pageContext, data, location }) => {
               </div>
 
               <div className="homeBlogTitle">
-                {blog.frontmatter.title}
+                <h2>{blog.frontmatter.title}</h2>
               </div>
 
               <div className="homeBlogDateTag">

@@ -6,6 +6,7 @@ import {ProjectsSVG} from "../static/svgs"
 import projectimg from "../static/ss.png"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import SEO from "../components/seo"
 
 class Projects extends Component {
   render() {
@@ -14,6 +15,12 @@ class Projects extends Component {
 
     return (
       <Layout location={this.props.location} customclass={"projectsWrapper"}>
+        <SEO
+          title={"Projects"}
+          description={"Projects by Raj Rajhans. Raj Rajhans is a web developer studying computer engineering. This blog reflects Raj's ideas, projects and learnings."}
+          url={"/projects"}
+        />
+
         <HerosectionPage title={"Projects"} svg={<ProjectsSVG/>}/>
 
         <div className="content-container projectBox_container">

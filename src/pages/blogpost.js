@@ -2,12 +2,13 @@ import React, { Component } from "react"
 import Layout from "../components/layout"
 import "../styles/blogPost.scss"
 import Pic from "../static/raj-profile-pic-1.png"
+import SEO from "../components/seo"
 
 class Blogpost extends Component {
   render() {
     return (
       <Layout location={this.props.location}>
-
+        <SEO/>
         <div className="blogHeroContainer">
           <div className="blogHero">
 

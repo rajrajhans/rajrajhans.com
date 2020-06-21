@@ -6,12 +6,18 @@ import {AboutSVG, AboutBlogSVG} from "../static/svgs"
 import Pic from "../static/raj-profile-pic-1.png"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import SEO from "../components/seo"
 
 class About extends Component {
   render() {
     console.log(this.props.data)
     return (
       <Layout location={this.props.location}>
+        <SEO
+          title={"About"}
+          description={"About Raj Rajhans. Raj Rajhans is a web developer studying computer engineering. This blog reflects Raj\'s ideas, projects and learnings."}
+          url={"/about"}
+        />
         <HerosectionPage title={"About"} subtitle={"some gay shit"} svg={<AboutSVG/>}/>
 
         <div className={"content-container"}>
@@ -42,7 +48,7 @@ class About extends Component {
               </div>
 
               <div className="aboutRajPhoto">
-                <Img fluid={this.props.data.allFile.nodes[0].childImageSharp.fluid}/>
+                <Img fluid={this.props.data.allFile.nodes[0].childImageSharp.fluid} alt={"Raj Rajhans"}/>
               </div>
             </div>
 

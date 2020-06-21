@@ -19,8 +19,9 @@ const TagsPage = ({
                   }) => (
   <Layout location={location}>
     <SEO
-      title="Blog Archives"
-      keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+      title={"Blog Archives"}
+      description={"Blog Archives - Raj Rajhans. View past blogs by category. This blog reflects Raj\'s ideas, projects and learnings."}
+      url={"/archives"}
     />
     <HerosectionPage title={"Blog Archives"} svg={<TagsBlogSVG/>}/>
     <div className={"content-container"}>

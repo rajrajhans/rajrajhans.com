@@ -5,9 +5,10 @@ module.exports = {
     title: `Raj Rajhans`,
     author: {
       name: `Raj Rajhans`,
-      summary: `Raj Rajhans - Blog & Portfolio`,
+      summary: `Raj Rajhans - Blog & Portfolio. Raj Rajhans is a web developer studying computer engineering. This blog reflects Raj's ideas, projects and learnings. `,
     },
-    description: `Raj Rajhans - Blog & Portfolio`,
+    description: `Raj Rajhans - Blog & Portfolio. Raj Rajhans is a web developer studying computer engineering. This blog reflects Raj's ideas, projects and learnings. `,
+    keywords:"Raj Rajhans, Raj, Rajhans, rajrajhans, rajrajhans blog",
     siteUrl: `https://rajrajhans.com/`,
     baseUrl: `https://rajrajhans.com/`,
     social: {
@@ -95,6 +96,7 @@ module.exports = {
     `gatsby-plugin-dark-mode`,
     `gatsby-plugin-transition-link`,
     `gatsby-transformer-json`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

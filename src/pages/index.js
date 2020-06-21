@@ -23,7 +23,7 @@ class Index extends Component {
 
     return (
       <Layout location={this.props.location} customNavClass={"homePageNav"} customclass={"homePageWrapper"}>
-        <SEO/>
+        <SEO title={"Home"}/>
         <div className="homepageHeroCntnr">
           <div id='stars'/>
           <div id='stars2'/>
@@ -39,7 +39,7 @@ class Index extends Component {
                 I'm a {razzAge()} year old web developer studying Computer Engineering.
               </div>
 
-              <div className=" homepageHeroIntro">This blog reflects my <ReactRotatingText items={['ideas', 'projects', 'learnings']}/>.</div>
+              <div className=" homepageHeroIntro">This blog reflects my <ReactRotatingText items={['ideas.', 'projects.', 'learnings.']}/></div>
             </div>
           </div>
         </div>

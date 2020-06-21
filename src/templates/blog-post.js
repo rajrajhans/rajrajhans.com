@@ -9,6 +9,8 @@ import InternalLink from "../components/utilComponents/internalLink"
 import InternalLinkUp from "../components/utilComponents/internalLinkUp"
 import InternalLinkRight from "../components/utilComponents/internalLinkRight"
 
+//TODO : Add Keywords, URL & image to the SEO component
+
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
   const { previous, next } = pageContext
@@ -17,14 +19,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     <Layout location={location} customclass={"navBlogPost"} customNavClass={"navBlogPostBar"} >
       <SEO
         title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        description={post.frontmatter.description}
       />
       <div className="blogHeroContainer">
         <div className="blogHero">
 
           <div className="heroBlogTags">
             {post.frontmatter.heroTags.map((herotag, indexx) => (
-              <InternalLinkUp link={`/tags/${toKebabCase(herotag)}`} title={"titlee"}>
+              <InternalLinkUp link={`/tags/${toKebabCase(herotag)}`} title={`Explore all posts tagged with "${herotag}"`}>
                 <span className={"heroBlogTag heroBlogTag1"} key={indexx}>
                       {herotag}
                 </span>
@@ -110,7 +112,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               <div className="blogBtmTagsTxt">Tags :</div>
               <div className="blogBtmTagsCntnr">
                 {post.frontmatter.tags.map((tag, index) => (
-                  <InternalLinkUp link={`/tags/${toKebabCase(tag)}`}>
+                  <InternalLinkUp link={`/tags/${toKebabCase(tag)}`} title={`Explore all posts tagged with "${tag}"`}>
                     <span className={"heroBlogTag"} key={index}>
                       {tag}
                     </span>

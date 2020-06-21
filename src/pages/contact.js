@@ -3,11 +3,17 @@ import { ContactSVG, Envelope, MapMarker } from "../static/svgs"
 import Layout from "../components/layout"
 import HerosectionPage from "../components/herosectionPage"
 import "../styles/contact.scss"
+import SEO from "../components/seo"
 
 class Contact extends Component {
   render() {
     return (
       <Layout location={this.props.location}>
+        <SEO
+          title={"Contact Me"}
+          description={"Contact Raj Rajhans. Raj Rajhans is a web developer studying computer engineering. This blog reflects Raj's ideas, projects and learnings."}
+          url={"/contact"}
+        />
         <HerosectionPage title={"Contact Me"} svg={<ContactSVG/>} />
 
         <div className="content-container">

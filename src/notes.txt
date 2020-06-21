@@ -9,3 +9,8 @@ in
 
 
 Things to pass for <SEO> component
+    title,
+    description,
+    keywords,
+    url,
+    image

@@ -20,7 +20,9 @@ const Tags = ({ pageContext, data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={tagHeader} />
+      <SEO
+        title={tag}
+      />
       <div className={"heroSection"}>
         <div className="titleSection">
           <div className="title"><span className={"brand-color"}>{totalCount}</span> post{totalCount === 1 ? "" : "s"} tagged with "{tag}"</div>

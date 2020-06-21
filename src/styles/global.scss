@@ -31,9 +31,17 @@ $brand_dark : #3355FF;
 $svg_color_dark : #9ca8b4;
 $svg_fill_dark: #1f2f3d;
 
+*, *:after{
+  box-sizing: border-box;
+}
+
 html{
   box-sizing: border-box;
   font:100%/1.75 'Open Sans', sans-serif;
+  overflow-y: scroll;
+  -ms-text-size-adjust:100%;
+  -webkit-text-size-adjust:100%;
+  display: block;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -48,7 +56,16 @@ h1, h2, h3, h4, h5, h6{
   vertical-align: baseline;
 }
 
+ul li{
+  padding-left: 0;
+}
+
+li{
+  margin-bottom: calc(1.75rem / 2);
+}
+
 body{
+  margin: 0;
   background: $bg_light;
   color: $txt_light;
   transition: all 0.25s ease-out;

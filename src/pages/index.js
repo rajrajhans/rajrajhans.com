@@ -20,7 +20,6 @@ class Index extends Component {
       new Date().getFullYear() - 2001
     )
 
-
     return (
       <Layout location={this.props.location} customNavClass={"homePageNav"} customclass={"homePageWrapper"}>
         <SEO title={"Home"}/>
@@ -71,7 +70,7 @@ class Index extends Component {
           <div className="homeBlogBoxesCntnr">
           {blogs.map((blog, id) => (
             <div className="homeBlogBox" key={id}>
-              <InternalLinkDown link={blog.fields.slug}>
+              <InternalLinkDown link={blog.fields.slug} title={blog.frontmatter.title}>
                 <div className="homeBlogImage">
                   <Img fixed={blog.frontmatter.featuredImage.childImageSharp.fixed}/>
                 </div>

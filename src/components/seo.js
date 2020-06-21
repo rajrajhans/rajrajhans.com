@@ -16,8 +16,6 @@ const SEO = ({ title, description, keywords, url, image }) => {
     }
   `);
 
-
-
   const defaults = data.site.siteMetadata;
 
   if (defaults.baseUrl === '' && typeof window !== 'undefined') {
@@ -28,7 +26,6 @@ const SEO = ({ title, description, keywords, url, image }) => {
     console.error('Please set a baseUrl in your site metadata!');
     return null;
   }
-
 
   // const title = (post!==undefined ? post.title : defaults.title);
   // const description = post!==undefined ? post.description : defaults.description;

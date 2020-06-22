@@ -120,7 +120,7 @@ export const pageQuery = graphql`
           mainTag
           featuredImage {
             childImageSharp {
-              fixed(width: 300) {
+              fixed(width: 330) {
                 ...GatsbyImageSharpFixed_withWebp
               }
             }

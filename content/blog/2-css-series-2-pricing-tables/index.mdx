@@ -1,0 +1,72 @@
+---
+title: "CSS for Beginners Series #2 : Pricing Tables using CSS"
+date: "2018-07-28"
+description: Hello there! This is the second post in the "CSS for Beginners" series. Click here to know more about it. Today we are going to make some fancy pricing tables of various designs using CSS.
+featuredImage : css-series-2.png
+mainTag: CSS for Beginners
+tags:
+    - CSS for Beginners
+    - CSS
+heroTags:
+    - CSS for Beginners
+readingTime : 6
+keywords:
+    - CSS
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+
+![CSS for Beginners Series #1](css-series-2-wide.png "CSS for Beginners Series #1 : Fancy Buttons using CSS")
+
+<Alert><ExtLink link={"https://rajrajhans.com/rajrajhans_assets/css-series-2.zip"} title={"Download code files"}>Click here to download the code files for this post</ExtLink></Alert>
+
+Hello! This is the second post in the "CSS for Beginners" series and today we are going to make some fancy pricing tables of various designs using CSS. You know when you purchase a software, or a service, there are various “tiers” of that service/software given. We are make one of those. First, we’ll start with a simple pricing table, and, as we go ahead, we’ll start increasing the complexity of the designs, like, adding responsiveness, hover effects, blur effects, etc. It’s going to be a fun ride! So, without further ado, let’s get started!
+
+First, we’ll make a simple pricing table. Here’s what we are going to make :
+
+<p style="display:none;" class="codepen" data-height="400" data-theme-id="dark" data-default-tab="result" data-user="rajrajhans" data-slug-hash="GwNQag" data-preview="true" style="height: 366px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Design #1 : Simple Pricing Table">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/GwNQag">
+  Design #1 : Simple Pricing Table</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+As you can see, it’s a pretty simple table. Let’s get started. Now, if you look at the code, you’ll see that there are many div’s added each inside another. This is done to apply styles conveniently. The outermost div enclosing all others inside has been given the class “table”. Inside the “table” div, there’s “block” inside which there’s “header”, then “heading”, alongside which there’s “price”, you get the idea. Inside “price”, we have s each for the currency sign, value, and duration. This will allow us to style each of them separately. Now, if you are wondering, we use div tag is used for grouping and applying styles to block level content whereas span tag is used to group and apply styles to inline content.
+
+Then we go on to make similar divs for the body, features, etc. For the features, let’s say that the features ate “Primary Feature, Additional Benefit. 1 Bonuses” for the Level I plan. These are just sample texts. We’ll use them for all the other designs as well. We keep the same classes for the Level II plan, just add an extra class of “popular” to the “block”, so that we can style the Level II box separately. Now, we move on to styling. First, we select the table class and set the margin to 60px. Then, we select the after pseudo element of the table class and display it as table. After that, we use the child selector (>). What it does is that it selects all the childs under that parent, so for example as we have selected .table > div here, it will select all the divs under the .table class. After selecting all divs under table, we set the background, and the colors accordingly.Then, we select the “block” class and align the text to center, set the margin. The “overflow:hidden;” means that if the text/content of the class is to big to fit in that area, it gets automatically hidden and a scroll bar is not added. The .header .heading{…} selector means that .header is the selector and .heading is the descedant. We then select the currency, value and duration and style them. Notice that we keep the value of line-height property to 1 to keep everything in line and avoid them going on top of each other. The .bodi ul li:nth-child(2n) selects every second child, that is, every alternate child. And, similarly, .bodi ul li:nth-child(2n+1) selects every second plus one element, so it will also select first, third, fifth, and so on. This nice trick is helpful to style alternate items in a list. So, I’ll select the 2n items and give them a white background (#fff) and select the 2n+1 items and give them a slightly darker background (#f8f8f8). This will give it that alternate dark-light background.
+
+Let’s make the level II box a bit more highlighted to focus more on that. That is, after all, what we want customers to prefer more. We do that by using the .popular class that we added before. After selecting it, we add a bit more padding to make it of a bigger size than Level I. We also want to change the background color of the button and it’s hover state. We do that by selecting the popular button class and adding the background-color property to it.
+
+Now the design is essentially done. However, it is not responsive, meaning it won’t look good and adjust itself of devices with smaller screens. Let’s fix that. We use the media query of css to add responsiveness. First, we add the @media screen and (max-width: 1023px), i.e. kind of like a tablet. We add some properties to change the margin of the selectors we designed above.
+
+On to the next design! Here, I have selected a green-gray color scale. You’ll notice that many shades of grey are used. To select colors, take help of tools like Adobe Color CC, which suggest entire color palette according to your taste. Refer here – https://color.adobe.com/create/color-wheel/
+
+<p style="display:none;" class="codepen" data-height="400" data-theme-id="dark" data-default-tab="result" data-user="rajrajhans" data-slug-hash="mQOxwP" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Design #2: Material Responsive Pricing Table">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/mQOxwP">
+  Design #2: Material Responsive Pricing Table</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+Here, the code is pretty much clear. You can understand what’s going on by taking a look at the code. The position: relative; positions the element relative to the normal position, so if we add “left:20px;” after positioning the element as relative, it will add 20px to the left of the element. “position:absolute;” positions the element relative to its first positioned ancestor element. The “z-index” property specifies the stack order of the element. An element with greater stack order is always in front of an element with lesser stack order. The property is useful when there’s a chance of some elements coming in front of each other. Note that z-index only works with positioned elements. (position property should be specified).
+
+In the third design, we will add a hover effect to the table, i.e. when you hover over a particular tier, it will get magnified. And, we’ll do this using only css. Let’s do this!
+
+<p style="display:none;" class="codepen" data-height="400" data-theme-id="dark" data-default-tab="css,result" data-user="rajrajhans" data-slug-hash="NEbYwa" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Design #3: Responsive Pricing Table with hover effect">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/NEbYwa">
+  Design #3: Responsive Pricing Table with hover effect</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+We start as usual, adding divs and spans. Take a look at the code, it’s pretty much same as the previous ones.The cursor: pointer property sets the cursor to the pointer type when it is hovered over the element. The cursor property has many interesting attributes. Check it out if you want.
+
+To get that hover effect we apply the scale property on the hover selector. So when the user hovers over the tier column, it will scale 1.03 times. We also add a transition property so that the scale does not happen instantaneously but happens like an animation. As always, the -moz- property is for mozilla firefox based browsers, the -webkit- property is for webkit based browsers. We also set the z-index of the hover and active states to 2 so that they will get precedence over others.
+
+Notice the calc() function used in the properties of the before pseudo element selected. Keep in mind that whenever a pseudo element is selected, we have to specify the content string, even if it is empty. Then, we specify the position, generally absolute or relative. Then, we have used the calc() function to calculate the 80% of screen and subtract 15 px from it as the attribute for the “left” property. We then set the borders of the “before” pseudo element. You can notice them on the hover state. we then set the properties of the image to fit it in the frame of the tier card.
+
+We have again use the nth-child selector to create that darl-grey light-grey pattern. We set the background color of the 2nth child to be #f0f0f0 and that of the (2n+1)th child tobe #f5f5f5, which is slightly darker than the previous. This creates a very subtle and nice pattern which is good to look at. We also add a hover state to the list and add a left solid 2px border to it, also adding the transition property. What this does is that it creates an animation when you hover over the list items. Let’s also add a property so that when we hover over the features, the background of the image changes just a little bit, this’ll add a nice feel to it. For this, we’ll select the hover state and set the background color to rgba(0,0,0,0.25). This will achieve the effect we are aiming for, as it’s not really a color but a change in opacity. Looks nice, doesn’t it?
+
+Thanks for reading. We'll continue this series of beginner-friendly CSS elements. See you in the next post!
+
+

@@ -1,0 +1,102 @@
+---
+title: "Web Scraping Basics using BeautifulSoup"
+date: "2018-11-30"
+description: Hello! Today we will explore a bit about web scraping - what it is, why is it useful, and how it's implemented. As an example, we shall harvest some data from a website called Consumer Reports.
+featuredImage : post-7-1.png
+mainTag: Web Frameworks
+tags:
+    - Web Scraping
+    - BeautifulSoup
+heroTags:
+    - Web Scraping
+readingTime : 10
+keywords:
+    - Web Scraping
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+
+![Web Scraping Basics using BeautifulSoup](post-7-2.png)
+
+If you have ever searched for a flight ticket, you would know that the ticket prices fluctuate from time to time. What if you can build a small script that would automatically collect details and prices from a few websites and display the results to you – a so-called scraper. Today, we shall take a look into web scraping.
+
+# What is Web Scraping?
+
+Web Scraping, or data mining, or web harvesting – whatever you prefer to call it – is a technique that is used to extract data from websites through an automated process. A web scraping software will automatically load and extract data from multiple pages of websites based on your requirement. It is either custom built for a specific website or is one which can be configured to work with any website.
+
+# Why is it useful?
+
+Well, browsers are handy for displaying things in a human-readable manner (among other things). But, they have limitations when you want to gather large amounts of data. Web Scrapers are excellent at gathering and processing large amounts of data quickly. Rather than viewing a single page, we can view databases spanning thousands or millions of pages at once. Also, with the right code, web scrapers can go normal browsers cannot. Like, a search for “cheapest flights to Delhi” will result in a barrage of ads and popular flight search sites. Search engines only know what these sites say on the pages, and not the exact results of various queries entered through flight search. But, a well-written web scraper can fetch the flight cost to Delhi over a period of time, across various sites, and tell you the best time to buy your tickets.
+
+With a few exceptions, if you can view the data in your browser, you can access it using a Python script. If you can access it in a script, you can store it in a database. And if you can store it in a database, you can do virtually anything with that data. So, imagine the practical applications of having access to nearly  unlimited data: market forecasting, news aggregating, machine language translation, sentiment analysis, many more.
+
+# What will we use for Web Scraping?
+
+## BeautifulSoup
+
+> Beautiful Soup, so rich and green,
+> Waiting in a hot tureen!
+> Who for such dainties would not stoop?
+> Soup of the evening, beautiful Soup!
+> <span>Lewis Caroll</span>
+
+So the above is a poem by Lewis Caroll, but that’s not we are talking about. BeautifulSoup is a library in Python that was named after the above Lewis Caroll poem of the same name in Alice’s Adventures in Wonderland. In the story, the poem is sang by a character named Mock Turtle. Anyways, enough about the poem! The BeautifulSoup library, like it’s namesake Wonderland, tries to make sense of HTML, XML and CSS. It helps to format and organize the web by fixing bad HTML written by lazy web devs (can confirm, am a web dev!) and presents us with Python objects representing XML structures.
+
+We will also be using the Requests library to fetch the content from the webpage. Requests will allow you to send HTTP/1.1 requests using Python. With it, you can add content like headers, form data, multipart files, and parameters via simple Python libraries.
+
+# Example: Scraping data from <ExtLink link={"https://consumerreports.org"}>ConsumerReports</ExtLink>
+
+Before scraping a site, we should always look at it’s robots.txt file. What’s that? The robots exclusion standard, also known as the robots exclusion protocol or simply robots.txt, is a standard used by websites to communicate with web crawlers and other web robots. The standard specifies how to inform the web robot about which areas of the website should not be processed or scanned. This file can be found on any website by accessing /robots.txt in it’s root folder. For example, the robots.txt file of the site we are going to scrape today is located at- <ExtLink link="https://www.consumerreports.org/robots.txt">https://www.consumerreports.org/robots.txt</ExtLink>
+
+## Getting Started
+
+First step in any web scraping project is to inspect the structure of the website. So, first visit the website, look around, notice how the divs have been arranged, what elements have common classes, etc. Once you have done that, you can go ahead based on what data you want to extract.
+
+Now, we will start with extracting the catalogue of the products that they have on site, (url – <ExtLink link="http://www.consumerreports.org/cro/a-to-z-index/products/index.htm">http://www.consumerreports.org/cro/a-to-z-index/products/index.htm)</ExtLink>. Lets dive in.
+
+To accomplish this task, we’ll use two libraries –  `Requests`, and `Fake_UserAgent`. Requests is a Python HTTP library. The goal of the project is to make HTTP requests simpler and more human-friendly. The fake_useragent is a interesting one. Many websites block web scrapers and crawlers if they detect them. So, we have to avoid detection, so that we can pass under the hood without the site noticing us. For that, we fake our user agent, such that it would appear that our bot is a human visitor.  The fake-useragent library randomizes with real-world stats to make the website detecting our bot more cumbersome.
+
+Now, to extract the desired data from a cluttered mess of html classes and tags, we have to process the html of that page multiple times. Accessing that page every time through the internet is very inefficient and very slow due to limitations in internet speed and it may cause the website server to fail due to multiple requests. To avoid that, we first download the complete webpage and store it in a file and then process that file over and over offline. The code below does that.
+
+```py
+import requests
+from fake_useragent import UserAgent
+url = ‘http://www.consumerreports.org/cro/a-to-z-index/products/index.htm’                    # input your url here
+file_name = ‘consumer_reports.txt’              # output file name
+user_agent = UserAgent()
+page = requests.get(url,headers={‘user-agent’:user_agent.chrome})
+with open(file_name,’w’) as file:
+    file.write(page.content.decode(‘utf-8’)) if type(page.content) == bytes else file.write(page.content)
+```
+
+The above code is pretty straight forward. What we are doing here is just dumping the webpage’s html structure in a file named `consumer_reports.txt`.  Also, we are using the UserAgent() function in the fake_useragent library to avoid detection.
+
+Now we have the webpage downloaded offline. For today, we will try to extract all the names of the products they have in their catalogue, and, store them in a python list. Below is the code for that –
+
+```py
+from bs4 import BeautifulSoup
+import re
+
+def read_file():
+    file = open(‘consumer_reports.txt’)
+    data = file.read()
+    file.close()
+    return data
+
+soup = BeautifulSoup(read_file(),’lxml’)
+
+all_divs = soup.find_all(‘div’,attrs={‘class’:’entry-letter’})
+
+products = [div.div.a.span.string for div in all_divs]
+
+for product in products:
+    print(product)
+```
+
+ Here, we have used the BeautifulSoup library. If you look at the structure of the webpage, you’ll find that all the names have a class called ‘entry-letter’ as their parent class. So, we store all of them in all_divs using the find_all or findAll function. Now we want the name of the product. Looking at the structure, you can see that the name is enclosed in a span tag, which is in a anchor tag, which, is inside two divs. Then, we use .string to get it in plain text without any plain text. We have added two square brackets ([ and ]) to store all the names in a list. Then, as it’s a python list, we can iterate through it and process it one by one. Thanks to the power of Python. For now, we’ll just print their name.
+
+At this point, we have a database of all the products on ConsumerReports.org. It’s applications are vast. We can search through it, use this database as a feed other larger, and more intelligent programs. Basically, using BeautifulSoup, you have got your own dataset. Incredible, isn’t it. But hey, this is just the start, we’ll go deeper as we move ahead.
+
+This was a basic project that demonstrated BeautifulSoup in action. Thanks for reading!

@@ -1,22 +1,32 @@
-Notes
+****** Notes ******
 
-Where all AniLink is used (if you have to change transition duration/color/direction/type later :
-
-in
+*** References to AniLink ***
 1. navbar.js (in SideBar() as well as Navbar class)s
 2. navlinks.js
 3. footer.js
+4. utilComponents/
 
-Posts -
+*** Regarding Posts ***
 Date format : "YYYY-MM-DD"
-
 Markdown images syntax : ![alt text](srcURL "Image Title Text")
 
+*** Dimensions for images ***
+- Featured Image : 330 x 168 || 495 x 252
+- Cover Image : 1200px wide
 
-Things to pass for <SEO> component
+*** Things to pass for <SEO> component ***
     title,
     description,
     keywords,
     url,
     image,
     isBlogPost
+
+*** Tags Database ***
+ - CSS
+ - CSS for Beginners
+ - Web Frameworks
+ - Flask
+ - Django
+ - Web Scraping
+ - BeautifulSoup

@@ -92,6 +92,7 @@ module.exports = {
     `gatsby-plugin-transition-link`,
     `gatsby-transformer-json`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-preact`,
     'gatsby-plugin-robots-txt',
     {
       resolve: `gatsby-source-filesystem`,

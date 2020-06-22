@@ -14,6 +14,9 @@ import Subheading from "../components/blogPostComponents/subheading"
 import Subsubheading from "../components/blogPostComponents/subsubheading"
 import Listitem from "../components/blogPostComponents/listitem"
 import Blockquote from "../components/blogPostComponents/blockquote"
+import Code from "../components/blogPostComponents/codeComponent"
+import {preToCodeBlock} from "mdx-utils"
+import "../styles/codeComponent.scss"
 
 //TODO : Add Keywords, URL & image to the SEO component
 
@@ -26,7 +29,16 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     h2:Subheading,
     h3:Subsubheading,
     li:Listitem,
-    blockquote: Blockquote
+    blockquote: Blockquote,
+    pre: preProps => {
+      const props = preToCodeBlock(preProps)
+      // if there's a codeString and some props, we passed the test
+      if (props) {
+        return <Code {...props} />
+      }
+      // it's possible to have a pre without a code in it
+      return <pre {...preProps} />
+    },
   }
 
   return (

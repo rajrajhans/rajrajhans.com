@@ -1,0 +1,66 @@
+---
+title: "CSS for Beginners #5 : CSS Animated Pyramids"
+date: "2018-10-05"
+description: Hello there! This is the fifth and the last post in the "CSS for Beginners" series. Today we are going to be making an Animated Pyramid design using CSS.
+featuredImage : css-series-5.png
+mainTag: CSS for Beginners
+tags:
+    - CSS for Beginners
+    - CSS
+heroTags:
+    - CSS for Beginners
+readingTime : 4
+keywords:
+    - CSS
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+
+![CSS for Beginners Series #5](css-series-5-wide.png "CSS for Beginners Series #4 : CSS Animated Pyramid")
+
+<Alert><ExtLink link={"https://rajrajhans.com/rajrajhans_assets/css-series-5.zip"} title={"Download code files"}>Click here to download the code files for this post</ExtLink></Alert>
+
+Hello! This is the fifth and the last post in the "CSS for Beginners". Today we are making an animated pyramid The animated pyramid is going to be awesome! It’s also relatively simple to make, it’s practical, it checks off most of the boxes! So let’s get started!
+
+<p style="display:none;" class="codepen" data-height="477" data-theme-id="dark" data-default-tab="result" data-user="rajrajhans" data-slug-hash="zMwVMR" data-preview="true" style="height: 477px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Day #5: Animated Pyramid using CSS">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/zMwVMR">
+  Day #5: Animated Pyramid using CSS</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+Now as you can see, positioning is very important in this example. Let’s take a look at CSS positioning in a bit more detail today.
+
+## CSS Positioning
+
+The *position* property specifies the type of positioning method used for an element. Its value can be static, relative, fixed, absolute or static or sticky. This property is very important in positioning the elements. If it is not specified, the html elements are positioned static by default. An element with position:static; is not positioned in any special way, it get’s positioned automatically according to flow of the page.
+
+### position:relative;
+
+An element with position: relative; is positioned relative to its normal position.
+
+### position:fixed;
+
+An element with position: fixed; is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled.
+
+### position:absolute;
+
+An element with position: absolute; is positioned relative to the nearest positioned ancestor .
+However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.
+
+### position:sticky;
+
+An element with position: sticky; is positioned based on the user’s scroll position. It always stays there, even if you scroll down. This is normally used for header / navigation bars.
+
+Note that when elements are positioned, there’s a chance of them overlapping each other. We use the z-index property to specify the stacking order to tackle overlapping. Now that we have seen basic positioning property, let’s go a step further and see what the top, bottom, right and left properties do. The following info is from w3schools.
+
+<div class="hideOnMobile">
+<blockquote class="bpstquote"><h4 class="blogPostSubSubheading">top</h4><p>The top property affects the vertical position of a positioned element. This property has no effect on non-positioned elements. The value of the property can be specified in px or in %.</p><ul><li class="bpstli">If position: absolute; or position: fixed; – the top property sets the top edge of an element to a unit above/below the top edge of its nearest positioned ancestor.</li><li class="bpstli">If position: relative; – the top property makes the element’s top edge to move above/below its normal position.</li><li class="bpstli">If position: sticky; – the top property behaves like its position is relative when the element is inside the viewport, and like its position is fixed when it is outside.</li><li class="bpstli">If position: static; – the top property has no effect.</li></ul><h4 class="blogPostSubSubheading">bottom</h4><p>The bottom also property affects the vertical position of a positioned element.</p><ul><li class="bpstli">If position: absolute; or position: fixed; – the bottom property sets the bottom edge of an element to a unit above/below the bottom edge of its nearest positioned ancestor.</li><li class="bpstli">If position: relative; – the bottom property makes the element’s bottom edge to move above/below its normal position.</li><li class="bpstli">If position: sticky; – the bottom property behaves like its position is relative when the element is inside the viewport, and like its position is fixed when it is outside.</li><li class="bpstli">If position: static; – the bottom property has no effect.</li></ul><h4 class="blogPostSubSubheading">left</h4><p>The left property affects the horizontal position of a positioned element. This property has no effect on non-positioned elements.</p><ul><li class="bpstli">If position: absolute; or position: fixed; – the left property sets the left edge of an element to a unit to the left of the left edge of its nearest positioned ancestor.</li><li class="bpstli">If position: relative; – the left property sets the left edge of an element to a unit to the left/right of its normal position.</li><li class="bpstli">If position: sticky; – the left property behaves like its position is relative when the element is inside the viewport, and like its position is fixed when it is outside.</li><li class="bpstli">If position: static; – the left property has no effect.</li></ul><h4 class="blogPostSubSubheading">right</h4><p>The right property also affects the horizontal position of a positioned element. This property has no effect on non-positioned elements.</p><ul><li class="bpstli">If position: absolute; or position: fixed; – the right property sets the right edge of an element to a unit to the right of the right edge of its nearest positioned ancestor.</li><li class="bpstli">If position: relative; – the right property sets the right edge of an element to a unit to the left/right of its normal position.</li><li class="bpstli">If position: sticky; – the right property behaves like its position is relative when the element is inside the viewport, and like its position is fixed when it is outside.</li><li class="bpstli">If position: static; – the right property has no effect.<span>Source: w3schools</span></li></ul></blockquote>
+</div>
+
+Now let’s take a look at our code for today. How to create that triangle? We are actually creating the triangle by using the clip-path property of CSS3. We are clipping that div element wrapping all the three elements. So for the styling, we’ll start with the triangle, set it’s position to be relative, and height to be 320px. Then, we use the clip path property to create a custom shape, here, the triangle. Now, if you preview the html at this point, you’ll see the full triangle. We don’t want that. So what we’ll do is that we’ll hide the triangle and only show it in the hover selector. We also set the z-index of top to 1 so that it will appear. Then, we set the value of “top” for mid when hovered to 110px. This will move it down 110px. 110px because we want that gap in between. Then. we’ll select bottom hover and move it down 220px because we are moving it down 100px more. We also add the backgrounds accordingly. Now, if you preview it, it will appear instantaneously. We want it to get that animated feel, so we’ll add a transition property to the divs of triangle of value “all ease 6s”. This will give us that animated feel. So it’s not really an animation, it’s a transition!
+
+So that’s it for today! You can use this concept in a variety of different ways, instead of triangle you could have a circle, maybe, you can add more elements, well there are so many possibilities! See you in the next post!
+

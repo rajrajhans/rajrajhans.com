@@ -1,0 +1,66 @@
+---
+title: "CSS for Beginners #4 : CSS Progress Bars"
+date: "2018-09-05"
+description: Hello there! This is the fourth post in the "CSS for Beginners" series. Today we are going to be making Progress Bars completely with CSS.
+featuredImage : css-series-4.png
+mainTag: CSS for Beginners
+tags:
+    - CSS for Beginners
+    - CSS
+heroTags:
+    - CSS for Beginners
+readingTime : 6
+keywords:
+    - CSS
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+
+![CSS for Beginners Series #4](css-series-4-wide.png "CSS for Beginners Series #4 : CSS Progress Bars")
+
+<Alert><ExtLink link={"https://rajrajhans.com/rajrajhans_assets/css-series-4.zip"} title={"Download code files"}>Click here to download the code files for this post</ExtLink></Alert>
+
+Hello! This is the fourth post in the "CSS for Beginners" series and today we are going to be making different progress bars. Have you seen those funky looking progress bars on a personal website that show the skills, or those progress bars that show up before the page loads? We are going to create a few of those! First, we’ll start with basic colored / gradient-colored bars, and then move to some complex designs. Let’s get started!
+
+# Design 1: Simple Striped Colored Progress Bar
+
+<p style="display:none;" class="codepen" data-height="400" data-theme-id="dark" data-default-tab="result" data-user="rajrajhans" data-slug-hash="EOWwOv" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Design #1 Simple Colored Progress Bar">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/EOWwOv">
+  Design #1 Simple Colored Progress Bar</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+So for the first progress bar, let’s keep things simple. Let’s make four different bars of four different colors. So, to start with, we create four divs, each with a class of “progress-bar” and it’s individual color as the name of the other class. Also, for those bars who are on the right side, we add the class of “class” so we can position them there. That’s pretty much it for the html. Just a few empty divs with classes added. Let’s move on to the CSS where the real magic happens!
+
+First we select the basic progress-bar class that will select all four bars. Then, we set it’s height, width and background color accordingly. Then, we set the border radius to make it just a little bit circular. A border radius of 16px is sufficient for that. We also add the -webkit- and -moz- properties for ensuring cross browser compatibility. Then, we set the box-shadow and also make it cross-browser compatible. The “box-shadow” property is interesting. Let’s take a look at it. The sytax for box-shadow is box-shadow:(inset|initial|inherit) h-offset v-offset blur spread color ; So first you mention the style of box shadow. “inset” will change the shadow from an outer shadow to an inner shadow. “initial” will set the property to it’s default value. “inherit will inherit the property from its parent element. Next, specify the horizontal offset. A positive value of h-offset will put the shadow on the right side of the box, a negative value will put the shadow on the left side. A horizontal offset of zero will remove the shadow. The next value is the vertical offset. A positive value of vertical shadow will put the shadow below the box, a negative value will put it above the box, and zero implies no vertical offset. The next value sets the blur radius. Higher the number, more blurred the shadow will be. Then, next is the spread radius. This term is frequently used in Photoshop. A positive value increases the size of the shadow, and a negative value decreases the size of the shadow. Then next we specify the color if the shadow. If not specified, the default value is text color.
+
+But how do we set the inner part of the bar? We use the before pseudo element to do that! So as with an pseudo element, we select them using the :before selector, specify the content string, which is going to be empty here. Then, we set it to display as a block , and set the width and height. We also set the border radius, box-shadow and make sure to make them cross browser compatible.
+
+Now for the stripes, we can go via the simpler route and add a background pattern of the stripes and repeat it over the bar. But, what if we “create” those stripes ourselves using CSS! Let’s do that. So for that, we’ll select the :after pseudo element and add thee content string as ||||||. Now we’ll manipulate this string to display the stripes. For that, we’ll use the transform property and the skew function. The skew function “skews” the content at the specified angle. We’ll set the angle to be -30deg. Also, we make sure to make the transform property to be cross browser compatible.
+
+Now, all that’s left is to color the individual bar stripes. We do that using the classes that we put for each individual divs. Then, select the alt class and float it to right to get the progress bars one after another.
+
+Okay, so we have created a static progress bar with colorful gradient. Let’s take it to the next level and add animations to it. Now generally, animations are implemented by jquery. But, we’ll do it using CSS only.
+
+# Design 2: Animated Striped Progress Bars
+
+<p style="display:none;" class="codepen" data-height="400" data-theme-id="dark" data-default-tab="result" data-user="rajrajhans" data-slug-hash="xQqXep" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Design #2 Animated Progress Bar">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/xQqXep">
+  Design #2 Animated Progress Bar</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+For that, let’s take a look at how CSS animations work.
+
+## CSS Animations
+
+We’ll make use of @keyframes, i.e. CSS animations. @keyframes is really awesome, because it let’s us animate HTML elements without using JavaScript or Flash! To use CSS animations, we have to first specify some keyframes for the animation. Keyframes hold what styles the element will have at certain times. When we specify CSS styles inside a @keyframe rule, the animation will gradually change from the current style to a new style at certain times. But to get an animation to work, we have to first bind the animation to an element. To do that, we add the property “animation-name:” and “animation-duration:” to the style of that element. Then we use the same name while specifying @keyframes rule. Note that the animation-duration property defines how long time an animation should take to complete. If the animation-duration property is not specified, no animation will occur, because the default value is 0s (0 seconds). There can be two types in @keyframes. One if specifying styles in terms of from and to and it will animate accordingly. Second is to specify styles in percentages. That’s what we have done in our code for the first animation bar. We have specified different styles for 0%, 50%, and 100%. For 0%, we have specified the width to be 20%, for 50% we set the width to be 80% and for 100%, we have set the width to be 20%. And, we have set the duration to be 10s. So, as you can see, the bar goes to 80% and comes back to 20% and this happens as a infinite animation!
+
+Now, for the second progress bar, we have set the animation-duration to be same, i.e. 1s, but observe the @keyframes rule, at 0%, we set the width to be 20%, at 50%, the width is set to be 100%. And it repeats itself infinitely. So that’s why when you look at the animations, it appears as if the second bar is faster. That’s because it we have set time to be same but width at 50% to be more (i.e. 100% instead of 80%). So at the 5s mark, the second bar has to be at 100% and first bar has to be at 80%. Therefore, the second bar seems to move faster.
+
+Let’s see the first progress bar. First, we select the div container around it and set some basic properties, like position, display as block, padding, font-size, line-height, border-radius, background, box-shadow, etc. Then, we select the span inside the class animation-bar-1. That is the actual bar. So, once again, we set the basic properties, i.e. position, display, height, background color, etc. Now, we select the animation-bar-1 span:after pseudo element. To create the stripey effect, we’ll use the background-image property with a value of linear-gradient and add color stops at 25%, 50%, 75%, and 100%. Then, we set the background size to 30px. And opacity to 0.3. So this makes it look more subtle. That’s pretty much it for the style, as we have already discussed animation keyframes in detail before.
+
+So that’s it for today. See y’all in the next post with another CSS design!

@@ -1,0 +1,50 @@
+---
+title: "CSS for Beginners #3 : CSS Pop Up Window"
+date: "2018-08-15"
+description: Hello there! This is the third post in the "CSS for Beginners" series. Today we are going to be making a pop up window completely with CSS and no JS.
+featuredImage : css-series-3.png
+mainTag: CSS for Beginners
+tags:
+    - CSS for Beginners
+    - CSS
+heroTags:
+    - CSS for Beginners
+readingTime : 5
+keywords:
+    - CSS
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+
+![CSS for Beginners Series #3](css-series-3-wide.png "CSS for Beginners Series #3 : Pop Up Window using CSS")
+
+<Alert><ExtLink link={"https://rajrajhans.com/rajrajhans_assets/css-series-3.zip"} title={"Download code files"}>Click here to download the code files for this post</ExtLink></Alert>
+
+Hello! This is the third post in the "CSS for Beginners" series and today we are going to be making a pop up window that you see on websites that is used for showing notifications, or an alert of some kind, or asking you to subscribe to something. It is commonly used in Bootstrap or frameworks like that. Generally, it is built with JavaScript or jquery. But, we are going to build it only with CSS3. We’ll have a button that, when click, will trigger the window and will pop up the window. It will have an animation while popping up, which we can do with the transition property. Then, it’ll also have a background overlay behind it, and then a close button which’ll close the window. Let’s get started!
+
+<p style="display:none;" class="codepen" data-height="400" data-theme-id="dark" data-default-tab="result" data-user="rajrajhans" data-slug-hash="MzJOLq" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Day #3 of 30 Days CSS">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/MzJOLq">
+  Day #3 of 30 Days CSS</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+## The HTML
+
+Now here, if you take a look at the HTML, you’ll see a checkbox type input. It has the id of “click”. But the style for that has been set to be “display:none;”, that is, it is invisible. So why do we have it? Believe it or not, this invisible input is what makes everything happen! We have hidden the input as we don’t need to see it, but the state of that input, that is, checked or unchecked is what’s going to determine if the pop-up window appears or not. So we are manipulating the checkbox input to open the pop-up window. Slick!
+
+The label below that wraps the a tag, which is the button. But the label has the attribute of “for” and it’s value is “click”, which is the id for the checkbox input. So it is tied to the checkbox input. Now, when the user clicks the button (a tag), i.e. the user is actually clicking the label as it’s the parent, it will activate or toggle the checkbox input. You can verify this by removing the “display:none;” property. You’ll see a checkbox next to the button, and as you click the button, it will check and uncheck the checkbox. Now, as we can select the check and uncheck states in CSS.
+
+Below that we have the div with the class of “popup”, and another div for content. The content is sample lorem ipsum text. Lorem ipsum was used as a placeholder text in publishing and graphic design before to replace actual content to demonstrate the visual form without relying on actual content. Today, it’s used by web developers for the same reason, to demonstrate the visual form without relying on actual content. Now, after that, we have a div of the class “overlay”, which is the black overlay that is present behind the box.
+
+## The CSS
+
+So let’s start styling! First, we will code the overlay. We’ll select the div and set the position to be “fixed”, and the top, right, left, bottom values to be “0”. That tell’s the element that it’s going to be connected to all four sides. As we have set the left top right bottom values to be zero, it will stretch itself. Next, we set the z-index to be 99. That will put itself in front of most other parts of the page. Then we set the background to “#000”, which is black. Next we set the “pointer-events” attribute value to be “none”. What it will do is make sure that if someone clicks on the overlay, nothing will happen. Next we set the opacity to 0. Then, we use the transform property to be scale to half of the size (0.5). But as we have set the opacity to be zero, it won’t be visible now. We only want it to be visible when we click the button. Let’s take care of that next.
+
+If you see the next selector it’s input[type=”checkbox”]:checked ~ .overlay We are selecting the input of the type “checkbox”, but the checked state of it. Then we use the general sibling combinator (~). This will allow us select any sibling of the element, not necessarily the adjacent sibling, but any sibling. So basically, we are selecting the .overlay class when the checkbox is checked. Then,we set the pointer-events to be “auto” for this. Next we set the opacity to be 0.9. Then, we use the transform property to scale the element to 1. Then, we also add the transition property to transition it to 0.3s at ease. This will add that animate effect. We also add -webkit- and -moz- for cross-browser compatibility. Now if you test, you’ll see the overlay popping up once it is clicked with a nice slide animation.
+
+Next, we style the .popup class. We’ll set the position to be fixed, top, left to be 50%. We set the z-index to be 100 so that it will take precedence over overlay. Then, we use the transform property to scale it to the half. We also add a translate attribute and set it to -50% and 50%. This sets it to be half the size, but we’ll scale it up with a nice animation when it is activated. We also set the opacity here to be zero so that it is hidden. Next, we use the general sibling combinator to select the popup class when the checkbox a.k.a. the button is selected or activated. So, like before the selector will be input[type=”checkbox”]:checked ~ .popup. Then, we set the opacity to 1 so that it will be visible. Then, we set the pointer events to be auto. We’ll use the transform property to scale it to 1. And, also don’t forget to add the transition property to get that animate effect. Here, we will add the transition-delay property with a value of 0.1s. So, if you test it, the overlay will close first and then 0.1 seconds later, the popup box will close. This gives it a really subtle, but nice effect. Then, lastly, we select the content class, give it some padding, and set it to display as a block.
+
+So that’s it for today! We made a popup window completely using CSS, so it’ll work even if the user has JavaScript disabled. Most popup blockers generally disable the JS popups but ours will work even then. Also, we have made it cross browser compatible so it will work pretty much everywhere! Hope you learned something new about CSS from this post. I certainly did! See you in the next post with another post about CSS!

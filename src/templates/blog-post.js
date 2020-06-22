@@ -15,7 +15,7 @@ import Subsubheading from "../components/blogPostComponents/subsubheading"
 import Listitem from "../components/blogPostComponents/listitem"
 import Blockquote from "../components/blogPostComponents/blockquote"
 import Alert from "../components/blogPostComponents/alert"
-import extLink from "../components/blogPostComponents/extLink"
+import ExtLink from "../components/blogPostComponents/extLink"
 import Code from "../components/blogPostComponents/codeComponent"
 import { preToCodeBlock } from "mdx-utils"
 import "../styles/codeComponent.scss"
@@ -42,7 +42,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       return <pre {...preProps} />
     },
     Alert,
-    extLink
+    ExtLink
   }
 
   return (

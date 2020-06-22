@@ -5,11 +5,13 @@
 .gatsby-highlight {
   position: relative;
   -webkit-overflow-scrolling: touch;
+  width: 80%;
+  margin: auto;
 }
 .gatsby-highlight pre[class*="language-"] {
   -webkit-overflow-scrolling: touch;
   padding: 1rem 0.75rem;
-  border-radius: 0.25rem;
+  border-radius: 13px;
 }
 
 .gatsby-highlight pre[class*="language-"]::before {
@@ -56,4 +58,13 @@
 
 .token.operator{
   background: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .gatsby-highlight{
+    width: 100%;
+  }
+  .gatsby-highlight pre[class*="language-"]{
+    padding: 2rem 0.75rem;
+  }
 }

@@ -77,3 +77,36 @@
   font-weight: bold;
   margin-top:1em;
 }
+
+.bpstAlert{
+  line-height: 1.5;
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border-width: 2px;
+  border-style: solid;
+  font-weight: 500;
+  margin: auto;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  grid-column-gap: 1rem;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 1rem;
+  background-color: #ebf4ff;
+  border-color: #c3dafe;
+  color: #4c51bf;
+  width: 80%;
+}
+
+@media only screen and (max-width: 800px) {
+  .bpstAlert{
+    width: 90%;
+    padding: 0.5rem;
+
+    svg{
+      margin: auto;
+    }
+  }
+}

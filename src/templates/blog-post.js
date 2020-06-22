@@ -14,8 +14,9 @@ import Subheading from "../components/blogPostComponents/subheading"
 import Subsubheading from "../components/blogPostComponents/subsubheading"
 import Listitem from "../components/blogPostComponents/listitem"
 import Blockquote from "../components/blogPostComponents/blockquote"
+import Alert from "../components/blogPostComponents/alert"
 import Code from "../components/blogPostComponents/codeComponent"
-import {preToCodeBlock} from "mdx-utils"
+import { preToCodeBlock } from "mdx-utils"
 import "../styles/codeComponent.scss"
 
 //TODO : Add Keywords, URL & image to the SEO component
@@ -25,10 +26,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
 
   const components = {
-    h1:Heading,
-    h2:Subheading,
-    h3:Subsubheading,
-    li:Listitem,
+    h1: Heading,
+    h2: Subheading,
+    h3: Subsubheading,
+    li: Listitem,
     blockquote: Blockquote,
     pre: preProps => {
       const props = preToCodeBlock(preProps)
@@ -39,26 +40,32 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       // it's possible to have a pre without a code in it
       return <pre {...preProps} />
     },
+    Alert
   }
 
   return (
-    <Layout location={location} customclass={"navBlogPost"} customNavClass={"navBlogPostBar"} >
+    <Layout
+      location={location}
+      customclass={"navBlogPost"}
+      customNavClass={"navBlogPostBar"}
+    >
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description}
       />
       <div className="blogHeroContainer">
         <div className="blogHero">
-
           <div className="heroBlogTags">
             {post.frontmatter.heroTags.map((herotag, indexx) => (
-              <InternalLinkUp link={`/tags/${toKebabCase(herotag)}`} title={`Explore all posts tagged with "${herotag}"`}>
+              <InternalLinkUp
+                link={`/tags/${toKebabCase(herotag)}`}
+                title={`Explore all posts tagged with "${herotag}"`}
+              >
                 <span className={"heroBlogTag heroBlogTag1"} key={indexx}>
-                      {herotag}
+                  {herotag}
                 </span>
               </InternalLinkUp>
             ))}
-
           </div>
 
           <div className="heroBlogTitle">
@@ -66,27 +73,19 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </div>
 
           <div className="heroAuthorRow">
+            <div className={"heroAuthorName"}>By Raj Rajhans -</div>
 
-            <div className={"heroAuthorName"}>
-              By Raj Rajhans  -
-            </div>
-
-            <div className="heroDate">
-              {post.frontmatter.date}
-            </div>
-
+            <div className="heroDate">{post.frontmatter.date}</div>
           </div>
 
           <div className="heroReadingTime">
             {post.frontmatter.readingTime} minute read
           </div>
-
         </div>
       </div>
 
       <div className="blogContentContainer">
         <div className="blogContent">
-
           <div className="blogText">
             <MDXProvider components={components}>
               <MDXRenderer>{post.body}</MDXRenderer>
@@ -95,32 +94,58 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
           <div className="blogprevnext">
             <div className="blogPrev">
-              {previous ?
-                <InternalLink link={previous.fields.slug} title={previous.frontmatter.title}>
+              {previous ? (
+                <InternalLink
+                  link={previous.fields.slug}
+                  title={previous.frontmatter.title}
+                >
                   <div className={"blogPrevCntnr"}>
-                  <svg className={"blogPrevSVG"} stroke="#3355ff" fill="#3355ff" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em"><path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path></svg>
+                    <svg
+                      className={"blogPrevSVG"}
+                      stroke="#3355ff"
+                      fill="#3355ff"
+                      stroke-width="0"
+                      viewBox="0 0 448 512"
+                      height="1em"
+                      width="1em"
+                    >
+                      <path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path>
+                    </svg>
                     {previous.frontmatter.title}
                   </div>
                 </InternalLink>
-              : null}
+              ) : null}
             </div>
 
             <div className="blogNext">
-              {next ?
-                <InternalLinkRight link={next.fields.slug} title={next.frontmatter.title}>
-                <div className={"blogNextCntnr"}>
-                  <svg className={"blogNextSVG"} stroke="#3355ff" fill="#3355ff" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em"><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg>
+              {next ? (
+                <InternalLinkRight
+                  link={next.fields.slug}
+                  title={next.frontmatter.title}
+                >
+                  <div className={"blogNextCntnr"}>
+                    <svg
+                      className={"blogNextSVG"}
+                      stroke="#3355ff"
+                      fill="#3355ff"
+                      stroke-width="0"
+                      viewBox="0 0 448 512"
+                      height="1em"
+                      width="1em"
+                    >
+                      <path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path>
+                    </svg>
                     {next.frontmatter.title}
-                </div>
+                  </div>
                 </InternalLinkRight>
-              : null}
+              ) : null}
             </div>
           </div>
 
           <div className="blogBottomRow">
             <div className="blogBtmAthrRow">
               <div className="blogBtmAthrImg">
-                <img src={Pic} alt={"raj-rajhans"}/>
+                <img src={Pic} alt={"raj-rajhans"} />
               </div>
 
               <div className="blogBtmAthrTxt">
@@ -131,7 +156,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 </div>
 
                 <div className="blogBtmAthrBio">
-                  Ambivert. Perpetually audacious. Tech aficionado, and a striving nonconformist
+                  Ambivert. Perpetually audacious. Tech aficionado, and a
+                  striving nonconformist
                 </div>
               </div>
             </div>
@@ -140,7 +166,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               <div className="blogBtmTagsTxt">Tags :</div>
               <div className="blogBtmTagsCntnr">
                 {post.frontmatter.tags.map((tag, index) => (
-                  <InternalLinkUp link={`/tags/${toKebabCase(tag)}`} title={`Explore all posts tagged with "${tag}"`}>
+                  <InternalLinkUp
+                    link={`/tags/${toKebabCase(tag)}`}
+                    title={`Explore all posts tagged with "${tag}"`}
+                  >
                     <span className={"heroBlogTag"} key={index}>
                       {tag}
                     </span>
@@ -149,12 +178,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
-
     </Layout>
-
   )
 }
 

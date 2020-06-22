@@ -7,6 +7,11 @@ in
 2. navlinks.js
 3. footer.js
 
+Posts -
+Date format : "YYYY-MM-DD"
+
+Markdown images syntax : ![alt text](srcURL "Image Title Text")
+
 
 Things to pass for <SEO> component
     title,

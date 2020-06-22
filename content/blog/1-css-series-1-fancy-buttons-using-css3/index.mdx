@@ -1,0 +1,113 @@
+---
+title: CSS for Beginners Series #1 : Fancy Buttons using CSS
+date: "2018-07-10"
+description: Hello there! This is the first post in the "CSS for Beginners" series. Click here to know more about it. Today, we will create various kinds of buttons using CSS.
+featuredImage : css-series-1.png
+mainTag: CSS for Beginners
+tags:
+    - CSS for Beginners
+    - CSS
+heroTags:
+    - CSS for Beginners
+readingTime : 15
+---
+
+![CSS for Beginners Series #1](css-series-1.png "CSS for Beginners Series #1 : Fancy Buttons using CSS")
+
+<Alert><ExtLink link={"/"} title={"Download code files"}>Click here to download the code files for this post</ExtLink></Alert>
+
+Hello there! This is the first post in the "CSS for Beginners" series. Today, we will create various kinds of buttons – facebook-styled, 3D buttons, gradient buttons, animated buttons, toggle buttons, and what not. And, this would be done completely using CSS. So, let’s start!
+
+# Facebook – styled buttons
+
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="rajrajhans" data-slug-hash="yQJNOP" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Facebook Styled Button">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/yQJNOP">
+  Facebook Styled Button</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+The first -moz-box-shadow is for mozilla based browsers. Second -webkit-box-shadow is for webkit based browsers, and the last one, box-shadow is just a fallback for old browsers. The “inset” makes the box shadow on the inside of the block level element. So the box shadow is going to be inside the element, rather than the outside. The firt number is the horizontal offset, second one is vertical offset. The third number is the blur radius. 0 would be a sharp line. The next is the spread radius. Then the last one is the color of the shadow. Then, we set the background of the button to #4267b2, which is the facebook blue color.
+
+Next, we set the hover effects for the button. We add a background color attribute inside it so that the button will change the background color on hover and active states. Next, we set similar effects for the facebook style light class, The background is set to #f6f7f9, border to a solid 1 px #ced0d4. And, we change the background on hover to #d8dade, which is more of a gray-ish color.
+
+# 3D Buttons
+
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="rajrajhans" data-slug-hash="MzewoV" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="3D Buttons">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/MzewoV">
+  3D Buttons</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+To get that 3D effect , we set the box shadow to be -6px and 6px top-bottom and right-left, and adjust the hue, saturation accordingly. We set the font size to 1.4 rem. “em” is the unit relative to font size of parent. “rem” is the unit relative to the group, which is a little bit more consistent. Now, for hover, we’ll change the background to be a little more dark, and for active state, we’ll change the background and the box shadow.
+
+We need to fill the void that is on the top left and bottom right corners. For that, we make use of the pseudo elements before and after and create a triangular portion using css.
+
+## 3D button 2 Circle
+
+For getting the circle shape, we keep the border radius 100%. Here, we set the text-shadow to 0, -1px, 0 #c3af07. What the -1px does is that it makes the shadow above the text. It’s the vertical offset. The 0 is the horizontal offset. The zero after that (the third value) is the blur. We don’t want any blur so we have kept it to zero.
+
+By adding multiple box shadows, we can achieve the 3d effect.
+For the hover effect, we decrease the transparency and make it more dark. For active state, we make it even darker.
+
+We also need to create the clicky effect that we achieved in the first 3d button. We want to move the button down, and keep the box shadow as is. This can be achieved by changing the box shadow in the active state, and just remove the two pixels that we are bumping down. This will achieve the click effect.
+
+# Animated Buttons
+
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="rajrajhans" data-slug-hash="yQJNKj" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Animated Buttons">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/yQJNKj">
+  Animated Buttons</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+## Animated Button 1
+For the first animated button, we set the position to be relative, display the button as inline block and add some padding. Font size would still be 1.4 re.
+
+Transition is set to all ease and 0.3 second. Let us create an animation using @keyframes. But first, we will call the animation in the hover selector of the button.
+
+To create the animation, we use keyframes. In the from area, we set the background position to 0,0, and in the to area, we set the background position to 40px and 0. This will crreate a linear animating effect.
+
+## Animated Button 2
+
+For the second animated button, we will set the basic styles same as the first one, except without the pattern. To create that chevron that pops up on hover, we use the after pseudo element.
+
+For the after pseudo elemnt, we set the top property to 50%, i.e. in the middle. After that, we set the transition to all ease 0.3s. And,we also set the opacity to zero, as we dont want it to appear at first. Now, on hover, we want to shift the text to the left. We can achieve that by removing some left padding, adding some right padding, so it looks that the width of the button stays the same while the text shifts over. And because we have the transition it will glide over, rather than jump over. Normally, we have kept the padding to be 20px 40px 20px 40px. On hover, we’ll set it to be 20px 60px 20px 20px. So as we have transition, it is actually animating the padding change.
+
+# Gradient Buttons
+
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="rajrajhans" data-slug-hash="LXZVaE" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Gradient Buttons">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/LXZVaE">
+  Gradient Buttons</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+## Gradient button 1
+
+We use the border image property to set the gradient to the border, and then use the border image slice property to set the gradient on all four sides.
+Now, as a hover effect, we change the text color and the background fill color. As we keep the transition time 0.3 seconds, it gives a nice feel on hover.
+
+## Gradient button 2
+
+For the second button, we keep everything pretty much the same but change the gradiend from yellow to transparent as it would give the fade away effect.
+
+# Toggle Switch Buttons
+
+<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="rajrajhans" data-slug-hash="EOyVqZ" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Toggle Switch Buttons">
+  <span>See the Pen <a href="https://codepen.io/rajrajhans/pen/EOyVqZ">
+  Toggle Switch Buttons</a> by Raj (<a href="https://codepen.io/rajrajhans">@rajrajhans</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+Toggle Button 1
+The toggle buttons are not really buttons. In the HTML, they are actually checkbox input. We are going to use CSS3 to manipulate the view of checkbox into an actual switch. i.e. the toggle button. Using the CSS properties, we are changing the look of the checkbox; Using the pseudo before, we create a switch-like that displays content “off” in uppercase. We add a transition property so as to animate it.
+Now as we can see, the checkboc is wrapped in the label using for attribute “toggle1”. Now the checkbox has the id “toggle1”. It is hidden, but it exists. So, when you click on the label, it’s going to toggle that input, because of the for attribute connecting it to the id. That means when you click the label, it is still toggling from on to off. CSS can access to find out whether the checkbox is on or off. Then, we can use that data to style it accordingly.
+If you look at the toggle css code, the selector is something like this : “.toggle-1__input:checked + .toggle-1__button” What this does is looks for the input that is checked, but selects it’s direct sibling, which is toggle-1__button. So, the sibling get’s selected, but only if the input is checked. Then, we change the background after selecting that.
+Just as we created a pseudo element for “off” we will create a ‘before’ pseudo element for the “on” state.
+
+Toggle Button 2
+
+For this, we first set the basic properties to display a button, we set the margin, padding, vertical alignment, etc. Then, we put in a display:none; after selecting the input of the toggle-2 class as we do not want the actual checkbox to be visible. We also want a black circle before the text “Click me to activate”. Thatcan be done by taking a pseudo element “before”. We set the border radius of the pseudo element to 100% so that it will be seen perfect circle. We also put transition all 0.3 seconds to animate the changes.
+After that, we use the adjacent sibling selector to style the pseudo element once the input is in the checked state. So, we change the background color and the button is ready!
+
+I hope you guys liked this post. This was more of a technical post. We’ll go through many such beginner-friendly CSS codes in the next few posts. Stay tuned!
+

@@ -1,0 +1,139 @@
+---
+title: "Deploying your Flask WebApp to Heroku for the World to see"
+date: "2019-11-23"
+description: Want to show off your WebApp to the world? Deploy it on the internet! This post is a discussion on deploying a Flask WebApp on the internet using Heroku. Find out what Heroku is and how you can use it to deploy your Flask WebApp for free!
+featuredImage : post-15-1.png
+mainTag: Heroku
+tags:
+    - Heroku
+    - Web Frameworks
+    - Flask
+    - Python
+heroTags:
+    - Heroku
+    - Flask
+readingTime : 5
+keywords:
+    - Heroku
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+
+Hola fellas! In a previous post, we had created a Flask webapp that would show the weather of a particular city. <ExtLink link={"/2019/08/case-study-developing-weather-webapp/"}>Here’s the link</ExtLink> if you haven’t read it.
+
+You can see the webapp in action at weather.rajrajhans.com, as it is hosted on Heroku. Today, we shall discuss about deploying a Flask based WebApp to Heroku.
+
+# What is Heroku
+
+In simple words, Heroku is a managed application hosting service. With Heroku, you just push your code using Git, for instance and it automatically handles deploying and serving it. All the infrastructure related workload is handled by Heroku itself. That’s why the “managed” part in “managed application hosting service”. Due to this reason, Heroku is also called as a Paas (Platform as a service).
+
+This is unlike when you buy a VPS (Virtual Private Server). When you buy a VPS, you have to be responsible for all the infrastructure related work like restarting the server in case of a hitch, routing HTTP requests, OS updates, system architecture etc. Heroku handles all that for you and allows you to focus on the app and it’s code. So, for a web dev beginner with limited knowledge of DevOps, who wants to host his app on the cloud for the world to see, Heroku is the best option.
+
+# Is Heroku Free
+
+Heroku has a free tier which has some limitations. However, if you are a student, you can get the Hobby Dyno ($7/month) for free. Check out the details regarding that here [<ExtLink link="https://www.heroku.com/students">https://www.heroku.com/students</ExtLink>].
+
+# Prerequisites
+
+1. Your app is running fine locally without any errors.
+2. You have a basic knowledge of git.
+
+# Deploying the app to Heroku
+
+Start off by downloading the Heroku CLI (Command Line Interface). Through the Heroku CLI, we will deploy and manage our app. After installation, go to the terminal and run the following command.
+
+```bash
+heroku login
+```
+
+You will be asked to enter your credentials after which you will be logged in.
+
+We will be using the gunicorn WSGI server as it is more suitable for handling production level requirements than Flask’s built-in web server. Flask’s built in server is suitable for developmental purposes. In case you’re wondering what is WSGI, or Gunicorn, I’ve covered that in a separate blog post – How does my WebApp work?
+
+First, install gunicorn in your project using
+
+```bash
+pip install gunicorn
+```
+
+Then, freeze your app’s dependencies to a text file named requirements.txt using
+
+```bash
+pip freeze &gt; requirements.txt
+```
+
+Create a file named “Procfile” in your project root. It should contain the following code –
+
+```bash
+web:gunicorn app:app
+```
+
+What this line does is that it specifies that you are using the gunicorn web server. The ‘app:app’ specifies the module and application name. In our Flask application, our module as well as the Flask application is called ‘app’.
+
+Next, you can create a Heroku app if you haven’t already using –
+
+```bash
+heroku create someuniquename
+```
+
+![Heroku](post-15-2.png)
+
+After this, push your changes to Heroku’s master branch.
+
+```bash
+git add .
+git commit -m "Deploy"
+git push heroku master
+```
+
+![Heroku](post-15-3.png)
+
+The application is now deployed. To ensure at least one instance of the app is running –
+
+```bash
+heroku ps:scale web=1
+```
+
+With this, we have successfully deployed our Flask app to Heroku and can now be accessed by anyone on the internet. We can do many things after this in Heroku to add more features. Let’s take a brief look.
+
+# Connecting a GitHub repo
+
+Instead of manually pushing our code to Heroku’s servers each time we make a change, we can connect out Heroku app to our GitHub repo so that whenever there is a change pushed to the repo, Heroku will pick it up and re deploy the app. You a connect a GitHub repo from the Settings of your Heroku app from the dashboard.
+
+![Heroku](post-15-4.png)
+
+# Custom Domain
+
+By default, your app can be accessed by a .herokuapp.com URL, you can also connect your custom domain to your Heroku app. For that, you will have to add some A records that Heroku will give you in your Domain Registrar’s settings. After successful DNS propagation (which might take upto 24 hours), you can see that your app is linked with a custom domain
+
+![Heroku](post-15-5.png)
+
+# Adding config vars
+
+![Heroku](post-15-6.png)
+
+# Creating a CI / CD pipeline
+
+You can create a pipeline in Heroku to simplify testing. Heroku has a great feature called Review Apps wherein whenever you open a pull request on the repo, Heroku automatically deploys a test app for that pull request so you can easily see the changes.
+
+![Heroku](post-15-7.png)
+
+# Debugging using Real Time Logs
+
+You can see your app’s logs by the following command
+
+```bash
+heroku logs
+```
+
+You can also see the logs in real time using the following command
+
+```bash
+heroku logs --tail
+```
+
+This feature really helps to triangulate what exactly is causing a problem in your app.
+
+So that’s it for today’s post. Hope this helped you get some clarity on what Heroku is, and how you can deploy your Flask WebApp on Heroku.

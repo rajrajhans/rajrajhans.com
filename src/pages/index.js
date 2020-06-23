@@ -16,9 +16,12 @@ class Index extends Component {
 
     const blogs = this.props.data.allMdx.nodes
 
-    const razzAge = () => (
-      new Date().getFullYear() - 2001
-    )
+    function calculate_razz_age(dob) {
+      var diff_ms = Date.now() - dob.getTime();
+      var age_dt = new Date(diff_ms);
+
+      return Math.abs(age_dt.getUTCFullYear() - 1970);
+    }
 
     return (
       <Layout location={this.props.location} customNavClass={"homePageNav"} customclass={"homePageWrapper"}>
@@ -35,7 +38,7 @@ class Index extends Component {
               </span>
                 <br/>
               <div className={"homepageHeroIntro homepageHeroIntroTop"}>
-                I'm a {razzAge()} year old web developer studying Computer Engineering.
+                I'm a {calculate_razz_age(new Date(2001, 4, 8))} year old web developer studying Computer Engineering.
               </div>
 
               <div className=" homepageHeroIntro">This blog reflects my <ReactRotatingText items={['ideas.', 'projects.', 'learnings.']}/></div>
@@ -120,7 +123,7 @@ export const pageQuery = graphql`
           mainTag
           featuredImage {
             childImageSharp {
-              fixed(width: 330) {
+              fixed(width: 330, quality:90) {
                 ...GatsbyImageSharpFixed_withWebp
               }
             }

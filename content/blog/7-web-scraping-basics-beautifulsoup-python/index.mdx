@@ -7,6 +7,7 @@ mainTag: Web Frameworks
 tags:
     - Web Scraping
     - BeautifulSoup
+    - Python
 heroTags:
     - Web Scraping
 readingTime : 10
@@ -36,10 +37,10 @@ With a few exceptions, if you can view the data in your browser, you can access 
 
 ## BeautifulSoup
 
-> Beautiful Soup, so rich and green,
-> Waiting in a hot tureen!
-> Who for such dainties would not stoop?
-> Soup of the evening, beautiful Soup!
+> Beautiful Soup, so rich and green,<br/>
+> Waiting in a hot tureen!<br/>
+> Who for such dainties would not stoop?<br/>
+> Soup of the evening, beautiful soup!<br/>
 > <span>Lewis Caroll</span>
 
 So the above is a poem by Lewis Caroll, but that’s not we are talking about. BeautifulSoup is a library in Python that was named after the above Lewis Caroll poem of the same name in Alice’s Adventures in Wonderland. In the story, the poem is sang by a character named Mock Turtle. Anyways, enough about the poem! The BeautifulSoup library, like it’s namesake Wonderland, tries to make sense of HTML, XML and CSS. It helps to format and organize the web by fixing bad HTML written by lazy web devs (can confirm, am a web dev!) and presents us with Python objects representing XML structures.
@@ -60,13 +61,16 @@ To accomplish this task, we’ll use two libraries –  `Requests`, and `Fake_Us
 
 Now, to extract the desired data from a cluttered mess of html classes and tags, we have to process the html of that page multiple times. Accessing that page every time through the internet is very inefficient and very slow due to limitations in internet speed and it may cause the website server to fail due to multiple requests. To avoid that, we first download the complete webpage and store it in a file and then process that file over and over offline. The code below does that.
 
-```py
+```python
 import requests
 from fake_useragent import UserAgent
+
 url = ‘http://www.consumerreports.org/cro/a-to-z-index/products/index.htm’                    # input your url here
 file_name = ‘consumer_reports.txt’              # output file name
+
 user_agent = UserAgent()
 page = requests.get(url,headers={‘user-agent’:user_agent.chrome})
+
 with open(file_name,’w’) as file:
     file.write(page.content.decode(‘utf-8’)) if type(page.content) == bytes else file.write(page.content)
 ```
@@ -75,7 +79,7 @@ The above code is pretty straight forward. What we are doing here is just dumpin
 
 Now we have the webpage downloaded offline. For today, we will try to extract all the names of the products they have in their catalogue, and, store them in a python list. Below is the code for that –
 
-```py
+```python
 from bs4 import BeautifulSoup
 import re
 

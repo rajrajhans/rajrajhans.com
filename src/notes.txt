@@ -9,6 +9,8 @@
 *** Regarding Posts ***
 Date format : "YYYY-MM-DD"
 Markdown images syntax : ![alt text](srcURL "Image Title Text")
+Components available : Alert, ExtLink
+        <ExtLink link={} title={}>__</ExtLink>
 
 *** Dimensions for images ***
 - Featured Image : 330 x 168 || 495 x 252

@@ -99,7 +99,7 @@ export const query = graphql`
       nodes {
         childImageSharp {
           fluid {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid
           }
         }
       }

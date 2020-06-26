@@ -14,7 +14,7 @@ const NotFoundPage = ({ data, location }) => {
       <div id="error404container">
 
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-             x="0px" y="0px" viewBox="0 0 786.94 294.29" style="enable-background:new 0 0 786.94 294.29;"
+             x="0px" y="0px" viewBox="0 0 786.94 294.29"
              xmlSpace="preserve">
           <path className="error404line error404anim" d="M151.13,226.53H26.2v-56.4L151.13,21.64h59.77v151.69h30.98v53.2h-30.98v46.13h-59.77V226.53z M151.13,173.33V95.65
       l-66.01,77.67H151.13z"/>

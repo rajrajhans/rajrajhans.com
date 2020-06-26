@@ -1,0 +1,47 @@
+@import "global";
+
+#error404container {
+  width: 600px;
+  margin: 200px auto;
+}
+
+.error404text{
+  font-size: 30px;
+  text-align: center;
+}
+
+.pgnt404{
+  font-size: 40px;
+  color: $brand_dark;
+  margin: 10px auto;
+  font-weight: bold;
+}
+
+.error404line {
+  fill: none;
+  stroke: $brand_dark;
+  stroke-width: 12;
+  stroke-dasharray: 200 100;
+}
+
+.error404anim {
+  -webkit-animation: swirls 2s linear infinite;
+  -moz-animation: swirls 2s linear infinite;
+  -o-animation: swirls 2s linear infinite;
+  animation: swirls 2s linear infinite;
+}
+
+@keyframes swirls {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 300;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #error404container {
+    width: 100%;
+  }
+}

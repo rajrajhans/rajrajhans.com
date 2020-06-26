@@ -176,13 +176,13 @@ One important thing to note here is while using the Array Map method in React’
 
 When the user clicks on the ‘Add To Cart’ button, the product should be added to the ‘cart’ array and the user should be informed of the same via an ‘alert’. To handle this, we define a function called onAddToCart() in App.js.
 
-![ReactJS](post-14-15.png)
+![ReactJS](post-14-12.png)
 
 <div style="text-align:center">Image - onAddToCart method</div>
 
 This function does a simple task. It adds (appends) the given item to the cart using the spread (…) operator and displays an alert saying ‘Added’. Now, we have to figure out when to and how to trigger this function. We pass this function as a prop to CartPage.js and specify the onClick attribute to “this.props.onAddtoCart”.
 
-![ReactJS](post-14-16.png)
+![ReactJS](post-14-13.png)
 
 The onClick attribute is used to handle click events. Now, when the Add To Cart button is clicked, it will call the onAddToCart function.
 

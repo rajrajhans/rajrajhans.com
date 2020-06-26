@@ -1,7 +1,7 @@
 @import "global";
 
 .tagssvg{
-  margin-top: 0;
+  margin: auto !important;
 }
 
 .TagsContentTitle{
@@ -14,4 +14,12 @@
 .allTagsList{
   text-align: center;
   list-style: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .tagssvg{
+    width: 270px;
+    margin-right: 0;
+    margin: auto;
+  }
 }

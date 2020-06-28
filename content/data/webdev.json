@@ -1,0 +1,66 @@
+[
+  {
+    "image": "../assets/theripplechapter.png",
+    "title": "The Ripple Chapter",
+    "description": "The Ripple Chapter is a online competition platform that organises competitions in the fields of architecture design, product design, photography and so on.",
+    "tags": ["webdesign"],
+    "website": "https://theripplechapter.com/"
+  },
+  {
+    "image": "../assets/gatha.png",
+    "title": "Gatha Events Pvt Ltd",
+    "description": "Gatha - A Tale of Events is an event management company. The website showcases their portfolio, and their team.<br><br>",
+    "tags": ["webdesign"],
+    "website": "https://gathaevents.com/"
+  },
+  {
+    "image": "../assets/wingrow.png",
+    "title": "Wingrow Agritech Pvt Ltd",
+    "description": "Wingrow Agritech connects farmers to consumers by delivering fresh, organic farm produce directly to your doorstep.<br><br>",
+    "tags": [ "webdesign"],
+    "website": "https://wingrowagritech.com/"
+  },
+  {
+    "image": "../assets/tedxvitpune.png",
+    "title": "TEDxVITPune 2018",
+    "description": "TEDxVITPune is an independently organised TED event with the mission is to learn, share and discuss “Ideas. Worth Spreading” that have the power and potential to make a difference.",
+    "tags": [ "webdesign"],
+    "website": "https://tedxvitpune.in/"
+  },
+  {
+    "image": "../assets/vitpunemun.png",
+    "title": "VITPuneMUN 2019",
+    "description": "VITPuneMUN is a student simulation of the United Nations. Students take on the role of delegates of nations in different UN bodies and debate on the agendas of their respective committees.\n\n\n\n\n",
+    "tags": [ "webdesign"],
+    "website": "https://vitpunemun.com/"
+  },
+  {
+    "image": "../assets/vishwaconclave.png",
+    "title": "VishwaConclave",
+    "description": "VishwaConclave is a student-centric conference organized by the students of VIT, Pune focused on curating an inspirational dialogue from exemplary orators.",
+    "tags": [ "webdesign"],
+    "website": "https://vishwaconclave.com/"
+  },
+  {
+    "image": "../assets/epec.png",
+    "title": "Events Planning & Execution Committee",
+    "subtitle": "Web Scraping, Flask API, React Frontend",
+    "description": "EPEC is the team behind the successful execution of extracurricular events conducted in Vishwakarma Institute of Technology, Pune.",
+    "tags": [ "webdesign"],
+    "website": "https://epecvitpune.in/"
+  },
+  {
+    "image": "../assets/vk.png",
+    "title": "Vishwakarandak, VIT Pune",
+    "description": "Vishwakarandak is the three-day long, annual, interdepartmental fest organized by the Event Planning and Execution Committee in Vishwakarma Institute of Technology<br>",
+    "tags": [ "webdesign"],
+    "website": "https://vishwakarandak.epecvitpune.in/"
+  },
+  {
+    "image": "../assets/melange.png",
+    "title": "Mélange, VIT Pune",
+    "description": "Mélange is the annual intercollegiate fest organized by Vishwakarma Institute of Technology,Pune, is a fest with over 200 events and more than 5000 participants.<br><br>",
+    "tags": [ "webdesign"],
+    "website": "https://melange.epecvitpune.in/"
+  }
+]

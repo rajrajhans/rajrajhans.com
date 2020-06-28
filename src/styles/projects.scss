@@ -39,6 +39,13 @@
   fill: #0C171D;
 }
 
+.webdevtext{
+  font-family: $headingFont;
+  width: 85%;
+  margin: auto;
+  font-size: 25px;
+}
+
 .projectBox_container{
   display: flex;
   flex-wrap: wrap;
@@ -138,18 +145,20 @@
   }
 }
 
-
 .projectTitle{
   text-align: center;
   font-size: 27px;
   font-family: $subHeadingFont;
   font-weight: $subHeadingFontWeight;
-  margin: auto;
-  padding: 14px 0;
+  padding: 24px 0 14px 0;
+  line-height: 1.2;
+}
+
+.projectTitle:hover a{
+  color: #3355ff;
 }
 
 .projectSubtitle{
-  margin: auto;
   margin-top: -4px;
   text-align: center;
   font-size: 19px;
@@ -172,6 +181,10 @@
   text-align: center;
   font-size: 16px;
   margin: 15px auto;
+}
+
+.webdevDescription{
+  margin: 5px auto;
 }
 
 .projectLinks{

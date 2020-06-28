@@ -122,12 +122,12 @@ a:hover {
   background-size: 4px 50px;
 }
 
-nav a, footer a, .sidebar-content a, .projectLinks a, .heroBlogTags a, .blogBtmTagsCntnr a{
+nav a, footer a, .sidebar-content a, .projectLinks a, .heroBlogTags a, .blogBtmTagsCntnr a, .nostylelink{
   background: none ;
   border-bottom:none;
 }
 
-.dark nav a, .dark footer a, .dark .sidebar-content a, .dark .projectLinks a, .dark .heroBlogTags a, .dark .blogBtmTagsCntnr a{
+.dark nav a, .dark footer a, .dark .sidebar-content a, .dark .projectLinks a, .dark .heroBlogTags a, .dark .blogBtmTagsCntnr a, .dark .nostylelink{
   background: none ;
   border-bottom:none;
 }

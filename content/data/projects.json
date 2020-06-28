@@ -3,70 +3,67 @@
     "image": "../assets/ss.png",
     "title": "rajrajhans.com",
     "subtitle": "Personal Portfolio Website",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
-    "tags": ["opensource", "webdev", "frontend", "react", "tailwindcss"],
+    "description": "A personal portfolio and blog site developed using GatsbyJS, with a focus on speed, SEO and a convinient blog system.",
+    "tags": ["gatsbyjs", "blog", "portfolio", "css"],
     "website": "https://rajrajhans.com/",
-    "github": "https://github.com/rajrajhans",
-    "casestudy" : "https://rajrajhans.com/test"
+    "github": "https://github.com/rajrajhans/rajrajhans.com-sourcecode",
+    "casestudy" : "/2020/06/developing-a-portfolio-site-using-gatsbyjs/"
   },
   {
     "image": "../assets/wetalk.png",
     "title": "WeTalk",
     "subtitle": "Basic Social Network",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
-    "tags": ["opensource", "webdev", "frontend", "react", "tailwindcss"],
-    "website": "https://rajrajhans.com/",
-    "github": "https://github.com/rajrajhans",
-    "casestudy" : "https://rajrajhans.com/test"
+    "description": "A Flask based basic social networking website developed using Python, with PostgreSQL used as the DBMS and deployed on Heroku.",
+    "tags": ["flask", "python", "heroku", "postgresql"],
+    "website": "https://wetalk.rajrajhans.com/",
+    "github": "https://github.com/rajrajhans/wetalk",
+    "casestudy" : "/2020/04/wetalk-a-flask-based-social-networking-website-prototype/"
   },
   {
-    "image": "../assets/ss.png",
+    "image": "../assets/safepass.png",
     "title": "SafePass",
     "subtitle": "Password Manager using ReactJS",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
-    "tags": ["opensource", "webdev", "frontend", "react", "tailwindcss"],
-    "website": "https://rajrajhans.com/",
-    "github": "https://github.com/rajrajhans",
-    "casestudy" : "https://rajrajhans.com/test"
+    "description": "A simple password management application developed using ReactJS.",
+    "tags": ["reactjs", "passwordmanagement", "rxjs", "bcrypt"],
+    "website": "https://safepass.rajrajhans.com/",
+    "github": "https://github.com/rajrajhans/safepass",
+    "casestudy" : "/404"
   },
   {
-    "image": "../assets/ss.png",
+    "image": "../assets/reactchat.png",
     "title": "React-Chat",
     "subtitle": "A messenger-like chat WebApp",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
-    "tags": ["opensource", "webdev", "frontend", "react", "tailwindcss"],
+    "description": "Chat application developed using ReactJS and Firebase.",
+    "tags": ["firebase", "reactjs", "chat"],
     "website": "https://rajrajhans.com/",
-    "github": "https://github.com/rajrajhans",
-    "casestudy" : "https://rajrajhans.com/test"
+    "github": "https://github.com/rajrajhans/react-chat",
+    "casestudy" : "/404"
   },
   {
-    "image": "../assets/ss.png",
+    "image": "../assets/resultscrape.png",
     "title": "ResultScrape",
     "subtitle": "Web Scraping, Flask API, React Frontend",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
-    "tags": ["opensource", "webdev", "frontend", "react", "tailwindcss"],
-    "website": "https://rajrajhans.com/",
+    "description": "Using ScraPy to scrape a website, building an API for that data using Flask and a webapp for that data using ReactJS.",
+    "tags": ["scrapy", "webscraping", "reactjs", "flask"],
+    "website": "https://resultapp.rajrajhans.com/",
     "github": "https://github.com/rajrajhans",
-    "casestudy" : "https://rajrajhans.com/test"
+    "casestudy" : "/404"
   },
   {
-    "image": "../assets/ss.png",
-    "title": "Enron",
+    "image": "../assets/enron.png",
+    "title": "Analysis of Enron Scandal and POI Detection",
     "subtitle": "Fraud Detection using ML",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
-    "tags": ["opensource", "webdev", "frontend", "react", "tailwindcss"],
-    "website": "https://rajrajhans.com/",
-    "github": "https://github.com/rajrajhans",
-    "casestudy" : "https://rajrajhans.com/test"
+    "description": "Using machine learning techniques to predict employees who were a POI (Person of Interest) in the Enron Scandal using publicly available Enron Corpus dataset",
+    "tags": ["machinelearning", "sklearn", "python"],
+    "casestudy" : "/404"
   },
   {
-    "image": "../assets/ss.png",
-    "title": "Test Title 123",
-    "subtitle": "Fraud Detection using ML",
-    "description": "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
-    "tags": ["opensource", "webdev", "frontend", "react", "tailwindcss"],
-    "website": "https://rajrajhans.com/",
-    "github": "https://github.com/rajrajhans",
-    "casestudy" : "https://rajrajhans.com/test"
+    "image": "../assets/essay-editor.png",
+    "title": "Essay Editor Tool (API Integration)",
+    "subtitle": "Identifies Spelling, Grammar, Punctuation mistakes",
+    "description": "A tool to analyse your essay and run a spellcheck, grammar and punctuation check. Developed using  publicly available LanguageTool API in PHP.",
+    "tags": ["php", "api"],
+    "website": "https://reachivy.com/apps/essay-editor/",
+    "casestudy" : "/404"
   }
 ]

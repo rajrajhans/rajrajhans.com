@@ -51,9 +51,7 @@ class Projects extends Component {
 
               <hr className={"projectLine"}/>
 
-              <div className="projectDescription">
-                {node.description}
-              </div>
+              <div className="projectDescription" dangerouslySetInnerHTML={{__html: node.description}}/>
 
               <div className="projectLinks">
                 {node.github ? (
@@ -115,9 +113,7 @@ class Projects extends Component {
                 </a>
               </div>
 
-              <div className="projectDescription webdevDescription">
-                <span dangerouslySetInnerHTML={{__html: node.description}}/>
-              </div>
+              <div className="projectDescription webdevDescription" dangerouslySetInnerHTML={{__html: node.description}}/>
 
               <div className="projectLinks">
                 {node.github ? (

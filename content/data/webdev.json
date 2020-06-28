@@ -52,14 +52,14 @@
   {
     "image": "../assets/vk.png",
     "title": "Vishwakarandak, VIT Pune",
-    "description": "Vishwakarandak is the three-day long, annual, interdepartmental fest organized by the Event Planning and Execution Committee in Vishwakarma Institute of Technology<br>",
+    "description": "<div style='margin-bottom:15px'>Vishwakarandak is the three-day long, annual, interdepartmental fest organized by the Event Planning and Execution Committee in Vishwakarma Institute of Technology<br></div>",
     "tags": [ "webdesign"],
     "website": "https://vishwakarandak.epecvitpune.in/"
   },
   {
     "image": "../assets/melange.png",
     "title": "Mélange, VIT Pune",
-    "description": "Mélange is the annual intercollegiate fest organized by Vishwakarma Institute of Technology,Pune, is a fest with over 200 events and more than 5000 participants.<br><br>",
+    "description": "<div style='margin-bottom:15px'>Mélange is the annual intercollegiate fest organized by Vishwakarma Institute of Technology,Pune, is a fest with over 200 events and more than 5000 participants.<br><br></div>",
     "tags": [ "webdesign"],
     "website": "https://melange.epecvitpune.in/"
   }

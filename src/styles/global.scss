@@ -81,7 +81,6 @@ body{
   margin: 0;
   background: $bg_light;
   color: $txt_light;
-  transition: all 0.25s ease-out;
   font-family: $textFont;
   font-size: 18px;
 }
@@ -89,7 +88,6 @@ body{
 body.dark{
   background: $bg_dark;
   color: $txt_dark;
-  transition: all 0.25s ease-out;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
 }

@@ -7,27 +7,27 @@
     "tags": ["gatsbyjs", "blog", "portfolio", "css"],
     "website": "https://rajrajhans.com/",
     "github": "https://github.com/rajrajhans/rajrajhans.com-sourcecode",
-    "casestudy" : "/2020/06/developing-a-portfolio-site-using-gatsbyjs/"
+    "casestudy" : null
   },
   {
     "image": "../assets/wetalk.png",
     "title": "WeTalk",
     "subtitle": "Basic Social Network",
-    "description": "<div style='margin:30px 0'>A Flask based basic social networking website developed using Python, with PostgreSQL used as the DBMS and deployed on Heroku.</div>",
+    "description": "A Flask based basic social networking website developed using Python, with PostgreSQL used as the DBMS and deployed on Heroku.",
     "tags": ["flask", "python", "heroku", "postgresql"],
     "website": "https://wetalk.rajrajhans.com/",
     "github": "https://github.com/rajrajhans/wetalk",
-    "casestudy" : "/2020/04/wetalk-a-flask-based-social-networking-website-prototype/"
+    "casestudy" : null
   },
   {
     "image": "../assets/safepass.png",
     "title": "SafePass",
     "subtitle": "Password Manager using ReactJS",
-    "description": "A simple password management application developed using ReactJS and bcrypt.",
+    "description": "<div style='margin:15px 0'>A simple password management application developed using ReactJS and bcrypt.</div>",
     "tags": ["reactjs", "passwordmanagement", "rxjs", "bcrypt"],
     "website": "https://safepass.rajrajhans.com/",
     "github": "https://github.com/rajrajhans/safepass",
-    "casestudy" : "/404"
+    "casestudy" : null
   },
   {
     "image": "../assets/reactchat.png",
@@ -47,7 +47,7 @@
     "tags": ["scrapy", "webscraping", "reactjs", "flask"],
     "website": "https://resultapp.rajrajhans.com/",
     "github": "https://github.com/rajrajhans",
-    "casestudy" : "/404"
+    "casestudy" : null
   },
   {
     "image": "../assets/enron.png",
@@ -64,6 +64,6 @@
     "description": "A tool to analyse your essay and run a spellcheck, grammar and punctuation check. Developed using  publicly available LanguageTool API in PHP.",
     "tags": ["php", "api"],
     "website": "https://reachivy.com/apps/essay-editor/",
-    "casestudy" : "/404"
+    "casestudy" : null
   }
 ]

@@ -2,6 +2,7 @@
 
 .projectsWrapper{
   background: #f1f1f1;
+  transition: all .25s ease;
 }
 
 .dark .projectsWrapper{
@@ -64,7 +65,7 @@
   -webkit-box-shadow: 0px 0px 18px 6px rgba(245,245,245,1);
   -moz-box-shadow: 0px 0px 18px 6px rgba(245,245,245,1);
   box-shadow: 0px 0px 18px 6px rgba(245,245,245,1);
-  transition: all .25s ease-out;
+  transition: all .25s ease;
 }
 
 .projectBox:hover{

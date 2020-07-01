@@ -11,7 +11,7 @@ module.exports = {
     keywords:"Raj Rajhans, Raj, Rajhans, rajrajhans, rajrajhans blog",
     siteUrl: `https://rajrajhans.com/`,
     baseUrl: `https://rajrajhans.com/`,
-    logo: 'https://rajrajhans.com/rajrajhans_assets/rajrajhans-logo.png',
+    logo: 'https://rajrajhans.com/rajrajhans_assets/logo-new.png',
     social: {
       twitter: `_rajrajhans`,
       instagram: `rajrajhans`,
@@ -66,7 +66,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-121750899-1`,
       },
     },
     `gatsby-plugin-feed-mdx`,

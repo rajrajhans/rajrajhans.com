@@ -140,7 +140,7 @@ SEO.defaultProps = {
   description:'Raj Rajhans - Blog & Portfolio. Raj Rajhans is a web developer studying computer engineering. This blog reflects Raj\'s ideas, projects and learnings. ',
   keywords:"Raj Rajhans, Raj, Rajhans, rajrajhans",
   url:`https://rajrajhans.com/`,
-  image: "https://rajrajhans.com/rajrajhans_assets/rajrajhans-logo.png",
+  image: "https://rajrajhans.com/rajrajhans_assets/logo-new.png",
   isBlogPost:0
 }
 

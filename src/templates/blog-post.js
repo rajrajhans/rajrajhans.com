@@ -161,7 +161,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
                 <div className="blogBtmAthrBio">
                   Ambivert. Perpetually audacious. Tech aficionado, and a
-                  striving nonconformist
+                  striving nonconformist.
                 </div>
               </div>
             </div>

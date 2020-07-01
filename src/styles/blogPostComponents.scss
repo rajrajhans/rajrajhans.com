@@ -132,4 +132,11 @@
       margin: auto;
     }
   }
+  .bpstquote{
+    width: 100%;
+    padding: 1em 30px 1em 15px;
+  }
+  .bpstquote::before{
+    top: -18px;
+  }
 }

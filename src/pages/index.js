@@ -57,14 +57,20 @@ class Index extends Component {
 
           <div className="homeBlogHeadingBox">
             <div className="homeBlogGridHeading">
-              Blog Posts Till Now
+              <span>My Digital Garden <span className={"wgrdn"}>
+              <InternalLink link={"/2020/06/thinking-of-blog-as-digital-garden/"}
+                            title={"Thinking of this blog as a Digital Garden"}>
+                What is this?
+              </InternalLink>
+              </span></span>
+
               <div className={"homeBlogGridHeadingLine"}/>
             </div>
 
             <div className="homeBlogArchivesLink">
               <InternalLink link={"/archives"} title={"Explore Blogs by Categories"}>
                 <div className="homeBlogArchivesButton">
-                  <i className={"fa fa-folder-o"}/> Browse Blog Archives
+                  <i className={"fa fa-folder-o"}/> Archives
                 </div>
               </InternalLink>
             </div>

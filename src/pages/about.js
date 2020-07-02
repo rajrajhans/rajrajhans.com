@@ -76,7 +76,7 @@ class About extends Component {
                   </p>
 
                   <p>
-                    <a href={"/2020/06/thinking-of-blog-as-digital-garden/"}>I like to this of my blog as more of a digital garden, rather than a traditional blog.</a> The aim is to document the projects, ideas, and the learnings from the projects that I would be working on.
+                    <a href={"/2020/06/thinking-of-blog-as-digital-garden/"}>I like to this of my blog as more of a digital garden, rather than a traditional blog.</a> The aim is to document the projects, ideas, and learnings.
                   </p>
 
 

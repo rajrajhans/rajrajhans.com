@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-const SEO = ({ title, description, keywords, url, image, isBlogPost }) => {
+const SEO = ({ title, description, keywords, url, image, ogImage, isBlogPost }) => {
 
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -122,7 +122,7 @@ const SEO = ({ title, description, keywords, url, image, isBlogPost }) => {
       <meta property="og:type" content="article" />
       <meta property="og:title" content={seoTitle}/>
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={ogImage} />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -141,6 +141,7 @@ SEO.defaultProps = {
   keywords:"Raj Rajhans, Raj, Rajhans, rajrajhans",
   url:`https://rajrajhans.com/`,
   image: "https://rajrajhans.com/rajrajhans_assets/logo-new.png",
+  ogImage: "https://rajrajhans.com/rajrajhans_assets/logo-og.png",
   isBlogPost:0
 }
 

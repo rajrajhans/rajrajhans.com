@@ -110,6 +110,7 @@ const SEO = ({ title, description, keywords, url, image, ogImage, isBlogPost }) 
       <link rel="canonical" href={url} />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
+      <meta name="author" content={"Raj Rajhans"}/>
       <meta name="keywords" content={keywords}/>
 
       {/* Schema.org tags */}
@@ -130,7 +131,7 @@ const SEO = ({ title, description, keywords, url, image, ogImage, isBlogPost }) 
       <meta name="twitter:title" content={seoTitle} />
       <meta name="twitter:site" content={"https://rajrajhans.com"} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={ogImage} />
     </Helmet>
   );
 };

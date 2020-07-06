@@ -51,7 +51,7 @@ class Index extends Component {
           <div className="homeBlogArchivesLinkMobile">
             <InternalLink link={"/archives"} title={"Explore Blogs by Categories"}>
               <i className={"fa fa-folder-o"}/>
-              Browse Blog Archives
+              Browse Archives
             </InternalLink>
           </div>
 

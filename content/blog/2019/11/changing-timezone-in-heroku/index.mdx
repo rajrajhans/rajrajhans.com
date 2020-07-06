@@ -31,19 +31,22 @@ Heroku by default has UTC as it's time zone. Luckily, you can change the timezon
 # From the Heroku CLI
 
 For this, you should have Heroku CLI installed on your local machine.
-	1. Open your terminal
-	2. Log in to heroku using heroku login
-	3. Navigate to your app's dir.
-	4. Setup your new config var using the following command -
+1. Open your terminal
+2. Log in to heroku using heroku login
+3. Navigate to your app's dir.
+4. Setup your new config var using the following command -
+
+```bash
 heroku config:add TZ="Asia/Kolkata"
+```
 
 # From the Heroku Dashboard
 
-	1. Log in to Heroku dashboard through your browser
-	2. Go to the app's settings
-	3. There, you'll see a 'Reveal Config Vars' option
-	4. Set the key to 'TZ' and the value to 'Asia/Kolkata' (the timezone you wish to change to)
-	5. Press the Add button
+1. Log in to Heroku dashboard through your browser
+2. Go to the app's settings
+3. There, you'll see a 'Reveal Config Vars' option
+4. Set the key to 'TZ' and the value to 'Asia/Kolkata' (the timezone you wish to change to)
+5. Press the Add button
 
 ![Heroku Dashboard](heroku_ss.png)
 

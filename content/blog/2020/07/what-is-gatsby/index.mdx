@@ -1,0 +1,50 @@
+---
+title: "What is Gatsby & Why you should use it"
+date: "2020-07-10"
+description: I recently redesigned this website using Gatsby. Gatsby is a static site generator based on ReactJS which you can use to make blazing fast websites like this one. Read on to find out more.
+featuredImage: what-is-gatsby.png
+mainTag: Gatsby
+tags:
+    - Gatsby
+heroTags:
+    - Gatsby
+readingTime : 5
+keywords:
+    - Gatsby
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+Today's focus of discussion is GatsbyJS, a static site generator based on React.js and GraphQL. This website is created using GatsbyJS and this post is an attempt to shed light on it. But first, we shall look into what a static site generator is.
+
+# What's a Static Site Generator?
+Static Site Generators produce static HTML files that you can load up on a server and they're good to go. Static Sites don't have any databases or server-side processing. Let's look into the advantages and disadvantages of this approach:
+## Advantages of static sites
+1. <strong>Speed</strong>: Due to the absence of any backend system, there is no need to run any database query or do any request processing before sending the response. The server is always ready with the HTML output to be delivered to the user. So, performance is the biggest advantage of using a static site generator.
+2. <strong>Security</strong>: Again, due to a lack of backend system, there is no question of protecting a database, or securing a server against malicious inputs, etc. This makes static sites inherently secure.
+3. <strong>Ease of development</strong>: It's very easy to develop a site using a static site generator. The developer experience is excellent, there's minimal setup and configuration, and you can get things up and running pretty quickly.
+4. <strong>Ease of deployment</strong>: As there is no backend system, deploying a static site is as easy as clicking a button. Nowadays, hosts like Netlify, Github Pages, Render.com make it very simple (and free) to deploy your static sites.
+5. <strong>SEO Friendly</strong>: Web crawlers have difficulty indexing complex React.js applications with too many components, which doesn't help with SEO. With static sites, you not only get SEO friendliness right out of the box but also get great performance which will make your site strong in terms of SEO
+## Disadvantages of static sites
+1. <strong>Inability to manage Real-Time Data</strong>: Because the site is a set of same static HTML files sent to each user, it is difficult to implement an application that hosts real-time data.
+
+# Gatsby is a Static Site Generator
+
+Now you have an idea of what a static site is, let's take a look at Gatsby. Gatsby is a static site <strong>generator</strong>, meaning Gatsby is like a tool that you will run on your local machine and it will generate the static site for you. So, think of Gatsby as a tool used to build a website.
+
+Gatsby uses ReactJS for developing the site's user interfaces and uses GraphQL to power it's data layer. ReactJS helps you to build complex user interfaces in a simple, straight forward way. React's templating system allows us to create the layout easily. GraphQL allows you to pull data into your website from a variety of sources (basically anywhere) like WordPress, Drupal, a simple markdown file, a CSV, or any other Content Management System like NetlifyCMS.
+
+Gatsby also has lots of plugins available to extend its functionality. They are usually classified into two types: <strong>source plugins</strong> for pulling in data into Gatsby, and <strong>transformer plugins</strong> for transforming data from source plugins into something else. As an example, it would be a source plugin's job to pull in the image file from the filesystem whereas it would be the transformer plugins job to implement lazy loading of that image.
+
+So, to summarise, GraphQL will pull in the data, React will take care of the templating and styling, whatever plugins you are using will do their job, and finally, everything will be exported out as a static gatsby site, ready to deploy!
+
+# Why should you use Gatsby
+
+We have discussed the advantages and disadvantages of having a static site above. If you don't particularly need any database, or back end processing, I believe you can't go wrong with Gatsby. You'll get the power of React, with the flexibility of GraphQL. Gatsby has a strong community, so if you are stuck along somewhere, you will easily find the solution for it online. Also, one thing I forgot to mention is Gatsby's documentation. The official docs are very clear, crisp, and informative. The tutorial should get you up and running quickly, then if you need more help, the docs are there, and they are very detailed and easy to understand.
+
+That's it for this post, I hope it was helpful and you got a high-level introduction to what Gatsby is and whether it makes sense for you to use it.
+
+# Further Reading
+1. <ExtLink link={"https://www.gatsbyjs.org/tutorial/"} title={"GatsbyJS Tutorial"}>The GatsbyJS Tutorial</ExtLink>
+2. <ExtLink link={"https://www.gatsbyjs.org/docs/"} title={"GatsbyJS Documentation"}>GatsbyJS Documentation</ExtLink>

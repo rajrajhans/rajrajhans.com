@@ -119,6 +119,12 @@
 }
 
 @media only screen and (max-width: 800px) {
+
+  .blogPostHeading{
+    line-height: 1.4;
+    font-size: 25px;
+  }
+
   .blogText{
     font-size: 16px;
   }

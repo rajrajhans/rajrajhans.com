@@ -104,25 +104,25 @@ First, the HTML part:
 
 ```html
 <form onSubmit={this.handleSubmit} class={"contactForm"}>
-        <h2>Drop a message</h2>
-        <p type="Name:">
-          <input required placeholder="What's your name?" name={"name"} type={"text"} value={this.state.name} onChange={this.handleChange}/>
-        </p>
+    <h2>Drop a message</h2>
+    <p type="Name:">
+      <input required placeholder="What's your name?" name={"name"} type={"text"} value={this.state.name} onChange={this.handleChange}/>
+    </p>
 
-        <p type="Email:">
-          <input required placeholder="How shall contact you back?" name={"email"} type={"email"} value={this.state.email} onChange={this.handleChange}/>
-        </p>
+    <p type="Email:">
+      <input required placeholder="How shall contact you back?" name={"email"} type={"email"} value={this.state.email} onChange={this.handleChange}/>
+    </p>
 
-        <p type="Subject:">
-          <input required placeholder="What is this regarding?" name={"subject"} type={"text"} value={this.state.subject} onChange={this.handleChange}/>
-        </p>
+    <p type="Subject:">
+      <input required placeholder="What is this regarding?" name={"subject"} type={"text"} value={this.state.subject} onChange={this.handleChange}/>
+    </p>
 
-        <p type="Message:">
-          <textarea required placeholder="How can I help?" rows={3} name={"message"} value={this.state.message} onChange={this.handleChange}/>
-        </p>
+    <p type="Message:">
+      <textarea required placeholder="How can I help?" rows={3} name={"message"} value={this.state.message} onChange={this.handleChange}/>
+    </p>
 
-        <button type={"submit"}>Submit</button>
-      </form>
+    <button type={"submit"}>Submit</button>
+</form>
 ```
 Next, the handleChange function:
 ```javascript
@@ -146,16 +146,26 @@ async handleSubmit(e){
     }
 
     try{
-      const response = await fetch("/sendmail", {
+      const response = await fetch("/.netlify/functions/sendmail", {
         method: "POST",
         body: JSON.stringify(to_send),
       } )
 
       if (!response.ok){
+        //Do something when request fails
         return
       }
+      //Do something when request is successful
     } catch (e) {
       console.log(e);
     }
 }
 ```
+As you can see, the function is pretty straight-forward. The above code is a skeleton, you can put in the code for whatever you want to do when sending the mail fails or is successful. I have implemented a CSS spinner while the fetch request is going on, and then a message is shown depending on whether the request has failed or not. You can see the complete code of my contact form <ExtLink link={"https://gist.github.com/rajrajhans/fbb916adfbaa9994df16e1e4796e9c80"}>here</ExtLink>.
+
+That's it for this post, I plan to make another post on integrating reCaptcha to avoid spam in the near future, so stay tuned!
+
+# Further Reading
+
+1. <ExtLink link={"https://docs.netlify.com/functions/build-with-javascript/"}>Netlify Functions Documentation</ExtLink>
+1. <ExtLink link={"https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/"}>Gatsby Official Blog: Turning the Static Dynamic</ExtLink>

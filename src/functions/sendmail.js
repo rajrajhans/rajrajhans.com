@@ -15,7 +15,7 @@ exports.handler =  async (event, context, callback) => {
   const msg = {
     to: "me@rajrajhans.com",
     from: "forms@rajrajhans.com",
-    subject: 'New Entry from Contact Form',
+    subject: subject+': New Entry from Contact Form',
     html: body,
   };
 

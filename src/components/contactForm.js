@@ -32,7 +32,7 @@ class ContactForm extends Component {
     }
 
     try{
-      const response = await fetch("/sendmail", {
+      const response = await fetch("/.netlify/functions/sendmail", {
         method: "POST",
         body: JSON.stringify(to_send),
       } )

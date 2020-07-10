@@ -18,43 +18,58 @@ class Contact extends Component {
         <HerosectionPage title={"Contact Me"} svg={<ContactSVG/>} />
 
         <div className="content-container">
-            <div className="contactDetails">
-              <p style={{"marginTop":"15px","marginBottom":"0"}}>Get in touch!</p>
-              <ul>
+          <div className="contactCntnr">
+            <div className="contactFormCntnr">
+              <ContactForm/>
+            </div>
 
-                <a href={"mailto:me@rajrajhans.com"} target={"_blank"} rel={"noopener noreferrer"}>
-                  <li>
+            <div className="contactDetailsCntnr">
+              <div className="contactDetails">
+                <h2>Connect </h2>
+                <ul>
+
+                  <a href={"mailto:me@rajrajhans.com"} target={"_blank"} rel={"noopener noreferrer"}>
+                    <li>
                     <span className={"contactIcon"}>
                       <i className="fa fa-2x fa-envelope"/>
                     </span>
                       me@rajrajhans.com
-                  </li>
-                </a>
+                    </li>
+                  </a>
 
-                <a href={"https://twitter.com/_rajrajhans"} target={"_blank"} rel={"noopener noreferrer"}>
-                  <li>
+                  <a href={"https://twitter.com/_rajrajhans"} target={"_blank"} rel={"noopener noreferrer"}>
+                    <li>
                     <span className={"contactIcon"}>
                       <i className="fa fa-2x fa-twitter"/>
                     </span>
                       @_rajrajhans
-                  </li>
-                </a>
+                    </li>
+                  </a>
 
-              <a href={"https://www.instagram.com/_rajrajhans/"} target={"_blank"} rel={"noopener noreferrer"}>
-                <li style={{"marginBottom":"15px"}}>
+                  <a href={"https://www.instagram.com/_rajrajhans/"} target={"_blank"} rel={"noopener noreferrer"}>
+                    <li>
                   <span className={"contactIcon"}>
                     <i className="fa fa-2x fa-instagram"/>
                   </span>
-                    @_rajrajhans
-                </li>
-              </a>
+                      @_rajrajhans
+                    </li>
+                  </a>
+
+                  <a href={"https://www.linkedin.com/in/rajrajhans/"} target={"_blank"} rel={"noopener noreferrer"}>
+                    <li style={{"marginBottom":"15px"}}>
+                  <span className={"contactIcon"}>
+                    <i className="fa fa-2x fa-linkedin"/>
+                  </span>
+                      @rajrajhans
+                    </li>
+                  </a>
 
 
-              </ul>
+                </ul>
 
+              </div>
             </div>
-
-          <ContactForm/>
+          </div>
         </div>
       </Layout>
     )

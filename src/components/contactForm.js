@@ -32,7 +32,7 @@ class ContactForm extends Component {
     }
 
     try{
-      const response = await fetch("/.netlify/functions/sendmail", {
+      const response = await fetch("/sendmail", {
         method: "POST",
         body: JSON.stringify(to_send),
       } )
@@ -47,20 +47,27 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Name</label>
-        <input name={"name"} type={"text"} value={this.state.name} onChange={this.handleChange}/>
+      <form onSubmit={this.handleSubmit} class={"contactForm"}>
+        <h2>Drop a message</h2>
+        <p type="Name:">
+          <input required placeholder="What's your name?" name={"name"} type={"text"} value={this.state.name} onChange={this.handleChange}/>
+        </p>
 
-        <label>Email</label>
-        <input name={"email"} type={"email"} value={this.state.email} onChange={this.handleChange}/>
+        <p type="Email:">
+          <input required placeholder="How shall contact you back?" name={"email"} type={"email"} value={this.state.email} onChange={this.handleChange}/>
+        </p>
 
-        <label>Subject</label>
-        <input name={"subject"} type={"text"} value={this.state.subject} onChange={this.handleChange}/>
+        <p type="Subject:">
+          <input required placeholder="What is this regarding?" name={"subject"} type={"text"} value={this.state.subject} onChange={this.handleChange}/>
+        </p>
 
-        <label>Message</label>
-        <textarea name={"message"} value={this.state.message} onChange={this.handleChange}/>
-l
-        <input type={"submit"} value={"Submit"}/>
+        <p type="Message:">
+          <textarea required placeholder="How can I help?" rows={3} name={"message"} value={this.state.message} onChange={this.handleChange}/>
+        </p>
+
+        <div class={"submitBtnCntnr"}>
+          <button type={"submit"}>Submit</button>
+        </div>
       </form>
     )
   }

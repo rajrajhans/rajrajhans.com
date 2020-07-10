@@ -12,6 +12,33 @@ class ContactForm extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearInputs = this.clearInputs.bind(this);
+  }
+
+  clearInputs(){
+    console.log("clearing inputs");
+    this.setState({
+      name:'',
+      email:'',
+      subject:'',
+      message:'',
+    })
+  }
+
+  toggleSuccessMsg(){
+    document.getElementById("successMessage").style.display = "inline"
+  }
+
+  toggleErrorMsg(){
+    document.getElementById("errorMessage").style.display = "inline"
+  }
+
+  displaySpinner(){
+    document.getElementById("spinner").removeAttribute('hidden');
+  }
+
+  hideSpinner(){
+    document.getElementById("spinner").setAttribute('hidden', '');
   }
 
   handleChange(e){
@@ -32,15 +59,22 @@ class ContactForm extends Component {
     }
 
     try{
+      this.displaySpinner();
       const response = await fetch("/.netlify/functions/sendmail", {
         method: "POST",
         body: JSON.stringify(to_send),
       } )
 
       if (!response.ok){
+        this.hideSpinner();
+        this.toggleErrorMsg();
         return
       }
+      this.hideSpinner();
+      this.clearInputs();
+      this.toggleSuccessMsg();
     } catch (e) {
+      this.toggleErrorMsg();
       console.log(e);
     }
   }
@@ -67,6 +101,9 @@ class ContactForm extends Component {
 
         <div class={"submitBtnCntnr"}>
           <button type={"submit"}>Submit</button>
+          <div hidden id="spinner"/>
+          <span id={"successMessage"}>Message sent successfully!</span>
+          <span id={"errorMessage"}>Error sending the message</span>
         </div>
       </form>
     )

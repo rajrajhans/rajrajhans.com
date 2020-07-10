@@ -185,7 +185,6 @@
 
   button {
     padding: 8px 12px;
-    margin: 8px 0 0;
     border: 1px solid #3355ff;
     background: #3355ff;
     color: #fff;
@@ -198,7 +197,14 @@
   }
 
   .submitBtnCntnr{
-    text-align: right;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  #successMessage, #errorMessage{
+    display: none;
+    font-size: 19px;
   }
 }
 
@@ -210,6 +216,32 @@
   }
   input, textarea{
     caret-color: white;
+  }
+}
+
+#spinner:not([hidden]) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#spinner::after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgb(161, 161, 161);
+  border-top: 3px solid #3355ff;
+  border-radius: 100%;
+  will-change: transform;
+  animation: spin 1s infinite linear
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 

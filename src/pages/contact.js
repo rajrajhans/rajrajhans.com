@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import HerosectionPage from "../components/herosectionPage"
 import "../styles/contact.scss"
 import SEO from "../components/seo"
+import ContactForm from "../components/contactForm"
 
 class Contact extends Component {
   render() {
@@ -52,6 +53,8 @@ class Contact extends Component {
               </ul>
 
             </div>
+
+          <ContactForm/>
         </div>
       </Layout>
     )

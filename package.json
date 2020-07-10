@@ -10,6 +10,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.6.5",
     "@mdx-js/react": "^1.6.5",
+    "@sendgrid/mail": "^7.2.1",
     "font-awesome": "^4.7.0",
     "gatsby": "^2.21.22",
     "gatsby-image": "^2.4.3",
@@ -54,6 +55,8 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "http-proxy-middleware": "^1.0.5",
+    "netlify-lambda": "^1.6.3",
     "prettier": "2.0.5"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -67,10 +70,14 @@
     "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build && netlify-lambda build src/functions",
+    "build:app": "gatsby build",
+    "build:lambda": "netlify-lambda build src/functions",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "run-p start:**",
+    "start:app": "npm run develop",
+    "start:lambda": "netlify-lambda serve src/functions",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"

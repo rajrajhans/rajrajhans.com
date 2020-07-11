@@ -58,6 +58,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description}
         url={post.fields.slug}
+        image={post.frontmatter.featuredImage.publicURL}
       />
       <div className="blogHeroContainer">
         <div className="blogHero">
@@ -213,6 +214,9 @@ export const pageQuery = graphql`
         tags
         heroTags
         readingTime
+        featuredImage {
+          publicURL
+        }
       }
     }
   }

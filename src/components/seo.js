@@ -111,9 +111,9 @@ const SEO = ({ title, description, keywords, url, image, ogImage, isBlogPost }) 
       <title>{seoTitle}</title>
       <link rel="canonical" href={completeUrl} />
       <meta name="description" content={description} />
-      <meta name="image" content={image} />
       <meta name="author" content={"Raj Rajhans"}/>
       <meta name="keywords" content={keywords}/>
+      <meta name="image" property="og:image" content={image}>
 
       {/* Schema.org tags */}
       <script type="application/ld+json">
@@ -125,7 +125,6 @@ const SEO = ({ title, description, keywords, url, image, ogImage, isBlogPost }) 
       <meta property="og:type" content="article" />
       <meta property="og:title" content={seoTitle}/>
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage} />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />

@@ -28,7 +28,7 @@ module.exports = {
     description: `Raj Rajhans - Blog & Portfolio. Raj Rajhans is a web developer studying computer engineering. This blog reflects Raj's ideas, projects and learnings. `,
     keywords:"Raj Rajhans, Raj, Rajhans, rajrajhans, rajrajhans blog",
     siteUrl: `https://rajrajhans.com/`,
-    baseUrl: `https://rajrajhans.com/`,
+    baseUrl: `https://rajrajhans.com`,
     logo: 'https://rajrajhans.com/rajrajhans_assets/logo-new.png',
     social: {
       twitter: `_rajrajhans`,

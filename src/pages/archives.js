@@ -28,11 +28,17 @@ const TagsPage = ({
       <div className={"TagsContentTitle"}>Blogs by Categories -</div>
       <ul className={"allTagsList"}>
         {group.map(tag => (
-          <li key={tag.fieldValue}>
-            <InternalLinkRight link={`/tags/${toKebabcase(tag.fieldValue)}/`} title={`Check out all posts tagged "${tag.fieldValue}"`}>
-              {tag.fieldValue} - {tag.totalCount} Posts
-            </InternalLinkRight>
-          </li>
+        <InternalLinkRight link={`/tags/${toKebabcase(tag.fieldValue)}/`} title={`Check out all posts tagged "${tag.fieldValue}"`}>
+          <li class={"achTagCntnr"} key={tag.fieldValue}>
+              <div className="achTagName">
+                <span className={"brand-color"}>#</span>{tag.fieldValue}
+              </div>
+
+              <div className="achTagCount">
+                {tag.totalCount} Posts
+              </div>
+            </li>
+          </InternalLinkRight>
         ))}
       </ul>
     </div>

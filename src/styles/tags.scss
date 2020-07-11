@@ -12,8 +12,54 @@
 }
 
 .allTagsList{
-  text-align: center;
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  a{
+    flex-basis: 300px;
+    margin: 20px;
+    background: none ;
+    border-bottom:none;
+  }
+}
+
+.achTagCntnr{
+  height: 100px;
+  border: 1px solid #000000;
+  border-radius: 11px;
+  box-shadow: 0 0 2em rgba(0,0,0,0.125);
+  padding: 10px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.achTagCntnr:hover{
+  background: rgba(51, 85, 255, 0.2);
+}
+
+.achTagCntnr:active{
+  top: 5px;
+}
+
+.achTagName{
+  font-size: 25px;
+  font-family: $headingFont;
+}
+
+.achTagCount{
+  font-size: 19px;
+}
+
+.dark .allTagsList{
+  .achTagCntnr{
+    border: 1px solid $svg_color_dark;
+  }
+
+  a{
+    background: none ;
+    border-bottom:none;
+  }
 }
 
 @media only screen and (max-width: 768px) {

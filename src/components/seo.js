@@ -113,7 +113,7 @@ const SEO = ({ title, description, keywords, url, image, ogImage, isBlogPost }) 
       <meta name="description" content={description} />
       <meta name="author" content={"Raj Rajhans"}/>
       <meta name="keywords" content={keywords}/>
-      <meta name="image" property="og:image" content={image}>
+      <meta name="image" property="og:image" content={image}/>
 
       {/* Schema.org tags */}
       <script type="application/ld+json">

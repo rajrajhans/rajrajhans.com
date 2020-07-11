@@ -20,6 +20,7 @@ import ExtLink from "../components/blogPostComponents/extLink"
 import Code from "../components/blogPostComponents/codeComponent"
 import { preToCodeBlock } from "mdx-utils"
 import "../styles/codeComponent.scss"
+import "../styles/blogPost.scss"
 
 //TODO : Add Keywords, URL & image to the SEO component
 
@@ -56,6 +57,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description}
+        url={post.fields.slug}
       />
       <div className="blogHeroContainer">
         <div className="blogHero">
@@ -201,6 +203,9 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       body
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM Do, YYYY")

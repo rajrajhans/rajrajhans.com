@@ -18,6 +18,8 @@ const SEO = ({ title, description, keywords, url, image, ogImage, isBlogPost }) 
 
   const defaults = data.site.siteMetadata;
 
+  const completeUrl = defaults.baseUrl + url;
+
   const getSchemaOrgJSONLD = ({
                                 isBlogPost,
                                 url,
@@ -97,7 +99,7 @@ const SEO = ({ title, description, keywords, url, image, ogImage, isBlogPost }) 
 
   const schemaOrgJSONLD = getSchemaOrgJSONLD({
     isBlogPost,
-    url,
+    completeUrl,
     title,
     image,
     description,
@@ -107,7 +109,7 @@ const SEO = ({ title, description, keywords, url, image, ogImage, isBlogPost }) 
     <Helmet>
       {/* General tags */}
       <title>{seoTitle}</title>
-      <link rel="canonical" href={url} />
+      <link rel="canonical" href={completeUrl} />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
       <meta name="author" content={"Raj Rajhans"}/>
@@ -119,7 +121,7 @@ const SEO = ({ title, description, keywords, url, image, ogImage, isBlogPost }) 
       </script>
 
       {/* OpenGraph tags */}
-      <meta property="og:url" content={"https://rajrajhans.com/"} />
+      <meta property="og:url" content={completeUrl} />
       <meta property="og:type" content="article" />
       <meta property="og:title" content={seoTitle}/>
       <meta property="og:description" content={description} />
@@ -140,7 +142,7 @@ SEO.defaultProps = {
   title: "Blog",
   description:'Raj Rajhans - Blog & Portfolio. Raj Rajhans is a web developer studying computer engineering. This blog reflects Raj\'s ideas, projects and learnings. ',
   keywords:"Raj Rajhans, Raj, Rajhans, rajrajhans",
-  url:`https://rajrajhans.com/`,
+  url:``,
   image: "https://rajrajhans.com/rajrajhans_assets/logo-new.png",
   ogImage: "https://rajrajhans.com/rajrajhans_assets/logo-og.png",
   isBlogPost:0

@@ -7,7 +7,7 @@
     "tags": ["gatsbyjs", "blog", "portfolio", "css"],
     "website": "https://rajrajhans.com/",
     "github": "https://github.com/rajrajhans/rajrajhans.com-sourcecode",
-    "casestudy" : null
+    "casestudy" : "https://rajrajhans.com/tags/gatsby"
   },
   {
     "image": "../assets/wetalk.png",

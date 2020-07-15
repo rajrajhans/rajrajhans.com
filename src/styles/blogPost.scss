@@ -123,6 +123,10 @@
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   color: $txt_light;
   transition: all 0.25s ease-out;
+
+  ul{
+    margin-left: 20px;
+  }
 }
 
 .dark .blogContent{

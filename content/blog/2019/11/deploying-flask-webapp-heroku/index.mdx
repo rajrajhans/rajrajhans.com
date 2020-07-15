@@ -98,6 +98,31 @@ heroku ps:scale web=1
 
 With this, we have successfully deployed our Flask app to Heroku and can now be accessed by anyone on the internet. We can do many things after this in Heroku to add more features. Let’s take a brief look.
 
+# Configuring PostgreSQL Database for your app
+First, make sure you are using PostgreSQL in your flask app. This is my database setup wherein I am using SQLite on my local machine and PostgreSQL on Heroku:
+
+```python
+if 'HEROKU' in os.environ:
+    import urllib.parse, psycopg2
+
+    urllib.parse.uses_netloc.append('postgres')
+    url = urllib.parse.urlparse(os.environ["DATABASE_URL"])
+    DATABASE = PostgresqlDatabase(database=url.path[1:], user=url.username, password=url.password, host=url.hostname,
+                                  port=url.port)
+    DATABASE_proxy.initialize(DATABASE)
+else:
+    DATABASE = SqliteDatabase('social1.db')
+    DATABASE_proxy.initialize(DATABASE)
+```
+
+Follow these steps to configure the database for your application.
+
+1. Make sure you have installed psycopg2 and gunicorn and requirements.txt is updated
+2. Provision Database using `heroku addons:create heroku-postgresql:hobby-dev`
+3. SET "HEROKU" to 1 in Heroku's env vars
+4. Run app.py from heroku bash as it has the code that initializes the database
+5. Use `heroku pg:psql` to run queries on live database
+
 # Connecting a GitHub repo
 
 Instead of manually pushing our code to Heroku’s servers each time we make a change, we can connect out Heroku app to our GitHub repo so that whenever there is a change pushed to the repo, Heroku will pick it up and re deploy the app. You a connect a GitHub repo from the Settings of your Heroku app from the dashboard.

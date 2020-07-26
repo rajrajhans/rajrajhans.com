@@ -46,31 +46,24 @@ You can clone this repo and build it locally by following these steps:
 
 1. Install Gatsby-CLI in your environment.
 
-```console
-npm install -g gatsby-cli
-```
+    ```console
+    npm install -g gatsby-cli
+    ```
 
 2. Clone this repository.
 
-```console
-git clone https://github.com/rajrajhans/rajrajhans.com-sourcecode.git
-cd ResumeOnTheWeb-Gatsby
-```
+    ```console
+    git clone https://github.com/rajrajhans/rajrajhans.com-sourcecode.git
+    ```
 
 3. Now, tun this command to install all the dependencies. Not that it may take a considerable amount of time. 
 
-```console
-npm install
-```
+    ```console
+    npm install
+    ```
 
 4. Finally, run the project using this command provided by `gatsby-cli`
-
-```console
-gatsby develop
-```
-
-5. If you want to build the application in production, just make use of `gatsby-cli` again
-
-```console
-gatsby build
-```
+    
+    ```console
+    gatsby develop
+    ```

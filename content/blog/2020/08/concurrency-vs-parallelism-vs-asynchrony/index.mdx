@@ -1,0 +1,55 @@
+---
+title: "Concurrency vs Parallelism vs Asynchrony Explained"
+date: "2020-08-05"
+description: Concurrency, Parallelism and Asynchrony are basic terms that are often confused with each other. This is a short post explaining the meaning behind the terms and how they differ from each other.
+featuredImage: concimg1.png
+mainTag: Exploring JavaScript
+tags:
+    - Exploring JavaScript
+heroTags:
+    - Exploring JavaScript
+readingTime : 4
+keywords:
+    - Exploring JavaScript
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+
+This is a short post to clear up the confusion between the terms "Concurrency", "Parallelism" and "Asynchrony".
+
+# Concurrency:
+- Several things happening in the same interval of time (not necessarily at the same time).
+- Used within the context of describing managing a shared resource between processes or threads
+- Ex.) Imagine a single chef cutting lettuce while is also doing something in the oven. He has to stop cutting, check the oven, back to cutting, then again the oven and repeat the process until is done.
+- So, concurrency is mostly related to the logistics, without concurrency, the chef will have to wait until the bread in the oven is ready and then proceed to cut the lettuce.
+
+# Parallelism:
+- Several things happening at the same time, simultaneous execution of tasks.
+- For parallelism to be true, there must be at least two computational resources.
+- Ex.)  Now we have two chefs, one can take care of the oven, while the other cuts the lettuce, we divided the work at the expense of having another chef.
+- Note: Parallelism and Concurrency tend to get conflated because of their similarities, but there is a subtle contextual difference between the two.
+
+## How is Concurrency related to Parallelism?
+- If you have a single computational resource, you can achieve concurrency with tasks executing over same time period via context switching i.e at a particular time period, only a single task gets executed.
+- If you have more than one computational resource, you can achieve concurrency via parallelism, in which multiple tasks get executed simultaneously.
+- Thus,  Parallelism is a subclass of concurrency.
+
+	> The concept of synchronous/asynchronous are properties of an operation, part of its design, or contract. On the other hand, concurrency / parallelism are properties of an execution environment and entire programs.
+	> <span>Patterson & Hennessy (2013), Computer Organization and Design: The Hardware/Software Interface</span>
+
+# Asynchrony:
+- Presents the "impression" of concurrent tasking.
+- In simple language - "Ask for something to happen, a piece of code waits for it to happen, do other stuff in the meanwhile. When it happens, execute that waiting code."
+    - That "waiting" code is referred to as "callback", because when the event ("it") happens, it calls back your code which was waiting.
+- An asynchronous operation initiates a task which may proceed independently of other operations, and the initiator can discover its completion at a later point of time.
+- Ex.) We have one chef, and he starts the oven and cuts the lettuce. He gets notified once the bread is ready in the oven, then when he has done cutting the lettuce, he goes to the oven and performs bread-related tasks. Note that in this case, the "cutting of lettuce" & "baking of bread" are independent of each other, unlike the above two cases.
+
+So, to summarize, concurrency and parallelism relates to the way tasks are executed, whereas asynchrony is a programming model used to achieve concurrency. That's it for this post, I hope it was helpful.
+
+For a beginner's intro to asynchronous programming in JavaScript, read "".
+
+# References
+1. <ExtLink link={"https://blog.golang.org/waza-talk"}>Rob Pike's talk on Concurrency and Parallelism</ExtLink>
+2. <ExtLink link={"https://ict.iitk.ac.in/wp-content/uploads/CS422-Computer-Architecture-ComputerOrganizationAndDesign5thEdition2014.pdf"}>Patterson & Hennessy (2013), Computer Organization and Design: The Hardware/Software Interface</ExtLink>

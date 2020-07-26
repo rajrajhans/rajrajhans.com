@@ -1,99 +1,76 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+  <a href="https://rajrajhans.com">
+    <img alt="Raj Rajhans" src="http://assets.rajrajhans.com/logo-og.png" width="450"/>
   </a>
 </p>
 <h1 align="center">
-  Gatsby's blog starter
+  Personal Portfolio & Blog
 </h1>
 
-Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+Everyone developer needs their own space on the web, this is mine.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+---
+[![website_up](https://img.shields.io/badge/Website-Up-<COLOR>.svg?style=flat)](https://rajrajhans.com/)
 
-## 🚀 Quick start
+---
 
-1.  **Create a Gatsby site.**
+###About the project
 
-    Use the Gatsby CLI to create a new site, specifying the blog starter.
+I have always wanted a presence of my own on the web. The earlier version of rajrajhans.com was developed using WordPress. This new redesign is based on blazing-fast [GatsbyJS](https://www.gatsbyjs.org/) and uses Netlify for hosting. It uses [Netlify's Lambda Functions](https://www.netlify.com/products/functions/) for powering the [contact form](https://rajrajhans.com/contact) on the website.
 
-    ```shell
-    # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
-    ```
+###Screenshots
 
-1.  **Start developing.**
+Following is a sneak peek of how the website looks To see the site live, head on over to [https://rajrajhans.com/](https://rajrajhans.com/)
 
-    Navigate into your new site’s directory and start it up.
+| Landing Page                              | Projects                             | Blog                            |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| ![](https://assets.rajrajhans.com/ss_home1.png) | ![](https://assets.rajrajhans.com/ss_projects.png) | ![](https://assets.rajrajhans.com/ss_blog1.png) |
 
-    ```shell
-    cd my-blog-starter/
-    gatsby develop
-    ```
 
-1.  **Open the source code and start editing!**
+###Notes
 
-    Your site is now running at `http://localhost:8000`!
+1. Developed using GatsbyJS, which is based on ReactJS and GraphQL.
+2. Blog System using MDX (Markdown with JSX Components).
+3. SCSS based styling system.
+4. Optimised for performance due to GatsbyJS.
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+GTMetrix Performance Report:
+<p align="center">
+<img alt="Raj Rajhans" src="http://assets.rajrajhans.com/rajrajhans_speedscore1.png" width="450"/> 
+</p>
 
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## 🧐 What's inside?
+## Building from this repo
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+You can clone this repo and build it locally by following these steps:
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+1. Install Gatsby-CLI in your environment.
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+```console
+npm install -g gatsby-cli
+```
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+2. Clone this repository.
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+```console
+git clone https://github.com/rajrajhans/rajrajhans.com-sourcecode.git
+cd ResumeOnTheWeb-Gatsby
+```
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+3. Now, tun this command to install all the dependencies. Not that it may take a considerable amount of time. 
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+```console
+npm install
+```
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+4. Finally, run the project using this command provided by `gatsby-cli`
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+```console
+gatsby develop
+```
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+5. If you want to build the application in production, just make use of `gatsby-cli` again
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
-
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-12. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-blog)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+```console
+gatsby build
+```

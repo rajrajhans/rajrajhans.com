@@ -1,6 +1,6 @@
 ---
-title: "Concurrency vs Parallelism vs Asynchrony Explained"
-date: "2020-08-05"
+title: "Clearing up the confusion between Concurrency, Parallelism and Asynchrony"
+date: "2020-06-05"
 description: Concurrency, Parallelism and Asynchrony are basic terms that are often confused with each other. This is a short post explaining the meaning behind the terms and how they differ from each other.
 featuredImage: concimg1.png
 mainTag: Exploring JavaScript
@@ -17,7 +17,7 @@ keywords:
     - rajrajhans
 ---
 
-This is a short post to clear up the confusion between the terms "Concurrency", "Parallelism" and "Asynchrony".
+While reading about JavaScript, especially the asynchronous part of it, I found myself confused between the terms "Concurrency", "Parallelism", and "Asynchrony". This is a short post to clear up the confusion between them.
 
 # Concurrency:
 - Several things happening in the same interval of time (not necessarily at the same time).
@@ -36,8 +36,8 @@ This is a short post to clear up the confusion between the terms "Concurrency", 
 - If you have more than one computational resource, you can achieve concurrency via parallelism, in which multiple tasks get executed simultaneously.
 - Thus,  Parallelism is a subclass of concurrency.
 
-	> The concept of synchronous/asynchronous are properties of an operation, part of its design, or contract. On the other hand, concurrency / parallelism are properties of an execution environment and entire programs.
-	> <span>Patterson & Hennessy (2013), Computer Organization and Design: The Hardware/Software Interface</span>
+> The concept of synchronous/asynchronous are properties of an operation, part of its design, or contract. On the other hand, concurrency / parallelism are properties of an execution environment and entire programs.
+> <span>Patterson & Hennessy (2013), Computer Organization and Design: The Hardware/Software Interface</span>
 
 # Asynchrony:
 - Presents the "impression" of concurrent tasking.
@@ -48,7 +48,7 @@ This is a short post to clear up the confusion between the terms "Concurrency", 
 
 So, to summarize, concurrency and parallelism relates to the way tasks are executed, whereas asynchrony is a programming model used to achieve concurrency. That's it for this post, I hope it was helpful.
 
-For a beginner's intro to asynchronous programming in JavaScript, read "".
+To read about asynchrony in JavaScript, you can read this post in my series "Exploring JavaScript" - <ExtLink link={"/2020/08/exploring-javascript-asyncjs/"}>A dive into Asynchronous JavaScript</ExtLink>
 
 # References
 1. <ExtLink link={"https://blog.golang.org/waza-talk"}>Rob Pike's talk on Concurrency and Parallelism</ExtLink>

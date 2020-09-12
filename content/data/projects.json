@@ -10,6 +10,16 @@
     "casestudy" : "https://rajrajhans.com/tags/gatsby"
   },
   {
+    "image": "../assets/gg_showcase.jpg",
+    "title": "GradGoggles",
+    "subtitle": "Cross Platform Virtual Yearbook",
+    "description": "<div style='margin:15px 0 14px 0'>A cross-platform virtual yearbook and scrapbook application developed using Flask (API), ReactJS and Android.</div>",
+    "tags": ["flask", "reactjs", "api", "heroku", "postgres"],
+    "website": "https://gradgoggles.com/",
+    "github": "https://github.com/rajrajhans/",
+    "casestudy" : "/2020/08/casestudy-gradgoggles/"
+  },
+  {
     "image": "../assets/wetalk.png",
     "title": "WeTalk",
     "subtitle": "Basic Social Network",
@@ -17,7 +27,7 @@
     "tags": ["flask", "python", "heroku", "postgresql"],
     "website": "https://wetalk.rajrajhans.com/",
     "github": "https://github.com/rajrajhans/wetalk",
-    "casestudy" : null
+    "casestudy" : "/2020/03/case-study-wetalk/"
   },
   {
     "image": "../assets/safepass.png",
@@ -37,7 +47,7 @@
     "tags": ["firebase", "reactjs", "chat"],
     "website": "https://rajrajhans.com/",
     "github": "https://github.com/rajrajhans/react-chat",
-    "casestudy" : "/404"
+    "casestudy" : null
   },
   {
     "image": "../assets/resultscrape.png",
@@ -48,14 +58,6 @@
     "website": "https://resultapp.rajrajhans.com/",
     "github": "https://github.com/rajrajhans",
     "casestudy" : null
-  },
-  {
-    "image": "../assets/enron.png",
-    "title": "Analysis of Enron Scandal and POI Detection",
-    "subtitle": "Fraud Detection using ML",
-    "description": "Using machine learning techniques to predict employees who were a POI (Person of Interest) in the Enron Scandal using publicly available Enron Corpus dataset",
-    "tags": ["machinelearning", "sklearn", "python"],
-    "casestudy" : "/404"
   },
   {
     "image": "../assets/essay-editor.png",

@@ -1,0 +1,8 @@
+  {
+    "image": "../assets/enron.png",
+    "title": "Analysis of Enron Scandal and POI Detection",
+    "subtitle": "Fraud Detection using ML",
+    "description": "Using machine learning techniques to predict employees who were a POI (Person of Interest) in the Enron Scandal using publicly available Enron Corpus dataset",
+    "tags": ["machinelearning", "sklearn", "python"],
+    "casestudy" : "/404"
+  },

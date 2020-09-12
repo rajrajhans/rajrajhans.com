@@ -33,7 +33,7 @@ class NavLinks extends Component {
         <ListItem title={"About"} to={"/about"} pathName={this.props.pathName}>About</ListItem>
         <ListItem title={"Projects"} to={"/projects"} pathName={this.props.pathName}>Projects</ListItem>
         <li className={"navBarLinkListItem"}>
-          <a href={"https://drive.google.com/file/d/1ZMM3rW36Bhu5EoXVfN8WvOGO9XuEsA3z/view?usp=sharing"} rel={"noopener noreferrer"} title={"Raj's resume"} target={"_blank"}>Resume</a>
+          <a href={"https://drive.google.com/file/d/1AHecEyZ2v83SmkuWZ1N_jwX9xJFa5L50/view?usp=sharing"} rel={"noopener noreferrer"} title={"Raj's resume"} target={"_blank"}>Resume</a>
         </li>
         <ListItem title={"Contact"} to={"/contact"} pathName={this.props.pathName}>Contact</ListItem>
       </ul>

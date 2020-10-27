@@ -14,11 +14,11 @@ Everyone developer needs their own space on the web, this is mine.
 
 ---
 
-###About the project
+### About the project
 
 I have always wanted a presence of my own on the web. The earlier version of rajrajhans.com was developed using WordPress. This new redesign is based on blazing-fast [GatsbyJS](https://www.gatsbyjs.org/) and uses Netlify for hosting. It uses [Netlify's Lambda Functions](https://www.netlify.com/products/functions/) for powering the [contact form](https://rajrajhans.com/contact) on the website.
 
-###Screenshots
+### Screenshots
 
 Following is a sneak peek of how the website looks To see the site live, head on over to [https://rajrajhans.com/](https://rajrajhans.com/)
 
@@ -27,7 +27,7 @@ Following is a sneak peek of how the website looks To see the site live, head on
 | ![](https://assets.rajrajhans.com/ss_home1.png) | ![](https://assets.rajrajhans.com/ss_projects.png) | ![](https://assets.rajrajhans.com/ss_blog1.png) |
 
 
-###Notes
+### Notes
 
 1. Developed using GatsbyJS, which is based on ReactJS and GraphQL.
 2. Blog System using MDX (Markdown with JSX Components).

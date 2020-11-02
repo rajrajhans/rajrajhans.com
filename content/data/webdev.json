@@ -32,7 +32,7 @@
     "title": "VITPuneMUN 2019",
     "description": "VITPuneMUN is a student simulation of the United Nations. Students take on the role of delegates of nations in different UN bodies and debate on the agendas of their respective committees.\n\n\n\n\n",
     "tags": [ "webdesign"],
-    "website": "https://vitpunemun.com/"
+    "website": "https://vpm.rajrajhans.com/"
   },
   {
     "image": "../assets/vishwaconclave.png",
@@ -47,7 +47,7 @@
     "subtitle": "Web Scraping, Flask API, React Frontend",
     "description": "EPEC is the team behind the successful execution of extracurricular events conducted in Vishwakarma Institute of Technology, Pune.",
     "tags": [ "webdesign"],
-    "website": "https://epecvitpune.in/"
+    "website": "https://epecvitpune.com/"
   },
   {
     "image": "../assets/vk.png",

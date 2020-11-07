@@ -13,7 +13,7 @@ exports.handler =  async (event, context, callback) => {
   }).join("<br><br>");
 
   const msg = {
-    to: "me@rajrajhans.com",
+    to: "eonicrj@gmail.com",
     from: "forms@rajrajhans.com",
     subject: subject+': New Entry from Contact Form',
     html: body,

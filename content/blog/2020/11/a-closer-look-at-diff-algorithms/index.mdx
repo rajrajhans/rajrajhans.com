@@ -50,7 +50,7 @@ Great! I hope the problem we are trying to solve is clear now. Let’s proceed t
 
 First, lets see why this problem can be solved by Dynamic Programming. We need two things for a problem to be able to be solved by the DP technique – Overlapping Subproblems and Optimal Substructures. In simple terms, in DP, we break the problem down into smaller subproblems (until it becomes trivial) and use the solutions of those subproblems to build up the solution to our actual problem. In case of LCS, we can break down the problem into smaller subproblem in terms of the string length. The simple recursive of LCS problem is –
 
-```C++
+```cpp
 int lcslen(string s1, string s2, int i, int j){
     if(i == 0 || j == 0){ // base case
         return 0;
@@ -67,7 +67,7 @@ This function returns the length of LCS. Here, i and j represent which character
 
 This recursive function has exponential time complexity. We can use Memoization to improve the time complexity. Here is the implementation for the same.
 
-```C++
+```cpp
 int buildDPMemoized(string s1, string s2, int i, int j){
     if(i == 0 || j == 0){
         dp[i][j] = 0;
@@ -93,7 +93,7 @@ You can also write a Bottom Up (Iterative) solution for this. Check out the <Ext
 
 We can find the actual LCS string by backtracking the memo matrix of LCS lengths created.
 
-```C++
+```cpp
 string findLCSfromDP(string s2, int m, int n){
     int i, j;
     string res;

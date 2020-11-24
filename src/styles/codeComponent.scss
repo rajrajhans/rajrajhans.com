@@ -56,6 +56,12 @@
   color: white;
 }
 
+.gatsby-highlight pre[class~="language-cpp"]::before {
+  content: "C++";
+  background: #202a76;
+  color: white;
+}
+
 .gatsby-highlight pre[class~="language-bash"]::before {
   content: "bash";
   background: green;

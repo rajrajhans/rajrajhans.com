@@ -1,0 +1,145 @@
+---
+title: "A Closer Look at Diffing Algorithms using Dynamic Programming"
+date: "2020-11-25"
+description: One of the most frequently used git commands is git diff. How does it work internally? The brute-force way to compare all possible subsequences of strings has exponential time complexity. There has to be something more efficient, right?
+featuredImage: diff_1.png
+mainTag: Algorithms
+tags:
+    - Algorithms
+heroTags:
+    - Algorithms
+readingTime : 8
+keywords:
+    - Algorithms
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+
+One of the most frequently used git commands is git diff. It shows the difference between the input data sources. Sounds simple enough, but it got me wondering how exactly it works internally, because the brute-force way to compare all possible subsequences of strings has exponential time complexity and would be impractical. There has to be something efficient, right?
+
+Turns out, the problem of finding the “diff” between two files can be solved based on the solution to a classic Computer Science problem known as the “Longest Common Subsequence” problem. The idea is really cool, we first find the Longest Common Subsequence for the two files, then, whatever is NOT there in the LCS is our diff!
+
+The LCS problem is solved using Dynamic Programming. Dynamic Programming is a concept in Algorithm Design that I have many a times found as a tough nut to crack. But, when you find something useful in the “real world” that can be implemented using “a tough nut” like DP, it gets way more exciting.
+In this post, we shall look at how we can implement a diffing algorithm using the dynamic programming paradigm.
+
+# The Problem
+
+First, let’s simplify the problem into something we can work with. So, we are given two strings s1 and s2. We need to find “what changed” in going from s1 to s2. That is, what was added, and what was deleted. Once we find a solution for two strings, its pretty easy to scale it up to two files (after all, a file is can be seen as a collection of strings!).
+
+Let’s take a simple example –<br/>
+s1 = BDE<br/>
+s2 = ABCD
+
+Here, the longest common subsequence would be “BD”. <br/>Then, what was added? “AC”. <br/>Next, what was deleted? “E”.
+
+Let’s take a more practical example now. Say, someone wrote a comment – “Let’s meet on Monday at 10am”. Then, he/she realized he made an error and edited the comment to “Let’s meet on Tuesday at 3pm or after”. Our job is to find out what was deleted, and what was added.
+
+s1 = Let’s meet at 10am<br/>
+s2 = Let’s meet at 3pm or after
+
+Here,<br/>
+LCS is Let’s meet at m<br/>
+Deleted (-) is "10a"<br/>
+Added   (+) is "3p or after"
+
+Great! I hope the problem we are trying to solve is clear now. Let’s proceed to finding the solution.
+
+# The Solution
+
+First, lets see why this problem can be solved by Dynamic Programming. We need two things for a problem to be able to be solved by the DP technique – Overlapping Subproblems and Optimal Substructures. In simple terms, in DP, we break the problem down into smaller subproblems (until it becomes trivial) and use the solutions of those subproblems to build up the solution to our actual problem. In case of LCS, we can break down the problem into smaller subproblem in terms of the string length. The simple recursive of LCS problem is –
+
+```C++
+int lcslen(string s1, string s2, int i, int j){
+    if(i == 0 || j == 0){ // base case
+        return 0;
+    }
+
+    if(s1[i-1] == s2[j-1])  // if match found
+        return 1 + lcslen(s1, s2, i-1, j-1);
+    else
+        return max(lcslen(s1, s2, i-1, j), lcslen(s1, s2, i, j-1));
+}
+```
+
+This function returns the length of LCS. Here, i and j represent which characters we are considering from strings 1 & 2. We start by comparing last chars of both strings. If the current characters under consideration match, then we call the same function for previous characters from both strings. If not, then we will consider the maximum out of one string as is and the other’s previous character. The base case would be when i or j is 0 (since the LCS of strings of length 0 will be 0).
+
+This recursive function has exponential time complexity. We can use Memoization to improve the time complexity. Here is the implementation for the same.
+
+```C++
+int buildDPMemoized(string s1, string s2, int i, int j){
+    if(i == 0 || j == 0){
+        dp[i][j] = 0;
+        return 0;
+    }
+
+    if(dp[i][j] != -1)
+        return dp[i][j];
+
+    int res;
+
+    if(s1[i-1] == s2[j-1])
+        res = 1 + buildDPMemoized(s1, s2, i-1, j-1);
+    else
+        res = max(buildDPMemoized(s1, s2, i-1, j), buildDPMemoized(s1, s2, i, j-1));
+
+    dp[i][j] = res;
+    return res;
+}
+```
+
+You can also write a Bottom Up (Iterative) solution for this. Check out the <ExtLink link={"https://github.com/rajrajhans/diff-using-lcs"}>github repo</ExtLink> for both solutions.
+
+We can find the actual LCS string by backtracking the memo matrix of LCS lengths created.
+
+```C++
+string findLCSfromDP(string s2, int m, int n){
+    int i, j;
+    string res;
+
+    i = m;
+    for(j = n; j > 0; j--){
+        if(dp[i][j] == dp[i][j-1]){
+            continue;
+        }
+        else{
+            res.push_back(s2[j-1]);
+            i--;
+        }
+    }
+
+    reverse(res.begin(), res.end());
+
+    return res;
+}
+```
+
+Neat! Now we have the LCS of the two input strings. Time to find the diff!
+
+# Finding the diff
+
+Let’s go back to our example again.<br/>
+s1 = BDE<br/>
+s2 = ABCD<br/>
+We have found the LCS = BD<br/>
+To find what was added, we compare strings s2 and LCS. We get “AC”, which was added.<br/>
+To find what was deleted, we compare strings s1 and LCS. We get “E”, which was deleted.<br/>
+
+Et voilà! We have solved the problem we started out with. Let’s take a quick look at how efficient this approach is.
+
+# Time & Space Complexity
+
+The time complexity for building the DP matrix is O(m \* n), where m and n are lengths of first and second strings, respectively. Finding the LCS from the DP matrix is a O(m+n) task, so is comparing the strings. So, our overall time complexity is O(m \* n).
+
+We need an auxiliary space of O(m * n) to store the DP matrix.
+
+This is a great improvement from the brute force approach with exponential time complexity.
+
+You can find the complete C++ code with both approaches (top down and bottom up) at <ExtLink link={"https://github.com/rajrajhans/diff-using-lcs"}>https://github.com/rajrajhans/diff-using-lcs</ExtLink>.
+
+Hope this was helpful. Until next time!
+
+# References
+1. <ExtLink link={"https://en.wikipedia.org/wiki/Longest_common_subsequence_problem"}>Longest common subsequence problem</ExtLink>
+2. <ExtLink link={"https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/"}>GeeksForGeeks - Dynamic Programming: Longest Common Subsequence</ExtLink>

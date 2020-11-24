@@ -17,7 +17,7 @@ keywords:
     - rajrajhans
 ---
 
-One of the most frequently used git commands is git diff. It shows the difference between the input data sources. Sounds simple enough, but it got me wondering how exactly it works internally, because the brute-force way to compare all possible subsequences of strings has exponential time complexity and would be impractical. There has to be something efficient, right?
+One of the most frequently used git commands is <strong>git diff</strong>. It shows the difference between the input data sources. Sounds simple enough, but it got me wondering how exactly it works internally, because the brute-force way to compare all possible subsequences of strings has exponential time complexity and would be impractical. There has to be something efficient, right?
 
 Turns out, the problem of finding the “diff” between two files can be solved based on the solution to a classic Computer Science problem known as the “Longest Common Subsequence” problem. The idea is really cool, we first find the Longest Common Subsequence for the two files, then, whatever is NOT there in the LCS is our diff!
 

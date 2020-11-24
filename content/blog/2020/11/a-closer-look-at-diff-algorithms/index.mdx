@@ -34,21 +34,21 @@ s2 = ABCD
 
 Here, the longest common subsequence would be “BD”. <br/>Then, what was added? “AC”. <br/>Next, what was deleted? “E”.
 
-Let’s take a more practical example now. Say, someone wrote a comment – “Let’s meet on Monday at 10am”. Then, he/she realized he made an error and edited the comment to “Let’s meet on Tuesday at 3pm or after”. Our job is to find out what was deleted, and what was added.
+Let’s take a more practical example now. Say, someone wrote a comment – <strong>“Let’s meet on Monday at 10am”</strong>. Then, he/she realized he made an error and edited the comment to <strong>“Let’s meet on Tuesday at 3pm or after”</strong>. Our job is to find out what was deleted, and what was added.
 
 s1 = Let’s meet at 10am<br/>
 s2 = Let’s meet at 3pm or after
 
 Here,<br/>
-LCS is Let’s meet at m<br/>
+LCS is "Let’s meet at m"<br/>
 Deleted (-) is "10a"<br/>
 Added   (+) is "3p or after"
 
-Great! I hope the problem we are trying to solve is clear now. Let’s proceed to finding the solution.
+Great! I hope the problem we are trying to solve is clear now. Let’s proceed to finding the solution using Dynamic Programming.
 
 # The Solution
 
-First, lets see why this problem can be solved by Dynamic Programming. We need two things for a problem to be able to be solved by the DP technique – Overlapping Subproblems and Optimal Substructures. In simple terms, in DP, we break the problem down into smaller subproblems (until it becomes trivial) and use the solutions of those subproblems to build up the solution to our actual problem. In case of LCS, we can break down the problem into smaller subproblem in terms of the string length. The simple recursive of LCS problem is –
+First, lets see why this problem can be solved by Dynamic Programming. We need two things for a problem to be able to be solved by the DP technique – Overlapping Subproblems and Optimal Substructures. In simple terms, in DP, we break the problem down into smaller subproblems (until it becomes trivial) and use the solutions of those subproblems to build up the solution to our actual problem. In case of LCS, we can break down the problem into smaller subproblem in terms of the string length. The simple recursive solution for the LCS problem is –
 
 ```cpp
 int lcslen(string s1, string s2, int i, int j){

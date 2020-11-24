@@ -23,6 +23,9 @@ const TagsPage = ({
       description={"Blog Archives - Raj Rajhans. View past blogs by category. This blog reflects Raj\'s ideas, projects and learnings."}
       url={"/archives"}
     />
+
+    {group.sort((a,b) => (a.totalCount > b.totalCount) ? -1 : ((b.totalCount > a.totalCount) ? 1 : 0))}
+
     <HerosectionPage title={"Blog Archives"} svg={<TagsBlogSVG/>}/>
     <div className={"content-container"}>
       <div className={"TagsContentTitle"}>Blogs by Categories -</div>

@@ -16,7 +16,9 @@ const TagsPage = ({
                       },
                     },
                     location,
-                  }) => (
+                  }) => {
+  {group.sort((a, b) => (a.totalCount > b.totalCount) ? -1 : ((b.totalCount > a.totalCount) ? 1 : 0))}
+  return(
   <Layout location={location}>
     <SEO
       title={"Blog Archives"}
@@ -24,15 +26,14 @@ const TagsPage = ({
       url={"/archives"}
     />
 
-    {group.sort((a,b) => (a.totalCount > b.totalCount) ? -1 : ((b.totalCount > a.totalCount) ? 1 : 0))}
-
     <HerosectionPage title={"Blog Archives"} svg={<TagsBlogSVG/>}/>
     <div className={"content-container"}>
       <div className={"TagsContentTitle"}>Blogs by Categories -</div>
       <ul className={"allTagsList"}>
         {group.map(tag => (
-        <InternalLinkRight link={`/tags/${toKebabcase(tag.fieldValue)}/`} title={`Check out all posts tagged "${tag.fieldValue}"`}>
-          <li class={"achTagCntnr"} key={tag.fieldValue}>
+          <InternalLinkRight link={`/tags/${toKebabcase(tag.fieldValue)}/`}
+                             title={`Check out all posts tagged "${tag.fieldValue}"`}>
+            <li class={"achTagCntnr"} key={tag.fieldValue}>
               <div className="achTagName">
                 <span className={"brand-color"}>#</span>{tag.fieldValue}
               </div>
@@ -45,8 +46,8 @@ const TagsPage = ({
         ))}
       </ul>
     </div>
-  </Layout>
-)
+  </Layout>)
+}
 
 export default TagsPage
 

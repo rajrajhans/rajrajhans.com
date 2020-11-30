@@ -13,7 +13,7 @@
     "image": "../assets/gg_showcase.jpg",
     "title": "GradGoggles",
     "subtitle": "Cross Platform Virtual Yearbook",
-    "description": "<div style='margin:15px 0 14px 0'>A cross-platform virtual yearbook and scrapbook application developed using Flask (API), ReactJS and Android.</div>",
+    "description": "<div style='margin:15px 0 14px 0'>A full stack virtual yearbook and scrapbook application. Recently crossed 200 users. The project is divided into an API, an Android app, and a React WebApp.</div>",
     "tags": ["flask", "reactjs", "api", "heroku", "postgres"],
     "website": "https://gradgoggles.com/",
     "github": "https://github.com/rajrajhans/",
@@ -26,7 +26,7 @@
     "description": "A Flask based basic social networking website developed using Python, with PostgreSQL used as the DBMS and deployed on Heroku.",
     "tags": ["flask", "python", "heroku", "postgresql"],
     "website": "https://wetalk.rajrajhans.com/",
-    "github": "https://github.com/rajrajhans/wetalk",
+    "github": "https://github.com/rajrajhans/gradgoggles",
     "casestudy" : "/2020/03/case-study-wetalk/"
   },
   {

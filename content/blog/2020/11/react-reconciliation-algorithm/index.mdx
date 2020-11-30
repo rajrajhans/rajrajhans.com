@@ -1,0 +1,103 @@
+---
+title: "A Closer Look at React's Reconciliation Algorithm"
+date: "2020-11-30"
+description: Ever wondered what makes React so fast? When it was introduced, the killer feature of React was it's concept of "Virtual DOM", however it brought on it's own set of challenges, including how to efficiently update the DOM to be same as React's virtual DOM. Read on to find out how React solves this problem!
+featuredImage: reconc_1.png
+mainTag: Algorithms
+tags:
+    - Algorithms
+    - Exploring React
+heroTags:
+    - Exploring React
+readingTime : 8
+keywords:
+    - React
+    - Reconciliation
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+
+I remember when I first came across React, what attracted me to it immediately was the performance of websites developed using React. Everything just loaded … immediately! Turns out React is able to provide such superior performance because of the way it handles DOM updates. In simple words, React only “reloads” the part of the webpage which actually has changed instead of reloading the whole page.
+
+This post contains my notes made while trying to understand how React is able to achieve this. But before diving in, we need to have some background to have the relevant context. Let’s start with that.
+
+Note: The details discussed in this post refer to React v16.0 onwards, which is when React started using “React Fiber” algorithm to implement Reconciliation.
+
+# What makes React unique? The Virtual DOM
+
+React provides a truly reactive way of developing user interfaces. React lets you “describe” the interface you want, while with native libraries and frameworks you have to “build” the user interface. So, instead of telling the browser how it should go from the previous version of a page to the next version, you just tell React what the next version should look like, and it will handle everything in between. Not just that, React does this efficiently. It only re-renders the part that has changed. But now the question is, how does React know what the most efficient change to the interface is? The Reconciliation Algorithm!
+
+Okay, now let’s go into the specifics. How is an “interface” represented internally? Using a Tree data structure. So, the DOM is essentially a tree. Cool. Now, here’s the situation. There’s an actual DOM in the browser (the current state of the page) and there’s a “virtual” DOM with React (the intended state of the page). What we want is to compare these two “trees”, return a set of operations that have to be applied on the actual DOM so that it matches the virtual DOM.
+
+# The Tree Edit Distance Problem
+
+In Computer Science, this problem is called as the “Tree Edit Distance Problem”. Formally, we can define the “tree edit distance” between two trees as <strong>the minimal cost sequence of node edit operations that transforms one tree into another  </strong>. A “node edit operation” can be delete a node / insert a node / rename a node, etc. There is a *cost* associated with each operation. The cost of an *edit sequence* is the sum of cost of all it’s edit operations. We need to find the edit sequence which has **minimal cost**.
+
+A straightforward solution to this problem would be to use brute force and calculate all possible edit sequences and select the one with minimum cost. This approach has an **exponential** time complexity, which is unacceptable for practical use.
+
+Another approach to this problem is to look at it as a optimization problem with overlapping subproblems. We can use Dynamic Programming to improve the time complexity. There are various DP-based algorithms proposed to solve the Tree Edit Distance problem in polynomial time complexity. However, even those have cubic / quadratic time complexities. That means to display a tree of 1000 elements, we would have to do around one billion comparisons. Clearly, even this is unacceptable for practical use, especially in case of User Interfaces.
+
+# How React’s Reconciliation Algo solves the problem
+
+React’s <ExtLink link={"https://optimization.mccormick.northwestern.edu/index.php/Heuristic_algorithms"}>heuristic algorithm</ExtLink> solves this problem with a time complexity of `O(n)`. React’s team was able to achieve this efficiency making certain trade-offs and making some assumptions regarding the DOM and Virtual DOM trees.
+
+There are two major assumptions that we need to know –
+
+1.	**Two elements of different types produce different trees** <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;So, if the “type” of an element has changed (for example from “h1 to “h2”), then React will dismiss the whole subtree of that element and create a new tree recursively from scratch.
+
+2.	**If two elements in both trees have same “key” attributes, they are considered as the same node.**<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is an important one. To understand this, let’s see what problem it solves.<br/>
+Let's say you have one tree (old DOM that needs to be updated) as -
+```html
+<ul>
+  <li>first</li>
+  <li>second</li>
+</ul>
+```
+and you add a third list item, then the "other tree" (the intended state of DOM) is -
+```html
+<ul>
+  <li>first</li>
+  <li>second</li>
+  <li>third</li>
+</ul>
+```
+React will match the first two items as same and will only mutate the third. But, what if you add the item in the beginning rather than at the end? The intended tree will be -
+```html
+<ul>
+  <li>third</li>
+  <li>first</li>
+  <li>second</li>
+</ul>
+```
+Now, React will try to match the first items of both, and it will not match, then it will treat them as different trees, i.e. it will re render the whole tree again!
+
+And that's just with three items. Consider a list containing hundreds of items. Let’s say we rearrange the list. Now, the algorithm will perceive this as a change (since it cannot differentiate between individual item) and re render the whole damn list!
+
+We can solve this by including a “key” attribute to each item. This way, the algorithm will have no problem to differentiate between individual items of the old tree and the new one.
+
+Note: just to add on to this point, you must **never use an array index or a random number as the key attribute**. Let’s see why.
+1.	If you use the *array index* as the key, and the items are rearranged, their indexes will change. When React tries to match the nodes, it will do so in a wrong way (because the key of an element no longer represents that element). This will cause your UI to behave unpredictably.
+2.	If you use *random numbers* (generated on every render) as keys, React will perceive the nodes as different and will re-render the whole thing from scratch on every render, making your app very slow.
+
+Lastly, once React determines that two nodes (elements) are same, it just compares the props and attributes, makes necessary changes to them (if any), and continues on to child nodes recursively.
+
+That is a basic overview on the Reconciliation process. Let’s quickly take a look what the “React Fiber” update added to the Reconciliation process -
+
+# What’s new in fiber
+-	React Fiber divides the whole process into two phases. Phase one is render / reconciliation, where it figures out what changes are to be done, and Phase two is commit, where those changes are committed to the DOM.
+-	In the Fiber Reconciler, React breaks up the work to do into units of work. Each unit of work is called as a “fiber”. This division makes React more responsive to browser events and improves the overall performance.
+-	Fiber also allows to assign priority to the updates to DOM. High priority work will be done quickly. This makes sure that higher priority updates don’t get trapped waiting due to lower priority updates (Side Note: in Operating Systems, we call this as “priority inversion issue”)
+
+That pretty much covers all you need to know about React’s Reconciliation algorithm. If you really want to dive in deep, check out the references at the end of this post.
+
+Thanks for reading. I hope this was helpful. Adios!
+
+# References
+
+1. <ExtLink link={"https://www.youtube.com/watch?v=ZCuYPiUIONs"}>Lin Clark - A Cartoon Intro to Fiber - React Conf 2017</ExtLink>
+2. <ExtLink link={"http://tree-edit-distance.dbresearch.uni-salzburg.at/"}>The Tree Edit Distance Problem</ExtLink>
+3. <ExtLink link={"https://reactjs.org/docs/reconciliation.html"}>The Official ReactJS documentation on Reconciliation</ExtLink>

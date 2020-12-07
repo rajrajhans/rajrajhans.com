@@ -3,7 +3,7 @@
     "image": "../assets/ss.png",
     "title": "rajrajhans.com",
     "subtitle": "Personal Portfolio Website",
-    "description": "<div style='margin:15px 0 14px 0'>A personal portfolio and blog site developed using GatsbyJS, with a focus on speed, SEO and a convinient blog system.</div>",
+    "description": "<div style='margin:15px 0 14px 0'>A personal portfolio and blog site developed using GatsbyJS, with a focus on speed, SEO and a convinient blogging system.</div>",
     "tags": ["gatsbyjs", "blog", "portfolio", "css"],
     "website": "https://rajrajhans.com/",
     "github": "https://github.com/rajrajhans/rajrajhans.com-sourcecode",
@@ -13,11 +13,21 @@
     "image": "../assets/gg_showcase.jpg",
     "title": "GradGoggles",
     "subtitle": "Cross Platform Virtual Yearbook",
-    "description": "<div style='margin:15px 0 14px 0'>A full stack virtual yearbook and scrapbook application. Recently crossed 200 users. The project is divided into an API, an Android app, and a React WebApp.</div>",
+    "description": "<div style='margin:15px 0 14px 0'>A Virtual Yearbook and Scrapbook Platform for the #ClassOf2020. Recently crossed 200 users. Developed using Flask for the API and ReactJS for WebApp.</div>",
     "tags": ["flask", "reactjs", "api", "heroku", "postgres"],
     "website": "https://gradgoggles.com/",
     "github": "https://github.com/rajrajhans/",
     "casestudy" : "/2020/08/casestudy-gradgoggles/"
+  },
+  {
+    "image": "../assets/safepass1.png",
+    "title": "SafePass",
+    "subtitle": "Simple and Secure Password Management",
+    "description": "SafePass is a simple and secure password management tool developed using ReactJS and Firebase. It uses the AES Algorithm for encryption, ensuring secure storage.",
+    "tags": ["reactjs", "firebase"],
+    "website": "https://safepass.rajrajhans.com/",
+    "github": "https://github.com/rajrajhans/safepass",
+    "casestudy" : null
   },
   {
     "image": "../assets/wetalk.png",
@@ -29,22 +39,12 @@
     "github": "https://github.com/rajrajhans/gradgoggles",
     "casestudy" : "/2020/03/case-study-wetalk/"
   },
-  {
-    "image": "../assets/safepass.png",
-    "title": "SafePass",
-    "subtitle": "Password Manager using ReactJS",
-    "description": "<div style='margin:15px 0'>A simple password management application developed using ReactJS and bcrypt.</div>",
-    "tags": ["reactjs", "passwordmanagement", "rxjs", "bcrypt"],
-    "website": "https://safepass.rajrajhans.com/",
-    "github": "https://github.com/rajrajhans/safepass",
-    "casestudy" : null
-  },
-  {
+    {
     "image": "../assets/reactchat.png",
     "title": "React-Chat",
     "subtitle": "A messenger-like chat WebApp",
     "description": "<div style='margin:52px 0 52px 0'>A fully functional instant messaging application using ReactJS and Firebase</div>",
-    "tags": ["firebase", "reactjs", "chat"],
+    "tags": ["firebase", "reactjs"],
     "website": "https://rajrajhans.com/",
     "github": "https://github.com/rajrajhans/react-chat",
     "casestudy" : null

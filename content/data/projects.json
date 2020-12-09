@@ -20,6 +20,16 @@
     "casestudy" : "/2020/08/casestudy-gradgoggles/"
   },
   {
+    "image": "../assets/examsecure.png",
+    "title": "ExamSecure",
+    "subtitle": "Automated Virtual Proctoring System",
+    "description": "ExamSecure is a Automated Virtual Proctoring solution that uses AWS Rekognition for real-time face and object detection in the candidates' webcam frames to ensure exam authenticity.",
+    "tags": ["reactjs", "aws-rekognition"],
+    "website": "https://examsecure.rajrajhans.com/",
+    "github": "https://github.com/rajrajhans/examsecure",
+    "casestudy" : "https://github.com/rajrajhans/examsecure/blob/master/README.md"
+  },
+  {
     "image": "../assets/safepass1.png",
     "title": "SafePass",
     "subtitle": "Simple and Secure Password Management",

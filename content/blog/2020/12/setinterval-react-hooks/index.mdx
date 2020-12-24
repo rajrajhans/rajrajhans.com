@@ -1,0 +1,110 @@
+---
+title: "Using fresh state in setInterval with Hooks"
+date: "2020-12-10"
+description: Recently, I ran into a problem while using setInterval in React. The function you pass to setInterval is defined once and it closes over the old value of your component state. This becomes a problem when you want to use the state to determine whether to clear the setInterval. Read on to find out the solution that worked for me.
+featuredImage: hooks_interval_1.png
+mainTag: Exploring React
+tags:
+    - Exploring React
+    - Exploring JavaScript
+heroTags:
+    - Exploring React
+readingTime : 4
+keywords:
+    - setInterval
+    - React Hooks
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+# The Problem
+
+For a project I am working on, I had to make a call to my API every `x` seconds to check for a certain value. Let's say there can be two values returned as response - `true`, or `false`.
+- If the response returned was `true`, nothing was to be done.
+- If the response returned was `false`, I had to show an alert and redirect the user to the homepage.
+
+Naturally, I decided to use `setInterval` to run a function named `myFunction()` every x seconds. `myFunction` would make the call and if response was `false`, navigate user to different screen. Now, when user was sent away to other screen, <strong>I wanted to stop the setInterval from running again.</strong> To stop the timer set by setInterval, you have to use `clearInterval(id)`, where the `id` is the value returned to you at the time when you called `setInterval()` in the first place.
+
+Since my `setInterval` and `clearInterval` calls were in different function scopes, I stored the ID returned from setInterval in the component's state, and while clearing the interval, I thought I would use the ID stored in the  state to clear the interval.
+
+Before moving ahead, let's see the code to understand the situation.
+Note: I have to start the interval when the component is first rendered, so, I have used `useEffect` with an empty dependency array.
+
+```javascript
+// For storing the intervalID when we create it
+const [intervalID, setIntervalID] = useState(0);
+
+// For starting the interval ->
+useEffect(() => {
+    let myIntervalID = setInterval(myFunction, 5000);
+    setIntervalID(myIntervalID);
+  }, []);
+
+// The function that makes the call
+const myFunction = () => {
+	// make the call and get back the result
+	if(result === false){
+		// Here, I want to clear the interval
+		clearInterval(intervalID);
+		// Navigate the user to other screen after the interval is cleared
+	}
+}
+```
+
+Looks good, right. But, here's the thing - <strong>the function passed to setInterval is defined once and it closes over the old stale value of state</strong>, which has not yet updated. So, the function passed to setInterval is created just one time when you call it. That means, while clearing the interval, it always considered the value of ID to be 0 (which was the initial state when we created the function passed to setInterval).
+
+Well, then how will we clear our setInterval!
+
+# The Solution
+
+The actual "problem" here is that the function passed to setInterval is created just once at the start.
+
+We know that the values inside any function in `useEffect` are refreshed on every render, since `useEffect` uses a new definition of the function you pass to it. So, each time, the function inside `useEffect` "loses over a "fresh" value of the state.
+
+Using this info, we can solve our problem! We can put the logic for clearing interval inside a `useEffect` to make sure that it gets access to the fresh value of state when executed. One very important thing to note here is that you should never put unnecessary things in function passed to `useEffect`, as it will run every time the values passed in dependency array are changed. Running things again and again unnecessarily will lead to bad performance.
+
+In our case, the only thing that we absolutely need to put in `useEffect` is the logic for clearing the interval. We'll just put that and nothing else.
+
+For this, we will use an extra state variable to decide whether to clear the setInterval timer. Let's call it `shouldIntervalBeCancelled` which will be initialized to false. Instead of clearing the interval in `myFunction`, we will just set `shouldIntervalBeCancelled` to be true there. Then, the actual clearing of interval will happen in a useEffect which has `shouldIntervalBeCancelled` as the dependency.
+
+Here's the code for it -
+
+```js
+const [intervalID, setIntervalID] = useState(0);
+const [shouldIntervalBeCancelled, setShouldIntervalBeCancelled] = useState(false);
+
+// For starting the interval ->
+useEffect(() => {
+    let myIntervalID = setInterval(myFunction, 5000);
+    setIntervalID(myIntervalID);
+  }, []);
+
+useEffect(() => {
+    if (shouldIntervalBeCancelled) {
+      clearInterval(myIntervalID);     // this being inside a useEffect makes sure that it gets the fresh value of state
+    }
+  }, [shouldIntervalBeCancelled]);
+
+// The function that makes the call
+const myFunction = () => {
+	// make the call and get back the result
+	if(result === "someValue"){
+		// Here, I want to clear the interval, I just set shouldIntervalBeCancelled to be true
+		setShouldIntervalBeCancelled(true);
+		// Navigate the user to other screen after the interval is cleared
+	}
+}
+```
+
+This works, but it introduces extra state variables in our code. So the next logical step would be to extract this logic in a custom Hook and use that hook in our components whenever needed. This will ensure your code is clean and make it easy to debug if anything goes wrong in the future.
+
+# `useInterval` by Dan Abramov
+
+Here, I have implemented my own solution which works for my use case. There are several other ways to solve this problem as well, for example, one can use `useRef` to get the interval ID. If you want, you can go for <ExtLink link={"https://usehooks-typescript.com/react-hook/use-interval"}>this</ExtLink> battle tested custom React Hook called "useInterval" by Dan Abramov which takes care of everything for you. I will also link his blog post regarding this in the references, do read it in case you want to dive deep in his approach for solving this problem :)
+
+Hope this was helpful. Until next time!
+
+# References
+1. <ExtLink link={"https://overreacted.io/making-setinterval-declarative-with-react-hooks/"}>Making setInterval Declarative with React Hooks</ExtLink>
+2. <ExtLink link={"https://www.joshwcomeau.com/snippets/react-hooks/use-interval/"}>useInterval Snippet by Josh W Comeau</ExtLink>

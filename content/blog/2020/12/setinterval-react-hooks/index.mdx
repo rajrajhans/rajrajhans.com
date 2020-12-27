@@ -1,5 +1,5 @@
 ---
-title: "Using fresh state in setInterval with Hooks"
+title: "Correctly using state in setInterval with Hooks"
 date: "2020-12-10"
 description: Recently, I ran into a problem while using setInterval in React. The function you pass to setInterval is defined once and it closes over the old value of your component state. This becomes a problem when you want to use the state to determine whether to clear the setInterval. Read on to find out the solution that worked for me.
 featuredImage: hooks_interval_1.png

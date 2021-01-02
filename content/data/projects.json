@@ -30,11 +30,11 @@
     "casestudy" : "https://github.com/rajrajhans/examsecure/blob/master/README.md"
   },
   {
-    "image": "../assets/safepass1.png",
+    "image": "../assets/safepass_mockup.png",
     "title": "SafePass",
     "subtitle": "Simple and Secure Password Management",
-    "description": "SafePass is a simple and secure password management tool developed using ReactJS and Firebase. It uses the AES Algorithm for encryption, ensuring secure storage.",
-    "tags": ["reactjs", "firebase"],
+    "description": "SafePass is a simple and secure password management tool developed using ReactJS, React Native & Firebase. It uses the AES Algorithm for encryption.",
+    "tags": ["reactjs", "react native", "firebase", "android"],
     "website": "https://safepass.rajrajhans.com/",
     "github": "https://github.com/rajrajhans/safepass",
     "casestudy" : null

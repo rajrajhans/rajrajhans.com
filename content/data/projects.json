@@ -16,7 +16,7 @@
     "description": "<div style='margin:15px 0 14px 0'>A Virtual Yearbook and Scrapbook Platform for the #ClassOf2020. Recently crossed 200 users. Developed using Flask for the API and ReactJS for WebApp.</div>",
     "tags": ["flask", "reactjs", "api", "heroku", "postgres"],
     "website": "https://gradgoggles.com/",
-    "github": "https://github.com/rajrajhans/",
+    "github": "https://github.com/rajrajhans/gradgoggles",
     "casestudy" : "/2020/08/casestudy-gradgoggles/"
   },
   {

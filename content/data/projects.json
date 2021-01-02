@@ -23,8 +23,8 @@
     "image": "../assets/examsecure.png",
     "title": "ExamSecure",
     "subtitle": "Automated Virtual Proctoring System",
-    "description": "ExamSecure is a Automated Virtual Proctoring solution that uses AWS Rekognition for real-time face and object detection in the candidates' webcam frames to ensure exam authenticity.",
-    "tags": ["reactjs", "aws-rekognition"],
+    "description": "ExamSecure is a Automated Virtual Proctoring solution for remote exams that performs real-time image analysis on the candidates' webcam frames to ensure exam authenticity.",
+    "tags": ["reactjs", "aws-rekognition", "aws-lambda"],
     "website": "https://examsecure.rajrajhans.com/",
     "github": "https://github.com/rajrajhans/examsecure",
     "casestudy" : "https://github.com/rajrajhans/examsecure/blob/master/README.md"
@@ -33,8 +33,8 @@
     "image": "../assets/safepass_mockup.png",
     "title": "SafePass",
     "subtitle": "Simple and Secure Password Management",
-    "description": "SafePass is a simple and secure password management tool developed using ReactJS, React Native & Firebase. It uses the AES Algorithm for encryption.",
-    "tags": ["reactjs", "react native", "firebase", "android"],
+    "description": "SafePass is a simple and secure password management tool with a Web App and an Android App developed using ReactJS, React Native & Firebase.",
+    "tags": ["reactjs", "react-native", "firebase", "android"],
     "website": "https://safepass.rajrajhans.com/",
     "github": "https://github.com/rajrajhans/safepass",
     "casestudy" : null

@@ -67,3 +67,8 @@ You can clone this repo and build it locally by following these steps:
     ```console
     gatsby develop
     ```
+
+### Related Blog Posts
+
+- [What is Gatsby & Why you should use it](https://rajrajhans.com/2020/07/what-is-gatsby/)
+- [Using Netlify Lambda Functions & SendGrid to send emails in Gatsby](https://rajrajhans.com/2020/07/using-netlify-lambda-functions-and-sendgrid-to-send-mail/)

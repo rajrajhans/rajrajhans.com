@@ -40,6 +40,16 @@
     "casestudy" : null
   },
   {
+    "image": "../assets/springtodo.png",
+    "title": "SpringTodo",
+    "subtitle": "REST API for a ToDo App",
+    "description": " A simple REST API for a todo app created using Spring Boot. Intended as a beginner exercise to learn more about the Spring Framework. ",
+    "tags": ["spring-boot", "java", "aws", "ec2-rds"],
+    "website": "https://github.com/rajrajhans/spring-boot-todo/",
+    "github": "https://github.com/rajrajhans/spring-boot-todo",
+    "casestudy" : "/2021/01/beginners-guide-to-spring-boot/"
+  },
+  {
     "image": "../assets/wetalk.png",
     "title": "WeTalk",
     "subtitle": "Basic Social Network",

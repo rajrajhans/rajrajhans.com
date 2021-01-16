@@ -281,6 +281,17 @@
   margin: 7px 0;
 }
 
+code{
+  background: #ebecff;
+  padding: .1rem .3rem .2rem;
+  border-radius: 0.5rem;
+  transition: background .00001s;
+}
+
+.dark code{
+  background: #ebecff2e;
+}
+
 @media only screen and (max-width: 768px) {
 
   .navBlogPost{

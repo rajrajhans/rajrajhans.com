@@ -99,7 +99,7 @@ We will use Spring Initializr to set up our project. Spring Initializr is a tool
 
 One of the core things behind Spring Initializr are the Spring Boot Starters. Spring Boot Starters are curated sets of dependencies that manage all the dependencies we need and wire them up for us. This enables us to avoid manually adding the dependencies in Maven. (Side Note: what is Maven? Maven is a build and dependency manager tool for Java, like we have npm in JS-world)
 
-1. Go to `[start.spring.io](http://start.spring.io)` and enter project details and dependencies.
+1. Go to [start.spring.io](http://start.spring.io) and enter project details and dependencies.
 2. For me, the required dependencies were -
     1. Spring Web
     2. Spring Data JPA
@@ -124,7 +124,7 @@ The other way to use [start.spring.io](http://start.spring.io) is to select "Spr
 
 ### What does "JPA" mean in Java?
 
-- Remember we have SQLAlchemy as the ORM in Django/Flask world? If not, I have discussed about it in this post - [https://rajrajhans.com/2019/03/introduction-to-peewee/](https://rajrajhans.com/2019/03/introduction-to-peewee/))
+- Remember we have SQLAlchemy as the ORM in Django/Flask world? If not, I have discussed about it - [in this post](https://rajrajhans.com/2019/03/introduction-to-peewee/)
 - JPA stands for Java Persistence API. It provides a *specification* for persisting, reading, and managing data from your Java object to relations in database. (basically *mapping* objects to relations).
 - So, if JPA just provides the specification, wo implements it? There are various providers that implement it. Hibernate is one of the popular ones.
 - Okay, then what is Spring Data JPA? It is another layer on top of JPA which Spring provides to make our life easy.
@@ -142,9 +142,9 @@ So, there'll be a many to one relationship between them, i.e. a todo will have o
 
 For creating the POJOs, we will create a package `src/main/java/com.yourorg.yourapp/domain`. I have also linked the GitHub repo for this, so check that out as well if you get confused.
 
-Question: How will Hibernate (our ORM) understand that this POJO we are creating is a entity? (In Flask, we extend a class from the ORM). Here, we will use Annotations ([https://dzone.com/articles/how-annotations-work-java](https://dzone.com/articles/how-annotations-work-java)) to tell ORM "Hey, this class is Entity, so do your thing". We will also be specifying the relationships between our entities in a similar way. Do read the code snippets below (along with the comments) to get a clear idea.
+Question: How will Hibernate (our ORM) understand that this POJO we are creating is a entity? (In Flask, we extend a class from the ORM). Here, we will use ([Annotations](https://dzone.com/articles/how-annotations-work-java)) to tell ORM "Hey, this class is Entity, so do your thing". We will also be specifying the relationships between our entities in a similar way. Do read the code snippets below (along with the comments) to get a clear idea.
 
-User Class:
+`User` Class:
 
 ```java
 package com.rajrajhans.SpringTodoApp.domain;
@@ -202,7 +202,7 @@ public class User {
 }
 ```
 
-Todo Class:
+`Todo` Class:
 
 ```java
 package com.rajrajhans.SpringTodoApp.domain;
@@ -251,7 +251,7 @@ public class Todo {
 
 Great, at this point, our entity classes are ready. We have established the entity mapping, but that is not enough. We need to somehow tell JPA to do CRUD operations on the database for us. We want to tell it things like "Hey, add this todo as a row in the table", or "update this row with this new data", or "Hey, give me todos that this user has made".
 
-To make all this things happen, we will now add "Repository" interfaces for both User and Todo which use the class provided to us by Spring Data JPA.
+To make all this things happen, we will now add "Repository" interfaces for both `User` and `Todo` which use the class provided to us by Spring Data JPA.
 
 ## Setting up Spring Data JPA Repositories
 
@@ -265,9 +265,9 @@ To make all this things happen, we will now add "Repository" interfaces for both
 - One approach is to write those CRUD methods for each of the entities ourselves.
 - However, Spring Data JPA has a interface `CrudRepository` which provides generic CRUD operations on a repository of specif ic type.
 
-Following is the code for UserRepository and ClassRepository interfaces. They are in `src/main/com.yourorg.yourapp/repositories` Here is the link for them in the GitHub repo.
+Following is the code for `UserRepository` and `ClassRepository` interfaces. They are in `src/main/com.yourorg.yourapp/repositories` Here is the link for them in the GitHub repo.
 
-Code for UserRepository:
+Code for `UserRepository`:
 
 ```java
 package com.rajrajhans.SpringTodoApp.repositories;
@@ -282,7 +282,7 @@ public interface UserRepository extends CrudRepository<User, Long> {        // S
 }
 ```
 
-Similarly, for TodoRepository:
+Similarly, for `TodoRepository`:
 
 ```java
 package com.rajrajhans.SpringTodoApp.repositories;

@@ -1,24 +1,24 @@
-import React, { Component } from "react"
-import "../styles/heroSection.scss"
-
+import React, { Component } from "react";
+import "../styles/heroSection.scss";
 
 class HerosectionPage extends Component {
   render() {
-    const {title, subtitle, svg} = this.props
+    const { title, subtitle, svg } = this.props;
 
     return (
       <div className={"heroSection"}>
-
         <div className="titleSection">
-          <div className="title"><span className={"brand-color"}>~/</span><h1>{title}</h1></div>
+          <div className="title">
+            <span className={"brand-color"}>~/</span>
+            <h1>{title}</h1>
+          </div>
+          <div>{subtitle ? <h1>{subtitle}</h1> : null}</div>
         </div>
 
-        <div className="svgSection">
-          {svg}
-        </div>
+        <div className="svgSection">{svg}</div>
       </div>
-    )
+    );
   }
 }
 
-export default HerosectionPage
+export default HerosectionPage;

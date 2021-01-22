@@ -61,4 +61,4 @@ const createPaginatedPages = ({
   });
 };
 
-export default createPaginatedPages;
+module.exports = createPaginatedPages;

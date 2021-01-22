@@ -1,6 +1,6 @@
 // Utility for pagination on homepage. To be used in gatsby-node.js at build time
 
-const path = require(`path`)
+const path = require(`path`);
 
 // Creates groups of paginated pages. pageLength is how many pages for pagination
 const createGroups = (pages, pageLength) =>
@@ -8,34 +8,34 @@ const createGroups = (pages, pageLength) =>
     .map((edge, index) => {
       return index % pageLength === 0
         ? pages.slice(index, index + pageLength)
-        : null
+        : null;
     })
-    .filter(item => item)
+    .filter((item) => item);
 
-const getPageIndex = index => (index === 0 ? `` : index + 1)
+const getPageIndex = (index) => (index === 0 ? `` : index + 1);
 
 const buildPaginationRoute = (index, pathPrefix) =>
-  index > 1 ? `${pathPrefix}/${index}` : (pathPrefix || `/`)
+  index > 1 ? `${pathPrefix}/${index}` : pathPrefix || `/`;
 
-const isFirstPage = index => index === 0
+const isFirstPage = (index) => index === 0;
 
-const isLastPage = (index, length) => index === length - 1
+const isLastPage = (index, length) => index === length - 1;
 
 const createPaginatedPages = ({
-                                edges,
-                                createPage,
-                                pageLength = 10,
-                                pageTemplate,
-                                pathPrefix = ``,
-                                buildPath = null,
-                                context = {}
-                              }) => {
-  const groups = createGroups(edges, pageLength)
+  edges,
+  createPage,
+  pageLength = 10,
+  pageTemplate,
+  pathPrefix = ``,
+  buildPath = null,
+  context = {},
+}) => {
+  const groups = createGroups(edges, pageLength);
 
-  const paginationTemplate = path.resolve(pageTemplate)
+  const paginationTemplate = path.resolve(pageTemplate);
 
   groups.forEach((group, index, groups) => {
-    const pageIndex = getPageIndex(index)
+    const pageIndex = getPageIndex(index);
 
     return createPage({
       path:
@@ -55,10 +55,10 @@ const createPaginatedPages = ({
         // Starting with v1.1.0, context passed to createPaginatedPages is spread
         // into createPage's context directly and should be used instead.
         // Resolves https://github.com/pixelstew/gatsby-paginate/issues/29.
-        additionalContext: context
-      }
-    })
-  })
-}
+        additionalContext: context,
+      },
+    });
+  });
+};
 
-module.exports = createPaginatedPages
+export default createPaginatedPages;

@@ -32,12 +32,20 @@ Along the way, let's also understand how they work and what they do. If you want
 - EC2 stands for Elastic Compute Cloud. It's a web service that makes it easy for us to provision Compute capacity in easy way. (Just like there's S3 for static storage, EC2 is for Compute)
 - What is happening behind the scenes that makes it work? This informative slide from Mr Chetan Kapoor's reInvent talk answers this question:
 
+<ImageWrapper>
+
 ![Deploy Spring Boot Application to AWS](deploy_spring_boot_aws_1.png)
+
+</ImageWrapper>
 
 - So, when we launch an EC2 instance, we are actually running our code on a virtualized portion of a server that is deployed in that AWS Region. The actual processors may be Intel's Xeon or AMD, or even Amazon's Gravitron processors.
 - When I started looking into EC2, one thing I was confused about is the EC2 instance types. AWS documentation mentions many instances like `M5d.xlarge`. What does that mean? This image does a good job of explaining it -
 
+<ImageWrapper width="450px">
+
 ![Deploy Spring Boot Application to AWS](deploy_spring_boot_aws_2.png)
+
+</ImageWrapper>
 
 - There are many instance types available with various compute-to-memory ratios. This link has info about them. You can choose one depending on your application specific I/O, storage, compute requirements. The app we are deploying is pretty simple, so I'm going to use the `t2.micro` instance type, for which AWS Free Tier provides 750 Hours per month without any charges.
 
@@ -78,19 +86,35 @@ mvn clean package spring-boot:repackage
 - Upon completion, it will create a `.jar` artifact for our project in the `/target` directory.
 - Now, let's create a Elastic Beanstalk environment. Go to the [Elastic Beanstalk Console](https://aws.amazon.com/elasticbeanstalk/) and click on "Create Application" once logged in.
 
+<ImageWrapper>
+
 ![Deploy Spring Boot Application to AWS](deploy_spring_boot_aws_3.png)
+
+</ImageWrapper>
 
 Next, enter the information regarding your web application and select the appropriate Java version.
 
+<ImageWrapper>
+
 ![Deploy Spring Boot Application to AWS](deploy_spring_boot_aws_4.png)
 
+</ImageWrapper>
+
 At the bottom, you will see an option for "Source code origin". You can upload the compiler .jar file we created here.
+
+<ImageWrapper>
 
 ![Deploy Spring Boot Application to AWS](deploy_spring_boot_aws_5.png)
 
+</ImageWrapper>
+
 At the bottom, you will see an option for "Source code origin". You can upload the compiler .jar file we created here.
 
+<ImageWrapper>
+
 ![Deploy Spring Boot Application to AWS](deploy_spring_boot_aws_6.png)
+
+</ImageWrapper>
 
 Our environment is created and the app is live! But wait, we are not done yet. We are yet to provision a MySQL database that our app needs. Without it, there'll be JDBC connection errors all over the place!
 
@@ -99,7 +123,11 @@ For setting up a MySQL database using RDS, following are the steps
 - Go to Environments > Configuration in Elastic Beanstalk console
 - Scroll down to "Database" and click on "Edit". Enter the details regarding the database here.
 
+<ImageWrapper>
+
 ![Deploy Spring Boot Application to AWS](deploy_spring_boot_aws_7.png)
+
+</ImageWrapper>
 
 - Once submitted, AWS will take a few minutes to create an RDS MySQL instance and update our Beanstalk environment with the new MySQL database environment vars. Make sure that the you are taking database username and password from the environment in your `[application.properties](http://application.properties)` file.
 - As a last step, you will need to modify security groups in your RDS instance and EC2 instance to make sure that the database instance can be contacted by the code. [Here](https://stackoverflow.com/questions/46311096/unable-to-establish-connection-to-jdbcmysql-communication-link-failure) are the instructions to do the same. Make sure following things are true for your EC2 and RDS instances.
@@ -108,7 +136,11 @@ For setting up a MySQL database using RDS, following are the steps
 
 And, that is it! At this point, your Spring Boot application would be deployed without any issue! Note that by default, since we're using Tomcat, it would be deployed on port 8080.
 
+<ImageWrapper>
+
 ![Deploy Spring Boot Application to AWS](deploy_spring_boot_aws_7.png)
+
+</ImageWrapper>
 
 **Note:** Remember to terminate your environment in Elastic Beanstalk to avoid wastage of your free tier credits. (As a side note: Always make sure to set up CloudWatch Billing alerts to ensure that you don't get charged in case your free tier limits are crossed without you knowing!)
 

@@ -63,7 +63,7 @@ Along the way, let's also understand how they work and what they do. If you want
 - First, we will have to build Spring Boot application to create a `.jar` executable. Before doing that, make sure that your `[application.properties](http://application.properties)` file picks up spring datasource URL, username, and password from the environment variables. At runtime, our Beanstalk environment will provide details regarding the database through it's env vars. Following is my `application.properties` file. It sees if the env var is available, if not (in local environment), it will use the hardcoded values after the colon.
 Note that the `RDS_` prefix is important since that's how Beanstalk provides us values from RDS. Without it, you will see JDBC connection errors!
 
-```bash
+```
 spring.datasource.url=jdbc:mysql://${RDS_HOSTNAME:localhost}:${RDS_PORT:3306}/${RDS_DB_NAME:springtodo}
 spring.datasource.username=${RDS_USERNAME:root}
 spring.datasource.password=${RDS_PASSWORD:}

@@ -68,6 +68,12 @@
   color: white;
 }
 
+.gatsby-highlight pre[class~="language-java"]::before {
+  content: "java";
+  background: #5382a1;
+  color: white;
+}
+
 .token.operator{
   background: none;
 }

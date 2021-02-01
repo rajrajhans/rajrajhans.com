@@ -1,32 +1,33 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { MDXProvider } from "@mdx-js/react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Pic from "../static/raj-profile-pic-1.png"
-import toKebabCase from "../utils/toKebabCase"
-import InternalLink from "../components/utilComponents/internalLink"
-import InternalLinkUp from "../components/utilComponents/internalLinkUp"
-import InternalLinkRight from "../components/utilComponents/internalLinkRight"
-import Heading from "../components/blogPostComponents/heading"
-import Subheading from "../components/blogPostComponents/subheading"
-import Subsubheading from "../components/blogPostComponents/subsubheading"
-import Listitem from "../components/blogPostComponents/listitem"
-import Blockquote from "../components/blogPostComponents/blockquote"
-import Alert from "../components/blogPostComponents/alert"
-import AlertInfo from "../components/blogPostComponents/alertInfo"
-import ExtLink from "../components/blogPostComponents/extLink"
-import Code from "../components/blogPostComponents/codeComponent"
-import { preToCodeBlock } from "mdx-utils"
-import "../styles/codeComponent.scss"
-import "../styles/blogPost.scss"
+import React from "react";
+import { graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import Pic from "../static/raj-profile-pic-1.png";
+import toKebabCase from "../utils/toKebabCase";
+import InternalLink from "../components/utilComponents/internalLink";
+import InternalLinkUp from "../components/utilComponents/internalLinkUp";
+import InternalLinkRight from "../components/utilComponents/internalLinkRight";
+import Heading from "../components/blogPostComponents/heading";
+import Subheading from "../components/blogPostComponents/subheading";
+import Subsubheading from "../components/blogPostComponents/subsubheading";
+import Listitem from "../components/blogPostComponents/listitem";
+import Blockquote from "../components/blogPostComponents/blockquote";
+import Alert from "../components/blogPostComponents/alert";
+import AlertInfo from "../components/blogPostComponents/alertInfo";
+import ExtLink from "../components/blogPostComponents/extLink";
+import Code from "../components/blogPostComponents/codeComponent";
+import { preToCodeBlock } from "mdx-utils";
+import "../styles/codeComponent.scss";
+import "../styles/blogPost.scss";
+import ImageWrapper from "../components/blogPostComponents/imageWrapper";
 
 //TODO : Add Keywords, URL & image to the SEO component
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.mdx
-  const { previous, next } = pageContext
+  const post = data.mdx;
+  const { previous, next } = pageContext;
 
   const components = {
     h1: Heading,
@@ -34,19 +35,20 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     h3: Subsubheading,
     li: Listitem,
     blockquote: Blockquote,
-    pre: preProps => {
-      const props = preToCodeBlock(preProps)
+    pre: (preProps) => {
+      const props = preToCodeBlock(preProps);
       // if there's a codeString and some props, we passed the test
       if (props) {
-        return <Code {...props} />
+        return <Code {...props} />;
       }
       // it's possible to have a pre without a code in it
-      return <pre {...preProps} />
+      return <pre {...preProps} />;
     },
     Alert,
     ExtLink,
-    AlertInfo
-  }
+    AlertInfo,
+    ImageWrapper,
+  };
 
   return (
     <Layout
@@ -188,10 +190,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -220,4 +222,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

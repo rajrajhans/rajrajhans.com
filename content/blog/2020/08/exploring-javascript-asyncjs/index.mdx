@@ -31,7 +31,11 @@ Before starting, I highly recommend you to read <ExtLink link={"/2020/08/concurr
 
 JavaScript is single-threaded, meaning you cannot run two lines of code at once (without web workers or something like that). So, JS is not truly concurrent, but it can be asynchronous. We can "pretend" that some things happen concurrently instead of waiting for them to finish. What happens is your main script executes normally, and then continuously runs any code that we wanted to run "asynchronously". Asynchronous just means that the code isn't run in the order it's laid out. So, in JS, Concurrency is when two or more chains of events interleave over time, such that, from a high level perspective, they appear to be running simultaneously, when in fact, what's happening is fast context switching . This works using an "event loop".
 
+<ImageWrapper>
+
 ![Event Loop](event_loop2.png)
+
+</ImageWrapper>
 
 # The Event Loop
 

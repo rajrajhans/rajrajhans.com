@@ -7,7 +7,7 @@
   Personal Portfolio & Blog
 </h1>
 
-Everyone developer needs their own space on the web, this is mine.
+Every developer needs their own space on the web, this is mine.
 
 ---
 [![website_up](https://img.shields.io/badge/Website-Up-<COLOR>.svg?style=flat)](https://rajrajhans.com/)

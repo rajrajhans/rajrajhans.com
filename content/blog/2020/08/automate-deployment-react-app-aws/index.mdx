@@ -46,7 +46,12 @@ Alright, let’s get into the specifics now. We are going to use <ExtLink link={
 2.	<strong>Build Stage</strong> – Here, it installs dependencies and builds our code. If you want to do any automated tests, you can do them here. We will be using CodeBuild for building our code
 3.	<strong>Deploy Stage</strong> – Here, it deploys the changes to our production environment.
 
+
+<ImageWrapper>
+
 ![AWS CodeCommit](aws_cd_1.png)
+
+</ImageWrapper>
 
 Instead of AWS CodeCommit (which is a git service by AWS), we will be using GitHub as the Source for our code.
 
@@ -60,11 +65,19 @@ __Step 2__: Create a new <ExtLink link={"https://docs.aws.amazon.com/codebuild/l
 
 Select the “Source” as GitHub. You have options to Connect using OAuth or using the Github Personal Token we just created. After you connect, you can enter the Repository URL.
 
+<ImageWrapper>
+
 ![AWS CodeBuild](aws_cd_2.png)
+
+</ImageWrapper>
 
 Once the repository is connected, we can specify the Environment settings. You can go with the default ones suggested by AWS without facing any issue. Following is what I selected –
 
+<ImageWrapper>
+
 ![AWS CodeBuild](aws_cd_3.png)
+
+</ImageWrapper>
 
 Next, you have to specify the Build Specifications. This is the part where the whole magic is going to happen. When it spins up a CPU instance for us with the specified environment, it has to “do something” (for example – executing npm <strong>run build</strong>) to actually build our project. That “doing something” part is specified in the BuildSpec.
 
@@ -139,7 +152,11 @@ __Step 2__ – Choose basic pipeline settings like Name, description, etc.
 
 __Step 3__ – Add Source Stage. Here, we will select our Github Repo. Here is a screenshot of this step completed
 
+<ImageWrapper>
+
 ![Source Stage](aws_cd_4.png)
+
+</ImageWrapper>
 
 __Step 4__ – Add Build Stage
 * In this stage, you have to select the CodeBuild project we just created previously. You can also mention any environment variables your project might need.
@@ -147,7 +164,11 @@ __Step 4__ – Add Build Stage
 
 After creating the pipeline, it will get triggered and run for the first time. After it has run, you should see something like this –
 
+<ImageWrapper>
+
 ![Source Stage](aws_cd_5.png)
+
+</ImageWrapper>
 
 If you face any errors at this stage, ensure two things –
 1.	Your app build without any errors on your PC

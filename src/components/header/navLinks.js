@@ -16,15 +16,7 @@ function ListItem(props) {
 
   return (
     <li className={"navBarLinkListItem"}>
-      <Link
-        title={props.title}
-        cover
-        bg={getColor(currentTheme)}
-        direction={"down"}
-        duration={0.75}
-        to={props.to}
-        className={isActive(props.to) ? "active" : ""}
-      >
+      <Link title={props.title} to={props.to} activeClassName={"active"}>
         {props.children}
       </Link>
     </li>

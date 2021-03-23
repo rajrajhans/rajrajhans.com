@@ -9,16 +9,9 @@ import BlogPostBox from "../components/utilComponents/blogPostBox";
 
 const ReactRotatingText = require("react-rotating-text");
 
+const age = getAge();
+
 class Index extends Component {
-  age = this.calculate_age(new Date(2001, 4, 8));
-
-  calculate_age(dob) {
-    const diff_ms = Date.now() - dob.getTime();
-    const age_dt = new Date(diff_ms);
-
-    return Math.abs(age_dt.getUTCFullYear() - 1970);
-  }
-
   render() {
     const blogs = this.props.data.allMdx.nodes;
 
@@ -38,8 +31,7 @@ class Index extends Component {
               <span className={"homepageHeroHi"}>Hi, I'm Raj</span>
               <br />
               <div className={"homepageHeroIntro homepageHeroIntroTop"}>
-                I'm a {this.age} year old web developer studying Computer
-                Engineering.
+                I'm a {age} year old full stack software developer.
               </div>
 
               <div className=" homepageHeroIntro">
@@ -138,3 +130,12 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+function getAge() {
+  const dob = new Date(2001, 4, 8);
+  const diff_ms = Date.now() - dob.getTime();
+  const age_dt = new Date(diff_ms);
+
+  console.log("calculating age");
+  return Math.abs(age_dt.getUTCFullYear() - 1970);
+}

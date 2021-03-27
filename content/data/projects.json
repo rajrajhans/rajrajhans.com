@@ -1,13 +1,28 @@
 [
   {
+    "image": "../assets/examsecure.png",
+    "title": "ExamSecure",
+    "subtitle": "Platform for conducting remote exams",
+    "description": "ExamSecure is a platform for conducting cheating free remote examinations with an automated virtual proctoring system that performs face and object detection in real time using the candidates' webcam frames to ensure exam authenticity.",
+    "tags": [
+      "reactjs",
+      "aws",
+      "monorepo",
+      "design-system"
+    ],
+    "website": "https://examsecure.rajrajhans.com/",
+    "github": "https://github.com/rajrajhans/examsecure",
+    "casestudy": "https://github.com/rajrajhans/examsecure/blob/master/README.md"
+  },
+  {
     "image": "../assets/gg_showcase.jpg",
     "title": "GradGoggles",
-    "subtitle": "Cross Platform Virtual Yearbook",
-    "description": "<div style='margin:15px 0 14px 0'>A Virtual Yearbook and Scrapbook Platform for the #ClassOf2020. Recently crossed 200 users. Developed using Flask for the API and ReactJS for WebApp.</div>",
+    "subtitle": "Virtual Yearbook & Scrapbook App",
+    "description": "<div style='margin:15px 0 14px 0'>GradGoggles is a Virtual Yearbook and Scrapbook Platform for the graduating #ClassOf2020, developed as an alternative for the missed graduating ceremonies due to the pandemic. Recently crossed 200 users.</div>",
     "tags": [
       "flask",
       "reactjs",
-      "api",
+      "android",
       "heroku",
       "postgres"
     ],
@@ -16,29 +31,14 @@
     "casestudy": "/2020/08/casestudy-gradgoggles/"
   },
   {
-    "image": "../assets/examsecure.png",
-    "title": "ExamSecure",
-    "subtitle": "Automated Virtual Proctoring System",
-    "description": "ExamSecure is a platform for conducting cheating free remote examinations with an automated virtual proctoring system that performs face and object detection in real time using the candidates' webcam frames to ensure exam authenticity.",
-    "tags": [
-      "reactjs",
-      "aws-rekognition",
-      "aws-lambda"
-    ],
-    "website": "https://examsecure.rajrajhans.com/",
-    "github": "https://github.com/rajrajhans/examsecure",
-    "casestudy": "https://github.com/rajrajhans/examsecure/blob/master/README.md"
-  },
-  {
     "image": "../assets/ss.png",
     "title": "rajrajhans.com",
     "subtitle": "Personal Portfolio Website",
-    "description": "<div style='margin:15px 0 14px 0'>A personal portfolio and blog site developed using GatsbyJS, with a focus on speed, SEO and a convinient blogging system.</div>",
+    "description": "<div style='margin:15px 0 14px 0'>A personal portfolio and blog site developed using GatsbyJS, with a focus on speed, SEO and a convenient blogging system developed using MDX.</div>",
     "tags": [
       "gatsbyjs",
-      "blog",
+      "MDX",
       "portfolio",
-      "css"
     ],
     "website": "https://rajrajhans.com/",
     "github": "https://github.com/rajrajhans/rajrajhans.com-sourcecode",
@@ -90,23 +90,10 @@
     "casestudy": "/2020/03/case-study-wetalk/"
   },
   {
-    "image": "../assets/reactchat.png",
-    "title": "React-Chat",
-    "subtitle": "A messenger-like chat WebApp",
-    "description": "<div style='margin:52px 0 52px 0'>A fully functional instant messaging application using ReactJS and Firebase</div>",
-    "tags": [
-      "firebase",
-      "reactjs"
-    ],
-    "website": "https://rajrajhans.com/",
-    "github": "https://github.com/rajrajhans/react-chat",
-    "casestudy": null
-  },
-  {
     "image": "../assets/resultscrape.png",
     "title": "ResultScrape",
     "subtitle": "Web Scraping, Flask API, React Frontend",
-    "description": "<div style='margin-bottom:40px'>Using ScraPy to scrape a website, building an API for that data using Flask and a webapp for that data using ReactJS.</div>",
+    "description": "<div style='margin-bottom:40px'>Using ScraPy to scrape a website exploiting a vulnerability in it's authorization system, building an API for that data using Flask and a webapp for that data using ReactJS.</div>",
     "tags": [
       "scrapy",
       "webscraping",

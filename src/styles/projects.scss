@@ -51,6 +51,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 0 40px !important;
 }
 
 .projectBox{
@@ -136,7 +137,7 @@
     -webkit-filter: brightness(69%);
     -moz-filter: brightness(69%);
   }
-  
+
   i{
     opacity: 0.75;
     z-index: 2;

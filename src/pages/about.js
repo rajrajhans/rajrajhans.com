@@ -31,24 +31,25 @@ class About extends Component {
 
                 <div className="aboutRajTextContent">
                   <p>
-                    Raj is a Second Year Computer Engineering student at VIT,
-                    Pune. A tech-aficionado, as he likes to put it, Raj is also
-                    a freelance web designer and developer.
+                    Hey there, I'm Raj, a fullstack software developer. I enjoy
+                    developing well-designed, responsive, and functional web
+                    applications.
                   </p>
 
                   <p>
-                    As an aspiring software developer, you will find him
-                    speaking computerese, barely comprehensible to anyone else.
-                    But don’t let his overtly composed and calm visible delude
-                    you. He can easily grab your attention with his eccentric
-                    and uncanny theories about ‘anything’ in general. Raj is an
-                    active tech blogger as he feels explaining helps in
-                    understanding.
+                    I am proficient in JavaScript, TypeScript and the React
+                    ecosystem. I also have experience in developing REST API
+                    backends using Flask (Python), and Spring Boot (Java). I can
+                    leverage the power of AWS and Azure Cloud Services to deploy
+                    web applications that can scale. I'm always up for learning
+                    a new technology and exploring how it solves common
+                    problems.
                   </p>
 
                   <p>
-                    When not raising pull requests on GitHub, you will find him
-                    lost in a world of thriller books and soothing music.
+                    I'm currently working as an Open Source Fellow with the AWS
+                    Amplify CLI Team as part of the MLH Fellowship (Spring '21
+                    Batch).
                   </p>
                 </div>
               </div>

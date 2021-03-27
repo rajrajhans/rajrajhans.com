@@ -1,91 +1,132 @@
 [
   {
-    "image": "../assets/ss.png",
-    "title": "rajrajhans.com",
-    "subtitle": "Personal Portfolio Website",
-    "description": "<div style='margin:15px 0 14px 0'>A personal portfolio and blog site developed using GatsbyJS, with a focus on speed, SEO and a convinient blogging system.</div>",
-    "tags": ["gatsbyjs", "blog", "portfolio", "css"],
-    "website": "https://rajrajhans.com/",
-    "github": "https://github.com/rajrajhans/rajrajhans.com-sourcecode",
-    "casestudy" : "https://rajrajhans.com/tags/gatsby"
-  },
-  {
     "image": "../assets/gg_showcase.jpg",
     "title": "GradGoggles",
     "subtitle": "Cross Platform Virtual Yearbook",
     "description": "<div style='margin:15px 0 14px 0'>A Virtual Yearbook and Scrapbook Platform for the #ClassOf2020. Recently crossed 200 users. Developed using Flask for the API and ReactJS for WebApp.</div>",
-    "tags": ["flask", "reactjs", "api", "heroku", "postgres"],
+    "tags": [
+      "flask",
+      "reactjs",
+      "api",
+      "heroku",
+      "postgres"
+    ],
     "website": "https://gradgoggles.com/",
     "github": "https://github.com/rajrajhans/gradgoggles",
-    "casestudy" : "/2020/08/casestudy-gradgoggles/"
+    "casestudy": "/2020/08/casestudy-gradgoggles/"
   },
   {
     "image": "../assets/examsecure.png",
     "title": "ExamSecure",
     "subtitle": "Automated Virtual Proctoring System",
-    "description": "ExamSecure is a Automated Virtual Proctoring solution for remote exams that performs real-time image analysis on the candidates' webcam frames to ensure exam authenticity.",
-    "tags": ["reactjs", "aws-rekognition", "aws-lambda"],
+    "description": "ExamSecure is a platform for conducting cheating free remote examinations with an automated virtual proctoring system that performs face and object detection in real time using the candidates' webcam frames to ensure exam authenticity.",
+    "tags": [
+      "reactjs",
+      "aws-rekognition",
+      "aws-lambda"
+    ],
     "website": "https://examsecure.rajrajhans.com/",
     "github": "https://github.com/rajrajhans/examsecure",
-    "casestudy" : "https://github.com/rajrajhans/examsecure/blob/master/README.md"
+    "casestudy": "https://github.com/rajrajhans/examsecure/blob/master/README.md"
+  },
+  {
+    "image": "../assets/ss.png",
+    "title": "rajrajhans.com",
+    "subtitle": "Personal Portfolio Website",
+    "description": "<div style='margin:15px 0 14px 0'>A personal portfolio and blog site developed using GatsbyJS, with a focus on speed, SEO and a convinient blogging system.</div>",
+    "tags": [
+      "gatsbyjs",
+      "blog",
+      "portfolio",
+      "css"
+    ],
+    "website": "https://rajrajhans.com/",
+    "github": "https://github.com/rajrajhans/rajrajhans.com-sourcecode",
+    "casestudy": "https://rajrajhans.com/tags/gatsby"
   },
   {
     "image": "../assets/safepass_mockup.png",
     "title": "SafePass",
     "subtitle": "Simple and Secure Password Management",
     "description": "SafePass is a simple and secure password management tool with a Web App and an Android App developed using ReactJS, React Native & Firebase.",
-    "tags": ["reactjs", "react-native", "firebase", "android"],
+    "tags": [
+      "reactjs",
+      "react-native",
+      "firebase",
+      "android"
+    ],
     "website": "https://safepass.rajrajhans.com/",
     "github": "https://github.com/rajrajhans/safepass",
-    "casestudy" : null
+    "casestudy": null
   },
   {
     "image": "../assets/springtodo.png",
     "title": "SpringTodo",
     "subtitle": "REST API for a ToDo App",
     "description": " A simple REST API for a todo app created using Spring Boot. Intended as a beginner exercise to learn more about the Spring Framework. ",
-    "tags": ["spring-boot", "java", "aws", "ec2-rds"],
+    "tags": [
+      "spring-boot",
+      "java",
+      "aws",
+      "ec2-rds"
+    ],
     "website": "https://github.com/rajrajhans/spring-boot-todo/",
     "github": "https://github.com/rajrajhans/spring-boot-todo",
-    "casestudy" : "/2021/01/beginners-guide-to-spring-boot/"
+    "casestudy": "/2021/01/beginners-guide-to-spring-boot/"
   },
   {
     "image": "../assets/wetalk.png",
     "title": "WeTalk",
     "subtitle": "Basic Social Network",
     "description": "A Flask based basic social networking website developed using Python, with PostgreSQL used as the DBMS and deployed on Heroku.",
-    "tags": ["flask", "python", "heroku", "postgresql"],
+    "tags": [
+      "flask",
+      "python",
+      "heroku",
+      "postgresql"
+    ],
     "website": "https://wetalk.rajrajhans.com/",
     "github": "https://github.com/rajrajhans/gradgoggles",
-    "casestudy" : "/2020/03/case-study-wetalk/"
+    "casestudy": "/2020/03/case-study-wetalk/"
   },
-    {
+  {
     "image": "../assets/reactchat.png",
     "title": "React-Chat",
     "subtitle": "A messenger-like chat WebApp",
     "description": "<div style='margin:52px 0 52px 0'>A fully functional instant messaging application using ReactJS and Firebase</div>",
-    "tags": ["firebase", "reactjs"],
+    "tags": [
+      "firebase",
+      "reactjs"
+    ],
     "website": "https://rajrajhans.com/",
     "github": "https://github.com/rajrajhans/react-chat",
-    "casestudy" : null
+    "casestudy": null
   },
   {
     "image": "../assets/resultscrape.png",
     "title": "ResultScrape",
     "subtitle": "Web Scraping, Flask API, React Frontend",
     "description": "<div style='margin-bottom:40px'>Using ScraPy to scrape a website, building an API for that data using Flask and a webapp for that data using ReactJS.</div>",
-    "tags": ["scrapy", "webscraping", "reactjs", "flask"],
+    "tags": [
+      "scrapy",
+      "webscraping",
+      "reactjs",
+      "flask"
+    ],
     "website": "https://resultapp.rajrajhans.com/",
     "github": "https://github.com/rajrajhans",
-    "casestudy" : null
+    "casestudy": null
   },
   {
     "image": "../assets/essay-editor.png",
     "title": "Essay Editor Tool (API Integration)",
     "subtitle": "Identifies Spelling, Grammar, Punctuation mistakes",
     "description": "A tool to analyse your essay and run a spellcheck, grammar and punctuation check. Developed using  publicly available LanguageTool API in PHP.",
-    "tags": ["php", "api"],
+    "tags": [
+      "php",
+      "api"
+    ],
     "website": "https://reachivy.com/apps/essay-editor/",
-    "casestudy" : null
+    "casestudy": null
   }
 ]

@@ -132,10 +132,9 @@ export const pageQuery = graphql`
 `;
 
 function getAge() {
-  const dob = new Date(2001, 4, 8);
+  const dob = new Date(2001, 3, 8);
   const diff_ms = Date.now() - dob.getTime();
   const age_dt = new Date(diff_ms);
 
-  console.log("calculating age");
   return Math.abs(age_dt.getUTCFullYear() - 1970);
 }

@@ -90,11 +90,17 @@ class Index extends Component {
 
         <div className="seeMoreBlogsBtn">
           <div className="homeBlogArchivesLink">
-            <InternalLink link={"/blogs"} title={"Explore Blogs by Categories"}>
+            <InternalLink link={"/blogs"} title={"See All Blog Posts"}>
               <div className="homeBlogArchivesButton">
                 <i className={"fa fa-folder-o"} /> See All Blog Posts (
                 {this.props.data.allMdx.totalCount})
               </div>
+            </InternalLink>
+          </div>
+          <div className="homeBlogArchivesLinkMobile">
+            <InternalLink link={"/blogs"} title={"Explore Blogs by Categories"}>
+              <i className={"fa fa-folder-o"} />
+              See All Blog Posts ({this.props.data.allMdx.totalCount})
             </InternalLink>
           </div>
         </div>

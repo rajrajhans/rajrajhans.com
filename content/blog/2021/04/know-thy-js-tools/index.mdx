@@ -1,0 +1,97 @@
+---
+title: "Know Thy (JS) Tools"
+date: "2021-04-07"
+description: Understanding the tooling is crucial to understand what exactly is happening to the code we write, which helps us write better, bug-free code. This post is a collection of notes I made to understand more about the tools used in the JavaScript ecosystem.
+featuredImage: js_tooling_feature.png
+mainTag: Exploring JavaScript
+tags:
+    - Exploring JavaScript
+    - Exploring React
+heroTags:
+    - Exploring JavaScript
+    - AWS Rekognition
+readingTime : 4
+keywords:
+    - AWS Rekognition
+    - Spring Boot
+    - React Hooks
+    - Raj
+    - Rajhans
+    - Raj Rajhans
+    - rajrajhans
+---
+When I started learning JavaScript and React, I was always confused how the magic that the build tools do under the hood. I, like many others, had experience with Python, Java ecosystems where opinionated, full stack solutions existed for build tools, and they were pretty easy to understand. That's why the tools sorrounding JS ecosystem always seemed elusive to understand as a beginner.
+
+However, understanding the tooling is crucial to understand what exactly is happening to the code we write, which helps us write better, bug-free code. (Remember, bugs are caused when the code we write doesn't behave the way we think it would behave). This post is a collection of notes I made to understand more about the tools used in the JavaScript ecosystem. It will give you an overview of the tooling used in JavaScript.
+
+# Why do we need tools?
+
+There are several reasons a JavaScript codebase needs so many tools, which is not necessarily the case for, say, a Python codebase. These reasons are something which is unique to the JS ecosystem. Why? Well mainly because JS started as a simple scripting language in the browser, and then it was developed into a general purpose programming language and then more and more were added.
+
+So first, we'll see some reasons
+
+## 1. Browsers cannot directly run the code we write
+
+The first reason is that our primary environments, i.e. browsers, cannot take the code we write and "just run it". Why? Because much of the modern ES2015 syntax hasn't been fully implemented in all browsers. Plus, we have additional abstractions like JSX which browsers don't understand at all. Our code needs to be "converted" into something that browsers can understand first. This process is called transpilation, and the tools that do this are called **transpilers**.
+
+## 2. JS doesn't have built in solution for modularization
+
+Modular code is more maintainable. As we write larger and larger web applications, there is need for code to be modularized to be easy to understand and maintain. but, JavaScript doesn't have any built in solution to provide a way to have some kind of modules. The ways are environment specific, meaning NodeJS uses its own module system (called CommonJS module system which uses `require()`), and we in React world use the ES6 module system (which uses `import` statements). So, to solve this problem, we have tools called **module bundlers** which take our code written in a module system and create a static JS file from it, which can run in the browser.
+
+## 3. JS is very flexible, which makes it error-prone
+
+One thing about JavaScript is that it is *very* flexible, but that means that you can easily introduce bugs in your codebase since the language wont stop you. To improve the safety of our code, there are tools called **static type checkers**. To help you catch errors during development, there are tools called **linters**.
+
+As you might know, JavaScript is a dynamically typed language, which means that type safety is verified at runtime, which might lead to unexpected errors at runtime. Static Type Checking is the process of checking type safety based on source code at compile time. This has benefits like catching errors early, limiting type errors, and overall increasing the trust factor of your code.
+
+# Popular JS Tools
+
+Now that we have seen the reasons behind having tools, let's see some of the popular tools that I'm sure you might have heard about.
+
+## Babel
+
+Babel is a **transpiler**. It takes in your code written in newer JS syntax, like ES6, and produces the equivalent code in an older syntax which older browsers can run.
+
+Babel also allows you to enable experimental syntax features, which might not have been implemented in browsers yet. So, you can write code that uses newer syntax, and not worry about whether that code will run in your user's browser.
+
+Also, Babel has a built-in JSX transpiler. It can take JSX syntax that we write with React and produce equivalent JS code from it. Pretty cool, right!
+
+## Webpack
+
+Webpack is a **module bundler**. It takes in your codebase, which is modularized using some module system, and produces a code which combines the modules into JavaScript code files that browsers can understand.
+
+When webpack processes your codebase, it internally builds a dependency graph which maps every module the project needs and generates one or more bundles that we can deploy. Generally, transpilation tools (such as Babel) as integrated with module bundlers (such as Webpack). This integration is possible in Webpack using the concept of "loaders". We can also use webpack to support bundling many different assets such as images, fonts and stylesheets.
+
+Webpack comes with a development server which allows you to host your code in dev environment. Such server can then watch your files and rebundle your code every time you make a change. (aka Hot Module Replacement)
+
+Alternatives to Webpack include Parcel, Rollup, Blazepack, etc.
+
+## NPM
+
+NPM Is a **package manager**. If you come from Python ecosystem, think `pip`. NPM is a tool for downloading packages, resolving dependencies between them and providing a package abstraction for your project.
+
+Your project might have a lot of dependencies on other packages. When another developer wants to work with your codebase, all he needs to do is run `npm install` and all dependencies will be installed automatically. If you are developing library, npm also helps you publish it so that other developers can easily install it.
+
+An alternative for npm is Yarn, which is another package manager which uses the same registry that npm uses but is faster.
+
+## Jest
+
+Jest is a **testing framework** for JavaScript codebases. It runs your tests, and keeps track of whether they are passing or failing. It also provides a feature rich API for writing tests. You can write unit tests, snapshot tests, and much more using Jest.
+
+You can also configure Jest to do some tasks before it runs the tests, like running Babel to transform the JSX code to JS code first and then running the tests. So, Jest works well with React codebases as well.
+
+## ESLint
+
+ESLint is a **linter**. It statically analyzes your code to find problems based on formatting rules, code quality rules, and any custom rules you might set and then outputs them as warnings or errors.
+
+It parses and inspects the source code, and then analyzes the code's syntax and structure. If any code violates the rules defined by the linter, a warning or error is shown. There are also plugins for ESLint that can check best practices for React and JSX (for example, eslint-plugin-react or eslint-plugin-react-hooks)
+
+ESLint integrates nicely into editors and IDEs to provide a great development experience. It's especially helpful to establish some kind of a guideline for the project if you are working in a team. It can also be integrated in CI CD pipeline so bad code will be stopped from entering production environment.
+
+## Prettier
+
+Prettier is a **code formatter**. It enforces consistent style by parsing our code and re-printing it with its own rules, like maximum line length, or tab size, etc.
+
+You can integrate Prettier with your IDE or editor to have it run every time you save your file, so that you don't have to worry about formatting your code at all!
+
+That's it for this post, I hope it helped clarify any doubts you might have about tooling in JS ecosystem. See you in the next one!

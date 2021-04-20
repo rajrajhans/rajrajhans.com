@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "rajrajhans.com",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "description": "Source code for my personal portfolio/blog website rajrajhans.com",
+  "version": "1.0.0",
+  "author": "Raj Rajhans <me@rajrajhans.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.5",
     "@mdx-js/react": "^1.6.5",
@@ -61,15 +58,12 @@
     "netlify-lambda": "^1.6.3",
     "prettier": "2.0.5"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
+  "homepage": "https://rajrajhans.com",
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/rajrajhans/rajrajhans.com.git"
   },
   "scripts": {
     "build": "gatsby build && netlify-lambda build src/functions",

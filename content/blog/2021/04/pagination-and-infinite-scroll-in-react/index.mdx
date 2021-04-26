@@ -1,0 +1,199 @@
+---
+title: 'Pagination & Infinite Scroll in React'
+date: '2021-04-27'
+description: When you have to to present large number of data records in your webapp, you have two options - pagination or infinite scroll. In this post, let's see how to implement both these ways by building a sample app.
+featuredImage: react-pagination-infinite-scroll-0.png
+mainTag: Exploring React
+tags:
+  - Exploring React
+heroTags:
+  - Exploring React
+readingTime: 8
+keywords:
+  - Pagination
+  - Infinite Scroll
+  - React
+  - Raj
+  - Rajhans
+  - Raj Rajhans
+  - rajrajhans
+---
+
+Recently, while working on [GradGoggles](https://gradgoggles.com/), I had to work on implementing infinite scroll for the Yearbook feature. Earlier, the Yearbook component was implemented using Pagination, but I decided to implement Infinite Scroll for a better UX. It can be implemented easily by using a plugin such as Ankeet Maini's [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component), but I decided to implement it from scratch to see how it works. This post is a write up on what I learned along the way.
+
+# What's Infinite Scroll
+
+When you have to to present large number of data records, you have two options. You can either use pagination, which means that you'll display certain number of records on a screen and then the user has to click on a button to load the next set of data.
+
+A better option is "infinite scroll", which means that the user just has to scroll, and it will automatically display the next set of data as the user scrolls further down, similar to how Twitter or Facebook feeds work. It's a much better experience rather than the user having to click on a button every time they want to load next page's data.
+
+## Sample React App
+
+For this post, I made a simple React app that basically calls the Unsplash API to get random images, 15 at a time, and displays them. [Here is the github repo](https://github.com/rajrajhans/react-pagination-infinite-scroll) for the same.
+
+I have done three implementations of the same thing
+
+1. **`PaginationApp.js`** contains the implementation which uses Pagination.
+2. **`InfiniteScrollApp.js`** contains the implementation of Infinite Scroll using DOM Scroll Event Listeners.
+3. **`InfiniteScrollIntersectionObserverApp.js`** contains the implementation of Infinite Scroll using the new and more performant Intersection Observer API.
+
+Let's discuss each of this one by one.
+
+# Implementing Pagination
+
+Implementing Pagination is relatively simple. You store all your data in an array. You store the current page number in a state variable, and have buttons that increase or decrease the page number. Then, for each page, you have to find the appropriate `startIndex` and `endIndex` for array to display on that page.
+
+For example, if I have total 20 items, and I want to show 5 items per page, then the `startIndex` and `endIndex` for page 1 will be `0` and `4` respectively. Similarly, for page 2 it will be `5` and `9`, for page 3 it will be `10` and `14` and so on. Once you get the `startIndex` and `endIndex`, you just `slice` the data array and display those records.
+
+For increasing and decreasing the page number, you can have `handleNextPageCall` and `handleNextPageCall` methods. If you want to make a network request for next set of data, you can do so in `handleNextPageCall` method.
+
+Here's an example component for this. You can find this in `**PaginationApp.js**` in the GitHub repo as well.
+
+```js
+function App() {
+  const [imageObjects, setImageObjects] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
+  const fetchImages = () => {
+    // fetch images from Unsplash API and append them to imageObjects state
+  };
+
+  const handleNextPageCall = () => {
+    const nextEndIndex = (currentPage + 1) * itemsPerPage;
+    setCurrentPage(currentPage + 1);
+
+    if (imageObjects.length < nextEndIndex) {
+      fetchImages();
+    }
+  };
+
+  const handlePrevPageCall = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const getPaginatedData = () => {
+    const startIndex = currentPage * itemsPerPage - itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    return imageObjects.slice(startIndex, endIndex);
+  };
+
+  return (
+      {imageObjects.length ? (
+            <>
+              <ImageGrid imageObjects={getPaginatedData()} />
+              <div className="btn-container">
+                <Button onClick={handlePrevPageCall}>Previous Page</Button>
+                <div className={"current-page"}>Page {currentPage}</div>
+                <Button onClick={handleNextPageCall}>Next Page</Button>
+              </div>
+            </>
+        ) : null}
+  );
+}
+```
+
+As you can see, in the `handleNextPageCall` method, we are making an API call but only if the next `endIndex` is less than the length of data array. Why is that? Well, imagine this situation. You are on page 1, then go to page 2 (a network req is made), and then go back to page 1. Now, when you go to page 2, you don't want another network req to be made for page 2, because that data is already there in the array.
+
+That's pretty much it for implementing Pagination. You can see the pagination [demo live here](https://react-infinite-scroll-demo-hy4y6j8wt-rajrajhans.vercel.app/).
+
+# Implementing Infinite Scroll
+
+Let's see how we can change it to infinite scroll now. What we want is that once the user scrolls down to the bottom, we want to trigger a network request and show the next set of data. So, we'll need to use the Scroll Events DOM API for this. There are two ways we can achieve this:
+
+1. **Using Scroll Events Listener**: We will listen to DOM Scroll Events emitted and then see if we have reached bottom. If yes, we'll trigger the request. Pretty straight forward. Using scroll events works, but it might cause performance issues in your app because the scroll events listener code runs on the main thread.
+2. **Using Intersection Observer**: This one is a relatively new approach. Intersection Observer API lets our code register a callback function that is executed whenever an element they wish to monitor enters or exits another element. This way, our webapp no longer needs to do anything on the main thread to watch for this kind of element intersection, which makes it more performant.
+
+Let's see how we can implement our requirements using Scroll Events listener first.
+
+## Using DOM Scroll Events listener
+
+To find out if we've reached bottom, we'll find the current height using `window.innerHeight + window.scrollY` and compare it to `document.documentElement.offsetHeight`. If we see that the former is greater than or equal to the latter, it means that user has scrolled to the bottom and now we can fire off a network request to get and show the next set of data.
+
+Here's the code:
+
+```js
+function App() {
+  const [imageObjects, setImageObjects] = useState([]);
+
+  useEffect(() => {
+    fetchImages();
+		window.addEventListener("scroll", handleScroll); // attaching scroll event listener
+  }, []);
+
+  const fetchImages = () => {
+    // fetch images from Unsplash API and append them to imageObjects state
+  };
+
+	const handleScroll = () => {
+		let userScrollHeight = window.innerHeight + window.scrollY;
+    let windowBottomHeight = document.documentElement.offsetHeight;
+
+    if (userScrollHeight >= windowBottomHeight) {
+      fetchImages();
+    }
+  };
+
+  return (
+	      {imageObjects.length ? (
+            <ImageGrid imageObjects={imageObjects} />
+        ) : null}
+  );
+}
+```
+
+You can have more things like Loading state, FirstLoad state, to enhance this but I have just included the important parts related to infinite scroll here. Check out the code on GitHub to see the full version. [Here is the live demo](https://react-infinite-scroll-demo-9o91prgax-rajrajhans.vercel.app/) of infinite scroll implemented.
+
+## Using Intersection Observer API
+
+The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document's viewport.
+
+It lets our code register a callback function that is executed whenever an element we wish to monitor enters or exits another element, it doesn't need an event. This way, our webapp no longer needs to do anything on the main thread to watch for this kind of element intersection, which makes it more performant.
+
+We can configure a callback that is called when either of these circumstances occur:
+
+- A **target** element intersects either the device's viewport or a specified element.
+  - That "specified element" is called the **root element** or **root** for the purposes of the Intersection Observer API.
+- The first time the observer is initially asked to watch a target element.
+
+**Intersection Observer Syntax**
+
+We can create the intersection observer by calling its constructor and passing it a callback function to be run whenever a threshold is crossed in one direction or the other. Threshold refers to how much of an intersection has been observed
+
+```js
+let options = {
+  root: document.querySelector('#scrollArea'),
+  rootMargin: '0px',
+  threshold: 1.0,
+};
+
+let observer = new IntersectionObserver(callback, options);
+```
+
+A threshold of 1.0 means that when 100% of the target is visible within the element specified by the root option, the callback is invoked.
+
+**Let's Implement Infinite Scroll using this**
+
+First, we want the Observer to start after the component is mounted, so we'll initialise it in useEffect. We don't want to lose the observer instance every time it's re rendered, so we'll use a `ref` to preserve it and store the instance in `ref.current`.
+
+Now, we need something to "observe", i.e. the target. Let's use the "loading" DOM node as the target, so that when user goes there, we'll trigger a new request to get the next set of data. For this, again we'll use `useRef` to "remember" the loading DOM node.
+
+The implementation code for this is rather long. You can check it out in the `InfiniteScrollIntersectionObserverApp.js` file in the repo.
+
+# Bonus Tip
+
+To enhance the performance and UX of our app even further, we can implement Lazy Loading for the images using [React Suspense](https://web.dev/code-splitting-suspense/).
+
+That's it for this post. I hope it was helpful!
+
+# References
+
+- [MDN Intersection Observer API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+- [MDN Scroll Events Listener API documentation](https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event)
+- [Adding Pagination to React apps](https://academind.com/tutorials/reactjs-pagination/)

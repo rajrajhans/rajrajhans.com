@@ -1,0 +1,120 @@
+---
+title: 'Automate building Docker Containers for Fargate using CodeBuild'
+date: '2021-05-27'
+description: When you use ECS to deploy your applications, it becomes tedious to build & upload container image to ECR every time you want to make a change. In this post, let's build a CI/CD pipeline for containerized applications using AWS CodeBuild.
+featuredImage: auto-build-container-codebuild-0.png
+mainTag: AWS CodeBuild
+tags:
+  - AWS
+  - AWS CodeBuild
+  - AWS Fargate
+  - Containers
+  - AWS ECS
+heroTags:
+  - AWS CodeBuild
+  - AWS
+readingTime: 3
+keywords:
+  - CI CD
+  - AWS CodeBuild
+  - AWS Fargate Container
+  - Docker
+  - Raj
+  - Rajhans
+  - Raj Rajhans
+  - rajrajhans
+---
+
+I recently used AWS ECS (Elastic Container Service) with Fargate to deploy the backend REST API for Fargate. I'll make a separate post on why I chose this architecture. Now, the way ECS works is that it pulls latest container image from ECR (Elastic Container Registry), where you have to upload your Dockerized container images.
+
+# The Problem
+
+The problem happens when you have to make changes to your code. Whenever you make a change, you will have to build the Docker container image, tag it, and push it to ECR. If you have worked with Docker images before, you'd know that it takes a fair amount of time.
+
+Also, it feels a little repetitive and tedious to do this each time you update your code, no? It would be so nice if all this happened automatically and all you had to do was push your code to the Git repo like you always do. Well, let's implement this!
+
+# The Solution
+
+To summarize, what we want here is a mechanism wherein the following actions will happen automatically each time there is a new commit on our repo -
+
+1. Using the latest code, Docker image should be built according to the `Dockerfile` present.
+2. The Docker image should be tagged as `latest`.
+3. The Docker image should be pushed to Elastic Container Registry - ECR (which will then be picked up by ECS service and new Fargate task will be spawned).
+
+Seems straightforward enough. How should we implement this?
+
+# AWS CodeBuild
+
+AWS CodeBuild is a managed CI service that builds our code and produces output that is ready to be deployed. It is part of the [CodePipeline service, which I have written about before here.](https://rajrajhans.com/2020/08/automate-deployment-react-app-aws/)
+
+We'll link CodeBuild to our GitHub repo, so whenever there is a new commit, CodeBuild task will be triggered.
+
+Next step is - what should CodeBuild do? To *declare* this, CodeBuild searches for a `buildspec.yml` file in the root of your repo.
+
+## Buildspec YAML file
+
+As I've covered in the [previous post](https://rajrajhans.com/2020/08/automate-deployment-react-app-aws/), CodeBuild build specification includes four phases - Install, pre_build, build, and post_build.
+
+In our usecase, we shall log in to ECR in the `pre_build` phase, build and tag the Docker image in the `build` phase, and finally upload the image to ECR repo in `post_build` phase.
+
+Here is the final `buildspec.yml` file for our usecase -
+
+```yaml
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      docker: latest
+    commands:
+      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
+      - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR....
+      - aws --version
+      # update the following line with your own region
+      - $(aws ecr get-login --no-include-email --region us-east-1)
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
+      # update the following line with your ECR Repo URI
+      - REPOSITORY_URI=000431702369.dkr.ecr.us-east-1.amazonaws.com/gradgoggles
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      # update the following line with the name of your own ECR repository
+      - docker build -t gradgoggles-api .
+      # update the following line with the URI of your own ECR repository (view the Push Commands in the console)
+      - docker tag gradgoggles-api:latest 000431702369.dkr.ecr.us-east-1.amazonaws.com/gradgoggles:latest
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo pushing to repo
+      # update the following line with the URI of your own ECR repository
+      - docker push 000431702369.dkr.ecr.us-east-1.amazonaws.com/gradgoggles:latest
+      - echo Writing image definitions file...
+      - printf '{"ImageURI":"%s"}' 000431702369.dkr.ecr.us-east-1.amazonaws.com/gradgoggles:latest > imageDetail.json
+artifacts:
+  files:
+    - imageDetail.json
+```
+
+# Challenges
+
+Here are some issues I faced while implementing and maintaining this setup. I have also included solutions in case you come across any of them.
+
+- I faced many errors which showed that <b>`docker` runtime was not available</b>. To fix this, I selected the `amazonlinux2-x86_64-standard:3.0` Environment Image. For some reason, it wasn't working by selecting other images (and this is nowhere mentioned in AWS docs).
+- If you face <b>`COMMAND_EXECUTION_ERROR`</b> with an exit status of `255`, ensure that the service role CodeBuild is using has the permission to talk to ECR. Attach a `AmazonEC2ContainerRegistryPowerUser` policy to the CodeBuild role in IAM to fix the error.
+- Sometimes, the build task would fail due to <b>Docker Hub rate limit</b>, with an error `toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading`.
+    - This occurs when you are building your image on top of a public docker image, using `FROM` keyword in the `Dockerfile`.
+    - You might think that you haven't made that many builds. What happens is that the CodeBuild environment internally operates in a private network, and multiple requests of many customers go through the same static IP address to Docker Hub. So, Docker Hub sees all requests coming from CodeBuild as one.
+    - To solve this issue, you can either use your own VPC and a NAT Gateway to send request to DockerHub, but if you don't already have this setup, it seems silly to do it just for CodeBuild.
+    - Another way to solve this is to store the starting image in ECR, or pull an equivalent image from  Amazon's public image gallery (Docker Hub equivalent).
+    - One more solution is to do a `docker login -u username -p pwd` in the `pre_build` step, so as to circumvent the issue.
+
+Thanks for reading and see you in the next one! Stay safe.
+
+# References
+
+- [Reddit - Good Way To deploy Flask Gunicorn app with Docker on AWS](https://www.reddit.com/r/devops/comments/cm5e0u/what_is_a_good_way_to_deploy_a_flaskgunicornnginx/)
+- [Using AWS CodeBuild to Build Images from Docker File on Bitbucket to ECR](https://medium.com/@whaleberry/using-aws-codebuild-to-build-image-from-docker-file-on-bitbucket-to-ecr-e004a455dd83)

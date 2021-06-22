@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SketchPicker } from "react-color";
 
 const ColorPickerBtn = () => {
@@ -12,6 +12,11 @@ const ColorPickerBtn = () => {
   const handleThemeColorChange = (color) => {
     setSelectedThemeColor(color.hex);
   };
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty("--theme_color", selectedThemeColor);
+  }, [selectedThemeColor]);
 
   return (
     <div className={"nav-color-picker-container"}>

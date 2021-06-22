@@ -42,6 +42,7 @@
     "prism-react-renderer": "^1.1.1",
     "prismjs": "^1.20.0",
     "react": "^16.12.0",
+    "react-color": "^2.19.3",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-rotating-text": "^1.4.1",

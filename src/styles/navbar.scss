@@ -265,9 +265,13 @@ a{
 .nav-color-picker{
   padding: 15px;
   cursor: pointer;
+  margin-top: 10px;
+  font-size: 26px;
+  position: relative;
 }
 
-.nav-color-picker .fa {
-  margin-top: 10px;
-  font-size: 28px;
+.nav-color-picker-picker{
+  position: absolute;
+  top: 79px;
+  right: 48px;
 }

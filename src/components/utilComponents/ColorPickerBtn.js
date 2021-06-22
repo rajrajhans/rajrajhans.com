@@ -19,13 +19,15 @@ const ColorPickerBtn = () => {
         className={"fa fa-eyedropper fa-2x nav-color-picker"}
         onClick={handleColorPickerVisibilityChange}
       />
-      <div className="nav-color-picker-picker">
-        <SketchPicker
-          color={selectedThemeColor}
-          onChangeComplete={handleThemeColorChange}
-          onChange={handleThemeColorChange}
-        />
-      </div>
+      {isColorPickerOpen ? (
+        <div className="nav-color-picker-picker">
+          <SketchPicker
+            color={selectedThemeColor}
+            onChangeComplete={handleThemeColorChange}
+            onChange={handleThemeColorChange}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };

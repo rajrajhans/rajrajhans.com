@@ -166,7 +166,7 @@
   font-family: $subHeadingFont;
   font-weight: 600;
   margin: auto;
-  color: $brand_light;
+  color: var(--theme_color);
   transition: all 0.25s;
   padding: 10px 0 20px 0;
 

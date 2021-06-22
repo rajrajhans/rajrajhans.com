@@ -66,7 +66,7 @@ nav {
         &:before {
           content: "";
           position: absolute;
-          background: $brand_light;
+          background: var(--theme_color);
           width: 36px;
           height: 36px;
           left: 50%;
@@ -260,4 +260,18 @@ a{
   .svgIcon{
     margin-top: 11px;
   }
+}
+
+.nav-color-picker{
+  padding: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 26px;
+  position: relative;
+}
+
+.nav-color-picker-picker{
+  position: absolute;
+  top: 79px;
+  right: 48px;
 }

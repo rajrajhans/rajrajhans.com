@@ -142,7 +142,7 @@
   box-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
 
   .homeBlogTitle{
-    color: $brand_light;
+    color: var(--theme_color);
   }
 
   .homeBlogImage img{
@@ -166,6 +166,7 @@
   font-family: $subHeadingFont;
   font-weight: 600;
   margin: auto;
+  color: var(--theme_color);
   transition: all 0.25s;
   padding: 10px 0 20px 0;
 

@@ -24,7 +24,7 @@ Following is a sneak peek of how the website looks To see the site live, head on
 
 | Landing Page                              | Projects                             | Blog                            |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| ![](https://assets.rajrajhans.com/ss_home1.png) | ![](https://assets.rajrajhans.com/ss_projects.png) | ![](https://assets.rajrajhans.com/ss_blog1.png) |
+| ![](content/assets/blog_ss_1.png) | ![](content/assets/blog_ss_2.png) | ![](content/assets/blog_ss_3.png) |
 
 
 ### Notes

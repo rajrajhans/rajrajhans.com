@@ -21,7 +21,7 @@ As users, we know how valuable performance of a website is. Performance of your 
 
 But as developers, how do we approach performance? It's very easy to ruin the performance of your website accidentally. You need to watch out on every change you do and the effect it has on performance. **Performance should not be an afterthought, rather it should be a part of the overall application development lifecycle**.
 
-I wanted to have a right understanding of Web Performance. I started with Todd Gardner's ["Web Performance Fundamentals"](https://frontendmasters.com/courses/web-perf) course on FrontendMasters, and then explored [web.dev](http://web.dev)'s plethora of resources. In this post, let's take a look at what metrics we can use to quantify performance, how we can capture those metrics, and then, how we can optimize those metrics to make sure that our web applications are fast and our users are happy.
+I wanted to have the right understanding of Web Performance. I started with Todd Gardner's ["Web Performance Fundamentals"](https://frontendmasters.com/courses/web-perf) course on FrontendMasters, and then explored [web.dev](http://web.dev)'s plethora of resources. In this post, let's take a look at what metrics we can use to quantify performance, how we can capture those metrics, and then, how we can optimize those metrics to make sure that our web applications are fast and our users are happy.
 
 # Metrics for Web Performance
 
@@ -36,14 +36,14 @@ Today, we have new ways to measure performance, collectively called as the **Web
 - This is the time from when the user first clicks the link or opens the URL, to the time when first meaningful content appears on the page.
 - Here, the term "content" refers to text, images, background images, etc.
 - This is the time that your page takes to render the first part of content. The time until the user sees an indication that the page is loading.
-- So, this is about **responding quick**. This is about the user feeling that "yes, it's working, and it will load"
+- So, this is about **responding quick**. This is about the user feeling that "yes, it's working, and it will load".
 
 ## Largest Contentful Paint
 
 - Throughout the loading cycle, different parts of the screen will be drawn. The time at which the largest percentage of the screen was rendered is the Largest Contentful Paint (LCP).
 - The "largest percentage of the screen" is measured in pixel area.
 - So each time a render cycle happens, it'll measure the area of the new content that just got rendered, and the time at which largest such area was rendered, that's the LCP.
-- This is about when the user feels that the site is "almost ready"
+- This is about when the user feels that the site is "almost ready".
 
 ## Cumulative Layout Shift
 
@@ -53,7 +53,7 @@ Today, we have new ways to measure performance, collectively called as the **Web
 
 ## First Input Delay
 
-- First Input Delay meausres the time from when a user first interacts with a page by clicking a link, or a button, to the time when the browser is actually able to begin processing the event handlers in response to that input.
+- First Input Delay measures the time from when a user first interacts with a page by clicking a link, or a button, to the time when the browser is actually able to begin processing the event handlers in response to that input.
 - In order to improve first loads, sites might defer some code to execute later. But if that code is too much, then the browser will be busy doing that when the user first clicks. If that is the case, there's going to be a delay since browser will have to finish what its doing first in order to fire the input event.
 - So FID is an indicator of - "your page was ready, the user thought they could do something, but they really couldnt, because you weren't done yet"
 

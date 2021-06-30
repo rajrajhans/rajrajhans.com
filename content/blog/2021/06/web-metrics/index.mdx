@@ -1,0 +1,138 @@
+---
+title: 'Understanding Web Performance Metrics'
+date: '2021-06-05'
+description: As users, we know how valuable performance of a website is. But as developers, how do we approach performance of our webapp? In this post, let's explore the metrics used to quantify web performance, and how we can optimize those metrics and have a positive impact on the user experience.
+featuredImage: web-metrics-feature.png
+mainTag: Web Performance
+tags:
+  - Web Performance
+heroTags:
+  - Web Performance
+readingTime: 6
+keywords:
+  - Web Performance
+  - Raj
+  - Rajhans
+  - Raj Rajhans
+  - rajrajhans
+---
+
+As users, we know how valuable performance of a website is. Performance of your website or web application has direct correlation with business metrics. Better performance will lead to better session times, better retention, better conversions, and lesser bounce rates.
+
+But as developers, how do we approach performance? It's very easy to ruin the performance of your website accidentally. You need to watch out on every change you do and the effect it has on performance. **Performance should not be an afterthought, rather it should be a part of the overall application development lifecycle**.
+
+I wanted to have a right understanding of Web Performance. I started with Todd Gardner's ["Web Performance Fundamentals"](https://frontendmasters.com/courses/web-perf) course on FrontendMasters, and then explored [web.dev](http://web.dev)'s plethora of resources. In this post, let's take a look at what metrics we can use to quantify performance, how we can capture those metrics, and then, how we can optimize those metrics to make sure that our web applications are fast and our users are happy.
+
+# Metrics for Web Performance
+
+Metrics give us a quantitative understanding of how the performance of our page is. Once that's quantified, we can work on improving the metrics to ensure a better and faster user experience. So, how does one "quantify" web performance?
+
+Earlier, page load event timing was the only metric one would use to judge a website's performance. However, it was pretty easy to "game". One can fire the load event instantaneously by "loading" a blank div and then JS would take long time for building the page. The whole point of the metric is lost due to this.
+
+Today, we have new ways to measure performance, collectively called as the **Web Vitals**. Rather than one metric that measures from the start of page load to end of page load, we have four different metrics, that measure four different aspects of performance. These are called the Core Web Vitals.
+
+## First Contentful Paint
+
+- This is the time from when the user first clicks the link or opens the URL, to the time when first meaningful content appears on the page.
+- Here, the term "content" refers to text, images, background images, etc.
+- This is the time that your page takes to render the first part of content. The time until the user sees an indication that the page is loading.
+- So, this is about **responding quick**. This is about the user feeling that "yes, it's working, and it will load"
+
+## Largest Contentful Paint
+
+- Throughout the loading cycle, different parts of the screen will be drawn. The time at which the largest percentage of the screen was rendered is the Largest Contentful Paint (LCP).
+- The "largest percentage of the screen" is measured in pixel area.
+- So each time a render cycle happens, it'll measure the area of the new content that just got rendered, and the time at which largest such area was rendered, that's the LCP.
+- This is about when the user feels that the site is "almost ready"
+
+## Cumulative Layout Shift
+
+- Layout shift is when the page's visible elements changes its position suddenly. That is, without warning, the text, or button moves, and, say an ad comes in its place, and you mistakenly click on the ad! This "movement" is called as layout shift.
+- Cumulative Layout Shift (CLS) is the measure of largest burst of layout shift during the lifetime of the page.
+- CLS is all about visual stability. To provide a good user experience, pages should be have visual stability.
+
+## First Input Delay
+
+- First Input Delay meausres the time from when a user first interacts with a page by clicking a link, or a button, to the time when the browser is actually able to begin processing the event handlers in response to that input.
+- In order to improve first loads, sites might defer some code to execute later. But if that code is too much, then the browser will be busy doing that when the user first clicks. If that is the case, there's going to be a delay since browser will have to finish what its doing first in order to fire the input event.
+- So FID is an indicator of - "your page was ready, the user thought they could do something, but they really couldnt, because you weren't done yet"
+
+# Measuring Metrics
+
+Now that we have seen the metrics used, the question is how and where we can measure them. There are three ways we can measure -
+
+## Lab Metrics
+
+- This is when you run the dev server on your local machine and perform a test (say, using Lighthouse).
+- This will depend a lot on your machine, your network, etc. We also don't consider the network implications since the server is right there on your machine itself, so it doesn't reflect the real performance that your users will see.
+
+## Synthetic Metrics
+
+- In this case, there is a server out there somewhere which will load your webpage and capture the metrics.
+- This is definitely better than Lab tests, but still might not reflect the exact performance that your actual users will see.
+- There are many services available to do such tests, for example New Relic, Pingdom, GTMetrix, etc.
+
+## Field Metrics
+
+- In this case, we actually capture the metrics from the actual users that use our webpage, to see how real users experience the page.
+- To capture field data, you can use the [Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance) (`window.performance`) that browser provides to capture all the metrics from user's browser, and send them to your server. If you don't want to do this yourself, there's also a library called "[web-vitals](https://www.npmjs.com/package/web-vitals)" that you can use to measure it yourself.
+- You can also use monitoring and analytics services like RequestMetrics, Google Analytics to capture this kind of data.
+
+You should choose which type of metrics to go for based on your business objectives. For static web apps, including Lighthouse Reports as part of the CI/CD pipeline is a good idea. So on every merge to master, you'll get an idea of whether the performance has improved or dropped. Check out [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci) for more details. You can also "assert" lighthouse scores, meaning it will fail the build if the metrics drop below a certain threshold.
+
+# Improving Metrics
+
+Let's say you have performance metrics data and you need to improve certain metrics to achieve business objectives. The golden rule in improving performance is to **do fewer things**. If possible, you can do things faster, but in the end, focusing on doing fewer things will improve performance. You can send fewer bytes, less amount of data. Ultimately, we need to figure ways to do fewer things in our web application. Let's see how we can optimize the web vital metrics that we have seen.
+
+## Improving FCP
+
+We have seen that First Contentful Paint is the time until the user sees an indication that the page is loading for them. So, we need to respond quick.
+
+To do that, first off, **our servers need to be quick**, and the Time To First Byte (TTFB) needs to be minimum. This can be achieved by analyzing what processing happens on the server side, and then optimizing the application logic, database queries, to minimize the time taken to respond.  We also need to make sure that our servers have enough amount of CPU and Memory to handle the load. I've seen the response time of GradGoggles decrease when over 200 users were using the application at the same time. This kind of load wasn't normal, but was peak load. To handle this, I set up auto scaling on my AWS ECS clusters and Load Balancers. Depending on your infrastructure, you can do the same.
+
+Next, you should **send smaller payload to the client** across the network. Again, this will depend on your application. If you are delivering HTML, CSS, JS assets, then minify them before sending. Turn on **GZip or Brotli compression** on your servers. If you are delivering images, make sure they are compressed and **cached on the browser side** using appropriate `cache-control` http headers. (side note: be careful of caching CSS, JS files on browser side, your changes might not get reflected since browser will use the cached copy). If you are delivering large JSON data, make it smaller or deliver in parts. One issue I've faced is while delivering large images that users have uploaded on GradGoggles. Check [this post](https://rajrajhans.com/2021/05/auto-resize-s3-using-lambda-triggers/) to see how user uploaded images can be compressed on the fly.
+
+One more thing you can do to reduce the response time is to make sure that your servers are closer to your users. For static sites, you can do this by using a **Content Distribution Network** (CDN). A CDN stores a cache of your original files on the edge locations. So, most of your users will get the response from a server that is closest to their geographical location. There are many CDNs like CloudFlare, Fastly, AWS CloudFront which you can use.
+
+## Improving LCP
+
+To recap, Largest Contentful Paint is the time until the user sees most of the page and believes that it is (almost) ready.
+
+In order to optimize LCP, of course your FCP must be as minimum as possible, so all the above techniques we discussed, especially compressing and caching assets, distributing them via CDN, apply here.
+
+Then, to ensure that user sees the important content ASAP, we should analyze what resources are being loaded. Maybe you don't really need a resource right away, you need it after a user does something, so why load it earlier and make the user wait for no reason? You should **defer loading resources until later** wherever possible. "Later" would depend on your specific usecase. Maybe "later" for you is when user scrolls down, or when user does something.
+
+For example, I was tasked with improving performance of a WordPress based website which was originally developed almost 6-7 years ago, and incremental modifications were done afterwards. At the start, I checked what resources are being loaded when the user visits the site. Turns out, the page was loading a large script meant for embedding YouTube videos, which was blocking rendering the main page. And, the embedded videos weren't even on the first section! I checked the analytics, and it showed that a very less number of users actually clicked on the video. So, I completely replaced the YouTube video embed and just kept the thumbnail, which preserved the way it looked to the user. Then, I made it so that it would load the scripts only when the user would click on the video thumbnail. This simple exercise improved the metrics by 30%. Optimizing images and adding a CDN improved it even further!
+
+One more thing you can do is to not load the images that aren't necessary for the first section of the page up front, but rather **lazy load the images** as the user scrolls down. You can now do this simply by adding `loading="lazy"` in your `<img />` tag. (note that as of now, safari does not support `loading="lazy"`).
+
+One more note about images. Let's say that you need to show a 1200px image, and let's say that you compress it. But, on smaller screens (tablets, mobiles), the 1200px image is going to be shown as, 900px or 600px. But you're still loading the whole 1200px image! That's not good, right. The mobile user, who is only going to see 600px image, needs to download whole 1200px image. To improve this, you should use [`srcset`](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) for **loading images responsively**. `srcset` allows you to specify separate images for separate screen sizes, using which you can ensure that mobile user loads a lesser sized 600px image, and only desktop users load the whole 1200px image.
+
+Next, you should identify what scripts you are loading, which you don't need, and then defer it for later by using the r `defer` decorator with the `<script/>` tag. The `defer` tag tells the browser that you don't need this script right now, so no need to execute it and block the rendering. Note that it will download it whenever it wants, but won't execute it right away, and cause a render block.
+
+We know that to make a HTTP request, the browser has to first do a DNS lookup, then initiate a SSL/TLS connection, and also a TCP connection. Now, what happens is that when the browser starts parsing your document, it encounters resources from other domains, and then fires off requests to those resources. It has to go through all the steps to establish connection. But what if, we can tell browser to establish this connection early on itself. We can do this by using **preconnect**. Just specify a `<link rel="preconnect" href="https://fonts.gstatic.com">` to establish connection early on (and parallely) itself, so that when the actual request has to be made, it won't have to go through all the steps.
+
+Say, if CSS file 1 is loading another CSS file 2, which is loading another CSS file 3. So, browser has to wait until it parses CSS file 1, to fire off a request for files 2 and 3. Instead, what if we could load all three parallely, and save us some time. For this, you can **preload a resource** by specifying `rel="preload"` in the link tag.
+
+### Improving CLS
+
+To recap, Cumulative Layout Shift is the largest movement distance and impact of page elements, that is, we want to avoid moving things around and have a visually stable experience throughout the user journey.
+
+First thing you have to do to avoid a layout shift is to make sure to **include size attributes** on image and video elements. Doing so will ensure that browser will allocate correct space on the webpage while the image is loading and will not suddenly shift the layout once image is loaded.
+
+Next, make sure to **avoid inserting content above existing content** after the existing content has loaded. Doing so will cause an abrupt layout shift of the page. You should only do this in response to a user interaction if you want.
+
+Then, if you are defering certain sections (like advertisements, for example) to load later, then **put empty boxes of relevant size** so that when that section will load later, it won't cause a layout shift.
+
+# Performance Budget
+
+There's a nice website [performancebudget.io](http://performancebudget.io) where you can calculate how much of HTML, CSS, JS, images you can afford to send to the client if you want to make sure that your site loads in x seconds. Of course the results will be approximate, but you can use that data as a baseline for future iterations of your website. Note that it's not correct to directly compare data (images), and JS, i.e. "yeah I want to add 200kb of JS, so I'll just remove this 200kb image, and make it even". The JS needs to be parsed, compiled and executed by the browser. The image, just needs to be displayed. Keep that in mind and set your budget accordingly.
+
+Remember that there is always going to be a **tradeoff**. You want to add that shiny new library which is 100kb? Well, that means you'll have to increase your performance budget, which means that your site will be slow by y seconds. If you wish to add in more and more things, your load time IS going to increase. The question you need to ask is "**whether making it slow by y seconds is worth it**". If the "thing" that you are adding is provides good value to your users, then yeah it's definitely worth it. Users will surely wait for something that they feel is valuable. Such kind of approach to performance will help you improve your business metrics while keeping your site fast.
+
+That's it for this post. I hope the points mentioned were helpful. I may have missed out on some things in this post. If and when I come across something more on web performance, I'll update it here. Cheers!
+
+# References
+
+- [Todd Gardner's Web Performance Fundamentals Course on Frontend Masters](https://frontendmasters.com/courses/web-perf)
+- [Web.dev Resources](https://web.dev/learn/)
